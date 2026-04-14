@@ -167,7 +167,7 @@ export default function Header() {
         {/* Right cluster: CTA + Theme toggle */}
         <div className="flex items-center gap-3">
           <Link
-            href="/#contact"
+            href="/contact"
             className="hidden sm:inline-flex items-center px-5 py-2 rounded-full text-[12px] font-bold tracking-wide transition-all duration-300 hover:-translate-y-0.5"
             style={{
               background: "linear-gradient(135deg, var(--color-accent-cyan), var(--color-accent-indigo))",
@@ -175,7 +175,7 @@ export default function Header() {
               boxShadow: "0 4px 20px rgba(0, 212, 255, 0.2)",
             }}
           >
-            도입 문의
+            도입 상담
           </Link>
 
           <ThemeToggle />
@@ -235,7 +235,7 @@ export default function Header() {
           </Link>
 
           <Link
-            href="/#contact"
+            href="/contact"
             className="block mt-2 mb-2 text-center py-3 text-sm font-bold rounded-full"
             style={{
               background: "linear-gradient(135deg, var(--color-accent-cyan), var(--color-accent-indigo))",
@@ -243,7 +243,7 @@ export default function Header() {
             }}
             onClick={() => setMobileOpen(false)}
           >
-            도입 문의
+            도입 상담
           </Link>
         </nav>
       )}
