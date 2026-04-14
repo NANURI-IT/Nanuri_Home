@@ -84,10 +84,10 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{
             __html: `
               try {
-                var t = localStorage.getItem('nanuri-theme') || 'dark';
+                var t = localStorage.getItem('nanuri-theme') || 'light';
                 document.documentElement.setAttribute('data-theme', t);
               } catch(e) {
-                document.documentElement.setAttribute('data-theme', 'dark');
+                document.documentElement.setAttribute('data-theme', 'light');
               }
             `,
           }}

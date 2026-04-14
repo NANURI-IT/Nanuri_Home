@@ -74,7 +74,7 @@ export default function Header() {
           <span
             className="text-xl font-bold tracking-tight bg-clip-text text-transparent"
             style={{
-              backgroundImage: "linear-gradient(135deg, var(--color-accent-cyan), var(--color-accent-indigo))",
+              backgroundImage: "linear-gradient(135deg, var(--color-logo-from), var(--color-logo-to))",
               fontFamily: "var(--font-outfit), sans-serif",
             }}
           >

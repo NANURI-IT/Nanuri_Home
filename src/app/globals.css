@@ -44,6 +44,10 @@
   --font-display: var(--font-outfit);
   --font-mono: var(--font-space-mono);
 
+  /* 로고 텍스트 전용 */
+  --color-logo-from: var(--color-accent-cyan);
+  --color-logo-to:   var(--color-accent-indigo);
+
   /* Radius */
   --radius-lg: 24px;
   --radius-md: 16px;
@@ -57,6 +61,10 @@
   --color-accent-emerald: #5ec4a0;
   --color-accent-rose:    #e88898;
   --color-accent-amber:   #d4a040;
+
+  /* 로고 텍스트 전용 — 로고 이미지 네이비에 매칭 */
+  --color-logo-from:      #3b5998;
+  --color-logo-to:        #4a6fa5;
 
   /* Light palette */
   --color-bg:          #F4F6FB;
