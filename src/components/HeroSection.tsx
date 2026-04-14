@@ -123,7 +123,7 @@ export default function HeroSection() {
               style={{ opacity: buttonsOpacity }}
             >
               <Link
-                href="/#contact"
+                href="/about"
                 className="group relative w-full sm:w-auto inline-flex items-center justify-center gap-2 px-10 py-4 rounded-full text-[14px] font-bold transition-all duration-300 hover:-translate-y-1"
                 style={{
                   background: "linear-gradient(135deg, var(--color-accent-cyan), var(--color-accent-indigo))",
@@ -131,18 +131,20 @@ export default function HeroSection() {
                   boxShadow: "0 4px 24px rgba(0, 212, 255, 0.25)",
                 }}
               >
-                도입 상담 시작
+                회사소개
                 <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                   <path d="M5 12h14M12 5l7 7-7 7" />
                 </svg>
               </Link>
               <a
                 href="#business"
-                className="w-full sm:w-auto inline-flex items-center justify-center px-10 py-4 rounded-full text-[14px] font-semibold transition-all duration-300 border backdrop-blur-xl"
+                className="w-full sm:w-auto inline-flex items-center justify-center px-10 py-4 rounded-full text-[14px] font-semibold transition-all duration-300 hover:-translate-y-0.5"
                 style={{
-                  background: "var(--color-glass-bg)",
-                  borderColor: "var(--color-glass-border)",
-                  color: "var(--color-text-primary)",
+                  background: "linear-gradient(135deg, rgba(245,158,11,0.12), rgba(217,119,6,0.08))",
+                  border: "1px solid rgba(245,158,11,0.3)",
+                  color: "#f5c542",
+                  backdropFilter: "blur(16px)",
+                  boxShadow: "0 4px 20px rgba(245,158,11,0.1)",
                 }}
               >
                 사업영역 보기

@@ -23,7 +23,7 @@ const serviceOptions = [
 ];
 
 const inputBaseClass =
-  "w-full rounded-xl px-4 py-3 text-[14px] text-ink placeholder:text-dim border outline-none transition-all duration-200";
+  "w-full rounded-xl px-4 py-3 text-[14px] text-ink placeholder:text-body border outline-none transition-all duration-200";
 
 const inputStyle = {
   background: "var(--color-card)",
@@ -107,7 +107,7 @@ export default function ContactForm() {
     >
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
         <div>
-          <label htmlFor="company" className="block text-[12px] font-medium text-dim mb-1.5 uppercase tracking-wider">
+          <label htmlFor="company" className="block text-[12px] font-semibold text-body mb-1.5 uppercase tracking-wider">
             회사명 <span style={{ color: "var(--color-accent-rose)" }}>*</span>
           </label>
           <input
@@ -122,7 +122,7 @@ export default function ContactForm() {
           />
         </div>
         <div>
-          <label htmlFor="name" className="block text-[12px] font-medium text-dim mb-1.5 uppercase tracking-wider">
+          <label htmlFor="name" className="block text-[12px] font-semibold text-body mb-1.5 uppercase tracking-wider">
             담당자명 <span style={{ color: "var(--color-accent-rose)" }}>*</span>
           </label>
           <input
@@ -140,7 +140,7 @@ export default function ContactForm() {
 
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
         <div>
-          <label htmlFor="phone" className="block text-[12px] font-medium text-dim mb-1.5 uppercase tracking-wider">
+          <label htmlFor="phone" className="block text-[12px] font-semibold text-body mb-1.5 uppercase tracking-wider">
             연락처 <span style={{ color: "var(--color-accent-rose)" }}>*</span>
           </label>
           <input
@@ -155,7 +155,7 @@ export default function ContactForm() {
           />
         </div>
         <div>
-          <label htmlFor="service" className="block text-[12px] font-medium text-dim mb-1.5 uppercase tracking-wider">
+          <label htmlFor="service" className="block text-[12px] font-semibold text-body mb-1.5 uppercase tracking-wider">
             관심 서비스 <span style={{ color: "var(--color-accent-rose)" }}>*</span>
           </label>
           <select
@@ -179,7 +179,7 @@ export default function ContactForm() {
       </div>
 
       <div>
-        <label htmlFor="message" className="block text-[12px] font-medium text-dim mb-1.5 uppercase tracking-wider">
+        <label htmlFor="message" className="block text-[12px] font-semibold text-body mb-1.5 uppercase tracking-wider">
           메시지
         </label>
         <textarea

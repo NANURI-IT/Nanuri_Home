@@ -88,7 +88,7 @@ export default function ThreeNetwork({
     const logoBaseX = isMobile ? -12 : -18; // 첫 섹션에 있을 때 로고의 기본 X 위치.
     const logoBaseY = -3.5; // 첫 섹션에 있을 때 로고의 기본 Y 위치.
     const logoCornerX = isMobile ? -29 : -52; // 모바일 -29, 데스크톱 -42: 값이 작을수록 더 왼쪽
-    const logoCornerY = isMobile ? 10.5 : 20.5; // 모바일 10.5, 데스크톱 12.5: 값이 클수록 더 위쪽
+    const logoCornerY = isMobile ? 10.5 : 18.5; // 모바일 10.5, 데스크톱 12.5: 값이 클수록 더 위쪽
 
 
     const positions = new Float32Array(particleCount * 3);

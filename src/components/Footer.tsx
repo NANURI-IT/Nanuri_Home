@@ -60,7 +60,7 @@ export default function Footer() {
 
           {/* Contact */}
           <FooterCol title="Contact">
-            <FooterLink href="mailto:help@nanuriit.kr">help@nanuriit.kr</FooterLink>
+            <FooterLink href="mailto:mie.shin@nanuriit.kr">mie.shin@nanuriit.kr</FooterLink>
             <FooterLink href="tel:02-6969-0319">02.6969.0319</FooterLink>
             <span
               className="block text-[12px] leading-relaxed"

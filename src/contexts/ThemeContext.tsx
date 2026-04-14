@@ -15,15 +15,18 @@ const ThemeContext = createContext<ThemeContextValue | null>(null);
 const STORAGE_KEY = "nanuri-theme";
 
 export function ThemeProvider({ children }: { children: ReactNode }) {
-  const [theme, setThemeState] = useState<Theme>(() => {
-    if (typeof window === "undefined") return "dark";
+  const [theme, setThemeState] = useState<Theme>("dark");
+
+  useEffect(() => {
     try {
       const saved = localStorage.getItem(STORAGE_KEY);
-      return saved === "light" || saved === "dark" ? saved : "dark";
+      if (saved === "light" || saved === "dark") {
+        setThemeState(saved);
+      }
     } catch {
-      return "dark";
+      /* ignore */
     }
-  });
+  }, []);
 
   useEffect(() => {
     document.documentElement.setAttribute("data-theme", theme);

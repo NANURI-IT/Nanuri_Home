@@ -79,8 +79,7 @@ export default function ContactInfo() {
               </div>
               <div>
                 <p
-                  className="text-[10px] font-medium uppercase tracking-[0.12em] text-dim"
-                  style={{ fontFamily: "var(--font-space-mono), monospace" }}
+                  className="text-[12px] font-semibold text-body uppercase tracking-wider"
                 >
                   {info.label}
                 </p>

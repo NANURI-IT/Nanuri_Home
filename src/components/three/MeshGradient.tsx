@@ -19,14 +19,14 @@ void main() {
   vec3 c1 = vec3(0.0, 0.83, 1.0);
   vec3 c2 = vec3(0.39, 0.4, 0.95);
   vec3 c3 = vec3(0.06, 0.73, 0.5);
-  vec3 c4 = vec3(0.02, 0.02, 0.06);
+  vec3 c4 = vec3(0.05, 0.07, 0.12);
 
   vec3 col = mix(c1, c2, r);
   col = mix(col, c3, g * 0.5);
   col = mix(col, c4, 1.0 - b * 0.4);
 
   float vig = 1.0 - length(uv - 0.5) * 1.2;
-  col *= vig * 0.35;
+  col *= vig * 0.46;
 
   gl_FragColor = vec4(col, 1.0);
 }
@@ -105,7 +105,7 @@ export default function MeshGradient({ paused = false }: { paused?: boolean }) {
       className="absolute inset-0 h-full w-full pointer-events-none"
       style={{
         zIndex: 1,
-        opacity: 0.72,
+        opacity: 0.82,
         mixBlendMode: "screen",
       }}
     />

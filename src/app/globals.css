@@ -13,10 +13,10 @@
   --color-accent-amber:   #f59e0b;
 
   /* Dark backgrounds */
-  --color-bg:          #04040c;
-  --color-surface:     #08081a;
-  --color-card:        rgba(255, 255, 255, 0.04);
-  --color-raised:      rgba(255, 255, 255, 0.06);
+  --color-bg:          #07101c;
+  --color-surface:     #0d1627;
+  --color-card:        rgba(255, 255, 255, 0.05);
+  --color-raised:      rgba(255, 255, 255, 0.075);
 
   /* Dark text */
   --color-text-primary: #eeeef2;
@@ -26,8 +26,8 @@
   --color-dim:          rgba(238, 238, 242, 0.4);
 
   /* Glass system */
-  --color-glass-bg:        rgba(255, 255, 255, 0.04);
-  --color-glass-border:    rgba(255, 255, 255, 0.08);
+  --color-glass-bg:        rgba(255, 255, 255, 0.05);
+  --color-glass-border:    rgba(255, 255, 255, 0.1);
   --color-glass-highlight: rgba(255, 255, 255, 0.14);
   --color-glass-hover:     rgba(255, 255, 255, 0.1);
   --color-line:            rgba(255, 255, 255, 0.08);
@@ -105,6 +105,7 @@
 html {
   scroll-behavior: smooth;
   font-size: 16px;
+  position: relative;
 }
 
 body {
