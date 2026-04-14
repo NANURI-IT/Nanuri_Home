@@ -124,13 +124,32 @@ export default function HeroSection() {
             >
               <Link
                 href="/about"
-                className="group relative w-full sm:w-auto inline-flex items-center justify-center gap-2 px-10 py-4 rounded-full text-[14px] font-bold transition-all duration-300 hover:-translate-y-1"
+                className="group relative w-full sm:w-auto sm:min-w-[200px] inline-flex items-center justify-center gap-2 px-10 py-4 rounded-full text-[14px] font-bold transition-all duration-300 hover:-translate-y-1 hover:scale-[1.03] active:scale-[0.97] active:translate-y-0.5 overflow-hidden"
                 style={{
-                  background: "linear-gradient(135deg, var(--color-accent-cyan), var(--color-accent-indigo))",
-                  color: "#000",
-                  boxShadow: "0 4px 24px rgba(0, 212, 255, 0.25)",
+                  background: "linear-gradient(170deg, rgba(0,212,255,0.9) 0%, rgba(99,102,241,0.8) 50%, rgba(99,102,241,0.7) 100%)",
+                  border: "1px solid rgba(255,255,255,0.3)",
+                  borderBottom: "1px solid rgba(0,0,0,0.15)",
+                  color: "#fff",
+                  boxShadow: "0 10px 40px rgba(0,212,255,0.3), 0 2px 4px rgba(0,0,0,0.2), inset 0 2px 0 rgba(255,255,255,0.4), inset 0 -2px 4px rgba(0,0,0,0.15)",
+                  textShadow: "0 1px 2px rgba(0,0,0,0.25)",
                 }}
               >
+                {/* 상단 볼록 광택 */}
+                <span
+                  className="absolute inset-x-0 top-0 h-[50%] rounded-full pointer-events-none"
+                  style={{
+                    background: "linear-gradient(180deg, rgba(255,255,255,0.35) 0%, rgba(255,255,255,0.08) 60%, transparent 100%)",
+                  }}
+                  aria-hidden="true"
+                />
+                {/* 하단 반사광 */}
+                <span
+                  className="absolute inset-x-4 bottom-[3px] h-[1px] rounded-full pointer-events-none"
+                  style={{
+                    background: "linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent)",
+                  }}
+                  aria-hidden="true"
+                />
                 회사소개
                 <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                   <path d="M5 12h14M12 5l7 7-7 7" />
@@ -138,16 +157,37 @@ export default function HeroSection() {
               </Link>
               <a
                 href="#business"
-                className="w-full sm:w-auto inline-flex items-center justify-center px-10 py-4 rounded-full text-[14px] font-semibold transition-all duration-300 hover:-translate-y-0.5"
+                className="group relative w-full sm:w-auto sm:min-w-[200px] inline-flex items-center justify-center gap-2 px-10 py-4 rounded-full text-[14px] font-bold transition-all duration-300 hover:-translate-y-1 hover:scale-[1.03] active:scale-[0.97] active:translate-y-0.5 overflow-hidden"
                 style={{
-                  background: "linear-gradient(135deg, rgba(245,158,11,0.12), rgba(217,119,6,0.08))",
-                  border: "1px solid rgba(245,158,11,0.3)",
-                  color: "#f5c542",
-                  backdropFilter: "blur(16px)",
-                  boxShadow: "0 4px 20px rgba(245,158,11,0.1)",
+                  background: "linear-gradient(170deg, rgba(255,255,255,0.50) 0%, rgba(255,255,255,0.25) 40%, rgba(255,255,255,0.15) 70%, rgba(255,255,255,0.20) 100%)",
+                  border: "1px solid rgba(255,255,255,0.45)",
+                  borderBottom: "1px solid rgba(255,255,255,0.20)",
+                  color: "#fff",
+                  backdropFilter: "blur(20px) saturate(1.6)",
+                  boxShadow: "0 10px 40px rgba(0,0,0,0.2), 0 2px 4px rgba(0,0,0,0.15), inset 0 2px 0 rgba(255,255,255,0.45), inset 0 -2px 4px rgba(0,0,0,0.08)",
+                  textShadow: "0 1px 2px rgba(0,0,0,0.2)",
                 }}
               >
+                {/* 상단 볼록 광택 */}
+                <span
+                  className="absolute inset-x-0 top-0 h-[50%] rounded-full pointer-events-none"
+                  style={{
+                    background: "linear-gradient(180deg, rgba(255,255,255,0.28) 0%, rgba(255,255,255,0.05) 60%, transparent 100%)",
+                  }}
+                  aria-hidden="true"
+                />
+                {/* 하단 반사광 */}
+                <span
+                  className="absolute inset-x-4 bottom-[3px] h-[1px] rounded-full pointer-events-none"
+                  style={{
+                    background: "linear-gradient(90deg, transparent, rgba(255,255,255,0.15), transparent)",
+                  }}
+                  aria-hidden="true"
+                />
                 사업영역 보기
+                <svg className="w-4 h-4 opacity-60 group-hover:translate-y-0.5 transition-transform duration-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M6 9l6 6 6-6" />
+                </svg>
               </a>
             </motion.div>
           </motion.div>

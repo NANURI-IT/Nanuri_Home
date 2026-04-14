@@ -30,8 +30,12 @@ const inputStyle = {
   borderColor: "var(--color-glass-border)",
 };
 
+const EMAIL = "mie.shin@nanuriit.kr";
+
 export default function ContactForm() {
   const [submitted, setSubmitted] = useState(false);
+  const [mailFailed, setMailFailed] = useState(false);
+  const [copied, setCopied] = useState(false);
   const [form, setForm] = useState({
     company: "",
     name: "",
@@ -46,15 +50,35 @@ export default function ContactForm() {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
 
-    // mailto fallback — 추후 API Route로 교체
     const subject = encodeURIComponent(
       `[도입 상담] ${form.company} - ${form.service}`
     );
     const body = encodeURIComponent(
       `회사명: ${form.company}\n담당자명: ${form.name}\n연락처: ${form.phone}\n관심 서비스: ${form.service}\n\n${form.message}`
     );
-    window.open(`mailto:mie.shin@nanuriit.kr?subject=${subject}&body=${body}`);
-    setSubmitted(true);
+
+    // mailto 시도 후 메일 앱이 열렸는지 감지
+    let mailOpened = false;
+    const onBlur = () => { mailOpened = true; };
+    window.addEventListener("blur", onBlur);
+
+    const link = document.createElement("a");
+    link.href = `mailto:${EMAIL}?subject=${subject}&body=${body}`;
+    link.click();
+
+    setTimeout(() => {
+      window.removeEventListener("blur", onBlur);
+      setSubmitted(true);
+      if (!mailOpened) {
+        setMailFailed(true);
+      }
+    }, 1000);
+  };
+
+  const handleCopy = async () => {
+    await navigator.clipboard.writeText(EMAIL);
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
   };
 
   if (submitted) {
@@ -65,26 +89,86 @@ export default function ContactForm() {
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.5 }}
       >
-        <div
-          className="w-14 h-14 rounded-full flex items-center justify-center mb-6"
-          style={{
-            background: "rgba(0, 212, 255, 0.15)",
-            color: "var(--color-accent-cyan)",
-          }}
-        >
-          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-            <path d="M20 6L9 17l-5-5" />
-          </svg>
-        </div>
-        <h3 className="text-xl font-bold text-ink">문의가 접수되었습니다</h3>
-        <p className="mt-3 text-[14px] text-body max-w-sm leading-relaxed">
-          빠른 시일 내에 담당자가 연락드리겠습니다.
-          <br />
-          감사합니다.
-        </p>
+        {mailFailed ? (
+          <>
+            <div
+              className="w-14 h-14 rounded-full flex items-center justify-center mb-6"
+              style={{
+                background: "rgba(245, 158, 11, 0.15)",
+                color: "var(--color-accent-amber)",
+              }}
+            >
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <circle cx="12" cy="12" r="10" />
+                <line x1="12" y1="8" x2="12" y2="12" />
+                <line x1="12" y1="16" x2="12.01" y2="16" />
+              </svg>
+            </div>
+            <h3 className="text-xl font-bold text-ink">
+              기본 메일 앱이 설정되어 있지 않습니다
+            </h3>
+            <p className="mt-3 text-[14px] text-body max-w-sm leading-relaxed">
+              개인 메일로 상담 요청 부탁드립니다.
+            </p>
+            <div className="mt-6 flex items-center gap-2">
+              <span className="text-[14px] font-medium text-ink">{EMAIL}</span>
+              <button
+                onClick={handleCopy}
+                className="inline-flex items-center gap-1.5 px-4 py-2 rounded-lg text-[13px] font-medium transition-all duration-200"
+                style={{
+                  background: copied
+                    ? "rgba(16, 185, 129, 0.15)"
+                    : "rgba(0, 212, 255, 0.1)",
+                  color: copied
+                    ? "var(--color-accent-emerald)"
+                    : "var(--color-accent-cyan)",
+                }}
+              >
+                {copied ? (
+                  <>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                      <path d="M20 6L9 17l-5-5" />
+                    </svg>
+                    복사됨
+                  </>
+                ) : (
+                  <>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      <rect x="9" y="9" width="13" height="13" rx="2" ry="2" />
+                      <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
+                    </svg>
+                    이메일 복사
+                  </>
+                )}
+              </button>
+            </div>
+          </>
+        ) : (
+          <>
+            <div
+              className="w-14 h-14 rounded-full flex items-center justify-center mb-6"
+              style={{
+                background: "rgba(0, 212, 255, 0.15)",
+                color: "var(--color-accent-cyan)",
+              }}
+            >
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M20 6L9 17l-5-5" />
+              </svg>
+            </div>
+            <h3 className="text-xl font-bold text-ink">메일 앱이 열렸습니다</h3>
+            <p className="mt-3 text-[14px] text-body max-w-sm leading-relaxed">
+              메일 앱에서 내용을 확인하시고 전송해주세요.
+              <br />
+              감사합니다.
+            </p>
+          </>
+        )}
         <button
           onClick={() => {
             setSubmitted(false);
+            setMailFailed(false);
+            setCopied(false);
             setForm({ company: "", name: "", phone: "", service: "", message: "" });
           }}
           className="mt-8 text-[13px] font-medium transition-colors"
@@ -166,11 +250,11 @@ export default function ContactForm() {
             className={`${inputBaseClass} focus:ring-2 focus:ring-cyan-500/30 focus:border-[var(--color-accent-cyan)] appearance-none`}
             style={inputStyle}
           >
-            <option value="" disabled>
+            <option value="" disabled className="bg-[var(--color-surface)] text-[var(--color-ink)]">
               서비스를 선택해주세요
             </option>
             {serviceOptions.map((s) => (
-              <option key={s} value={s}>
+              <option key={s} value={s} className="bg-[var(--color-surface)] text-[var(--color-ink)]">
                 {s}
               </option>
             ))}

@@ -130,6 +130,25 @@ const historyData = [
   },
 ];
 
+const boldKeywords = [
+  "우수협력사",
+  "Business Partner",
+  "Biz. Partner",
+  "Finance IT Biz.",
+  "Inno-Biz",
+  "입찰Pool",
+  "IT 협력사",
+  "협력사",
+  "T4 기술역량 우수기업",
+  "여성기업",
+  "기업연구개발전담부서",
+  "소프트웨어 사업자",
+];
+
+function isBoldLine(text: string) {
+  return boldKeywords.some((kw) => text.includes(kw));
+}
+
 export default function History() {
   return (
     <section id="history" className="py-24 px-6 relative overflow-hidden scroll-mt-24">
@@ -205,7 +224,7 @@ export default function History() {
                         boxShadow: "0 0 8px rgba(0, 212, 255, 0.5)",
                       }}
                     />
-                    <p className="text-[13px] sm:text-[14px] text-body leading-relaxed">{text}</p>
+                    <p className={`text-[13px] sm:text-[14px] leading-relaxed ${isBoldLine(text) ? "font-bold text-ink" : "text-body"}`}>{text}</p>
                   </div>
                 ))}
               </div>
