@@ -1,7 +1,8 @@
 import Image from "next/image";
 import Link from "next/link";
 
-const brandMarkSrc = "/images/logo_IT.png";
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
+const brandMarkSrc = `${basePath}/images/logo_IT.png`;
 
 export default function Footer() {
   return (

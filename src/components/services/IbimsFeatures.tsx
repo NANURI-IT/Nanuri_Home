@@ -38,7 +38,7 @@ export default function IbimsFeatures() {
         >
           <div className="relative w-full bg-white rounded-xl overflow-hidden p-4">
             <Image
-              src="/images/ibims-features.png"
+              src={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/images/ibims-features.png`}
               alt="IBIMS 특장점 - IB/PI Deal 관리, Deal 실행 및 투자자산 관리, IB/PI 투자자산 관리"
               width={1600}
               height={900}

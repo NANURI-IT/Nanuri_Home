@@ -39,7 +39,7 @@ export default function AcctWorkflow() {
         >
           <div className="relative w-full bg-white rounded-xl overflow-hidden p-4">
             <Image
-              src="/images/acct-workflow.png"
+              src={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/images/acct-workflow.png`}
               alt="회계 시스템 업무 구성도 - 계정계, 회계시스템, 관리회계, 세무회계, 재무회계, 자금관리, 고정자산, 예산관리"
               width={1200}
               height={1500}

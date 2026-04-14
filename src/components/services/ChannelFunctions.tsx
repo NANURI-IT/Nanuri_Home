@@ -101,7 +101,7 @@ export default function ChannelFunctions() {
         >
           <div className="relative w-full bg-white rounded-xl overflow-hidden p-4">
             <Image
-              src="/images/channel-functions.png"
+              src={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/images/channel-functions.png`}
               alt="채널 서비스 주요 기능 - Query 편집기, 시뮬레이터, 업무별 컨트롤 화면"
               width={1920}
               height={1080}

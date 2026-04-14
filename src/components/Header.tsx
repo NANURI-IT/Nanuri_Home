@@ -5,7 +5,8 @@ import Link from "next/link";
 import Image from "next/image";
 import ThemeToggle from "./ThemeToggle";
 
-const brandMarkSrc = "/images/logo_IT.png";
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
+const brandMarkSrc = `${basePath}/images/logo_IT.png`;
 
 const services = [
   { label: "금융 SI", href: "/services/financial-si", english: "Financial System Integration" },

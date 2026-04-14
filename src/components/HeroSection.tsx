@@ -159,13 +159,11 @@ export default function HeroSection() {
                 href="#business"
                 className="group relative w-full sm:w-auto sm:min-w-[200px] inline-flex items-center justify-center gap-2 px-10 py-4 rounded-full text-[14px] font-bold transition-all duration-300 hover:-translate-y-1 hover:scale-[1.03] active:scale-[0.97] active:translate-y-0.5 overflow-hidden"
                 style={{
-                  background: "linear-gradient(170deg, rgba(255,255,255,0.50) 0%, rgba(255,255,255,0.25) 40%, rgba(255,255,255,0.15) 70%, rgba(255,255,255,0.20) 100%)",
-                  border: "1px solid rgba(255,255,255,0.45)",
-                  borderBottom: "1px solid rgba(255,255,255,0.20)",
-                  color: "#fff",
+                  background: "linear-gradient(170deg, var(--color-glass-highlight), var(--color-glass-bg) 50%, var(--color-glass-bg))",
+                  border: "1px solid var(--color-glass-border)",
+                  color: "var(--color-ink)",
                   backdropFilter: "blur(20px) saturate(1.6)",
-                  boxShadow: "0 10px 40px rgba(0,0,0,0.2), 0 2px 4px rgba(0,0,0,0.15), inset 0 2px 0 rgba(255,255,255,0.45), inset 0 -2px 4px rgba(0,0,0,0.08)",
-                  textShadow: "0 1px 2px rgba(0,0,0,0.2)",
+                  boxShadow: "0 10px 40px rgba(0,0,0,0.12), 0 2px 4px rgba(0,0,0,0.08), inset 0 2px 0 var(--color-glass-highlight), inset 0 -2px 4px rgba(0,0,0,0.05)",
                 }}
               >
                 {/* 상단 볼록 광택 */}
