@@ -51,7 +51,14 @@
 }
 
 [data-theme="light"] {
-  /* Light palette — 기존 slate blue 시스템 복원 */
+  /* Light accent — 클린 단색 블루 (그라데이션→단색 전환) */
+  --color-accent-cyan:    #7abde0;
+  --color-accent-indigo:  #7abde0;
+  --color-accent-emerald: #5ec4a0;
+  --color-accent-rose:    #e88898;
+  --color-accent-amber:   #d4a040;
+
+  /* Light palette */
   --color-bg:          #F4F6FB;
   --color-surface:     #F4F6FB;
   --color-card:        #FFFFFF;
