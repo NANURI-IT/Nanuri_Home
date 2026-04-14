@@ -1,0 +1,129 @@
+import Image from "next/image";
+import Link from "next/link";
+
+const brandMarkSrc = "/images/logo_IT.png";
+
+export default function Footer() {
+  return (
+    <footer
+      className="relative overflow-hidden border-t"
+      style={{ borderColor: "var(--color-glass-border)" }}
+    >
+      <div className="max-w-7xl mx-auto px-6 sm:px-10 py-16">
+        <div className="grid grid-cols-1 md:grid-cols-[2fr_1fr_1fr_1fr] gap-10 mb-12">
+          {/* Brand */}
+          <div>
+            <Link href="/" className="mb-4 inline-flex items-center gap-3.5">
+              <span className="relative h-10 w-10 shrink-0">
+                <Image
+                  src={brandMarkSrc}
+                  alt=""
+                  fill
+                  sizes="40px"
+                  className="object-contain"
+                />
+              </span>
+              <span
+                className="inline-block text-xl font-bold tracking-tight bg-clip-text text-transparent"
+                style={{
+                  backgroundImage: "linear-gradient(135deg, var(--color-accent-cyan), var(--color-accent-indigo))",
+                  fontFamily: "var(--font-outfit), sans-serif",
+                }}
+              >
+                나누리아이티
+              </span>
+            </Link>
+            <p
+              className="text-[13px] leading-relaxed max-w-xs"
+              style={{ color: "var(--color-text-muted)" }}
+            >
+              풍부한 금융권 개발 경험과 전문성을 바탕으로 금융 IT 서비스를 제공합니다.
+            </p>
+          </div>
+
+          {/* Services */}
+          <FooterCol title="Services">
+            <FooterLink href="/services/financial-si">금융 SI</FooterLink>
+            <FooterLink href="/services/ibims">IB 시스템</FooterLink>
+            <FooterLink href="/services/proprietary">고유자산</FooterLink>
+            <FooterLink href="/services/sto">토큰증권</FooterLink>
+            <FooterLink href="/services/accounting">회계</FooterLink>
+            <FooterLink href="/services/channel">채널</FooterLink>
+          </FooterCol>
+
+          {/* Company */}
+          <FooterCol title="Company">
+            <FooterLink href="/about">회사소개</FooterLink>
+            <FooterLink href="/about#history">연혁</FooterLink>
+            <FooterLink href="/#contact">도입 문의</FooterLink>
+          </FooterCol>
+
+          {/* Contact */}
+          <FooterCol title="Contact">
+            <FooterLink href="mailto:help@nanuriit.kr">help@nanuriit.kr</FooterLink>
+            <FooterLink href="tel:02-6969-0319">02.6969.0319</FooterLink>
+            <span
+              className="block text-[12px] leading-relaxed"
+              style={{ color: "var(--color-text-muted)" }}
+            >
+              서울시 영등포구 선유로49길 23,
+              <br />
+              1016호 (아이에스비즈타워2차)
+            </span>
+          </FooterCol>
+        </div>
+
+        <div
+          className="pt-8 border-t flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3"
+          style={{ borderColor: "var(--color-glass-border)" }}
+        >
+          <span
+            className="nav-text text-[12px] font-normal"
+            style={{ color: "var(--color-text-muted)" }}
+          >
+            © {new Date().getFullYear()} Nanuri IT Co., Ltd. All Rights Reserved.
+          </span>
+          <span
+            className="nav-text text-[12px] font-medium tracking-[-0.01em]"
+            style={{ color: "var(--color-text-muted)" }}
+          >
+            CEO · <span className="text-ink">신미선</span>
+          </span>
+        </div>
+      </div>
+    </footer>
+  );
+}
+
+function FooterCol({ title, children }: { title: string; children: React.ReactNode }) {
+  return (
+    <div>
+      <h4
+        className="nav-text text-[12px] font-semibold mb-4"
+        style={{ color: "var(--color-accent-cyan)" }}
+      >
+        {title}
+      </h4>
+      <div className="flex flex-col gap-2.5">{children}</div>
+    </div>
+  );
+}
+
+function FooterLink({ href, children }: { href: string; children: React.ReactNode }) {
+  const isExternal = href.startsWith("mailto:") || href.startsWith("tel:");
+  const className = "text-[13px] transition-colors duration-300 hover:text-[color:var(--color-accent-cyan)]";
+  const style = { color: "var(--color-text-primary)", opacity: 0.6 };
+
+  if (isExternal) {
+    return (
+      <a href={href} className={className} style={style}>
+        {children}
+      </a>
+    );
+  }
+  return (
+    <Link href={href} className={className} style={style}>
+      {children}
+    </Link>
+  );
+}
