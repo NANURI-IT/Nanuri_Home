@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { motion } from "framer-motion";
 
 const item = {
@@ -77,8 +78,8 @@ export default function ContactCTA() {
             </p>
 
             <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-3">
-              <a
-                href="mailto:help@nanuriit.kr"
+              <Link
+                href="/contact"
                 className="group w-full sm:w-auto inline-flex items-center justify-center gap-2 px-10 py-4 rounded-full text-[14px] font-bold transition-all duration-300 hover:-translate-y-1"
                 style={{
                   background: "linear-gradient(135deg, var(--color-accent-cyan), var(--color-accent-indigo))",
@@ -86,11 +87,11 @@ export default function ContactCTA() {
                   boxShadow: "0 4px 24px rgba(0, 212, 255, 0.25)",
                 }}
               >
-                도입 문의하기
+                도입 상담
                 <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                   <path d="M5 12h14M12 5l7 7-7 7" />
                 </svg>
-              </a>
+              </Link>
               <a
                 href="tel:02-6969-0319"
                 className="glass w-full sm:w-auto inline-flex items-center justify-center px-10 py-4 rounded-full text-[14px] font-semibold text-ink transition-all duration-300"
