@@ -57,7 +57,7 @@ export default function IbimsWorkflow() {
           variants={item}
         >
           <Link
-            href="/#contact"
+            href="/contact"
             className="group glow-btn relative inline-flex items-center gap-2 px-8 py-4 bg-gold text-white text-sm font-semibold rounded-xl hover:bg-gold-dark shadow-lg shadow-gold/25 transition-all"
           >
             IBIMS 도입 문의
