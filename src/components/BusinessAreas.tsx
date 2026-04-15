@@ -142,7 +142,7 @@ export default function BusinessAreas() {
             <div className="orb-float-reverse absolute bottom-[10%] right-[10%] w-[200px] h-[200px] bg-gold/[0.06] rounded-full blur-[80px]" />
 
             <div className="relative flex flex-col md:flex-row md:items-center gap-8 p-8 md:p-12">
-              <div className="shrink-0">
+              <div className="shrink-0 hidden sm:block">
                 <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-white/[0.08] border border-white/[0.1] rounded-full mb-6">
                   <span className="relative flex h-2 w-2">
                     <span className="absolute inline-flex h-full w-full rounded-full bg-gold opacity-40 animate-ping" />
@@ -159,14 +159,15 @@ export default function BusinessAreas() {
                 <h3 className="text-2xl md:text-3xl font-bold text-ink tracking-tight">{heroArea.title}</h3>
                 <p className="mt-1 text-[12px] text-dim tracking-wider font-medium uppercase">{heroArea.english}</p>
                 <p className="mt-5 text-[15px] text-body leading-relaxed max-w-2xl">{heroArea.description}</p>
-                <span className="mt-6 inline-flex items-center gap-2 text-[13px] font-semibold text-gold group-hover:gap-3 transition-all duration-300">
-                  자세히 보기
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                    <path d="M5 12h14M12 5l7 7-7 7" />
-                  </svg>
-                </span>
               </div>
             </div>
+
+            <span className="absolute bottom-6 right-6 md:bottom-8 md:right-8 inline-flex items-center gap-2 text-[13px] font-semibold text-gold group-hover:gap-3 transition-all duration-300">
+              자세히 보기
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M5 12h14M12 5l7 7-7 7" />
+              </svg>
+            </span>
           </Link>
         </motion.div>
 
@@ -181,9 +182,9 @@ export default function BusinessAreas() {
           {subAreas.map((area) => {
             const cardInner = (
               <div className="relative z-10 p-7 h-full flex flex-col">
-                {/* Icon box with accent color + blur glow */}
+                {/* Icon box with accent color + blur glow (hidden on mobile) */}
                 <div
-                  className="relative w-12 h-12 rounded-2xl flex items-center justify-center transition-all duration-400"
+                  className="relative w-12 h-12 rounded-2xl hidden sm:flex items-center justify-center transition-all duration-400"
                   style={{
                     background: `rgba(${area.accentRgb}, 0.12)`,
                     color: area.accent,
@@ -196,7 +197,7 @@ export default function BusinessAreas() {
                     aria-hidden="true"
                   />
                 </div>
-                <h3 className="mt-5 text-[17px] font-bold text-ink" style={{ fontFamily: "var(--font-outfit), sans-serif" }}>
+                <h3 className="sm:mt-5 text-[17px] font-bold text-ink" style={{ fontFamily: "var(--font-outfit), sans-serif" }}>
                   {area.title}
                 </h3>
                 <p

@@ -5,6 +5,8 @@ import { ThemeProvider } from "@/contexts/ThemeContext";
 import SceneContainer from "@/components/three/SceneContainer";
 import NoiseOverlay from "@/components/ui/NoiseOverlay";
 import CursorGlow from "@/components/ui/CursorGlow";
+import ScrollToTop from "@/components/ui/ScrollToTop";
+import ScrollReset from "@/components/ui/ScrollReset";
 
 const notoSansKR = Noto_Sans_KR({
   variable: "--font-noto-sans-kr",
@@ -96,10 +98,12 @@ export default function RootLayout({
       </head>
       <body className="min-h-full flex flex-col relative">
         <ThemeProvider>
+          <ScrollReset />
           <SceneContainer />
           <div className="relative z-10 flex min-h-full flex-col">
             {children}
           </div>
+          <ScrollToTop />
           <CursorGlow />
           <NoiseOverlay />
         </ThemeProvider>

@@ -51,7 +51,7 @@ const ideAreas = [
   {
     title: "Menu / Tool Bar",
     desc: "File / Edit / View / Build / Help / 퀵버튼 등 스파이더젠 기능을 실행하는 영역",
-    color: "#1A2540",
+    color: "#8B5CF6",
   },
   {
     title: "Layout",
@@ -101,7 +101,7 @@ export default function ChannelFunctions() {
         >
           <div className="relative w-full bg-white rounded-xl overflow-hidden p-4">
             <Image
-              src={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/images/channel-functions.png`}
+              src={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/images/channel-functions.webp`}
               alt="채널 서비스 주요 기능 - Query 편집기, 시뮬레이터, 업무별 컨트롤 화면"
               width={1920}
               height={1080}

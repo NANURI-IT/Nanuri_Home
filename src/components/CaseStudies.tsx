@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { motion } from "framer-motion";
 
 const container = {
@@ -67,36 +68,45 @@ export default function CaseStudies() {
           viewport={{ once: true, margin: "-80px" }}
         >
           {cases.map((caseItem, i) => (
-            <motion.div
-              key={caseItem.title}
-              variants={item}
-              className="glass glass-static group relative rounded-2xl overflow-hidden transition-shadow duration-500"
-            >
-              <div className="relative z-10 p-8">
-                <div className="flex items-center justify-between">
-                  <span className="inline-flex items-center gap-1.5 text-[12px] font-semibold text-gold">
-                    <span className="w-1.5 h-1.5 rounded-full bg-gold" />
-                    {caseItem.category}
-                  </span>
-                  <span className="text-[11px] font-mono text-dim">
-                    {String(i + 1).padStart(2, "0")}
-                  </span>
-                </div>
-                <h3 className="mt-4 text-[17px] font-semibold text-ink">{caseItem.title}</h3>
-                <p className="mt-2 text-[13px] text-body group-hover:text-ink leading-relaxed transition-colors duration-400">
-                  {caseItem.scope}
-                </p>
-                <div className="mt-5 flex flex-wrap gap-2">
-                  {caseItem.tags.map((tag) => (
-                    <span
-                      key={tag}
-                      className="text-[11px] text-body bg-white/[0.07] group-hover:text-gold group-hover:bg-gold/10 px-3 py-1 rounded-full transition-colors duration-400"
-                    >
-                      {tag}
+            <motion.div key={caseItem.title} variants={item}>
+              <Link
+                href="/about#history"
+                className="glass group relative rounded-2xl overflow-hidden transition-all duration-500 hover:-translate-y-1 block h-full"
+              >
+                <div className="relative z-10 p-8">
+                  <div className="flex items-center justify-between">
+                    <span className="inline-flex items-center gap-1.5 text-[12px] font-semibold text-gold">
+                      <span className="w-1.5 h-1.5 rounded-full bg-gold" />
+                      {caseItem.category}
                     </span>
-                  ))}
+                    <span className="text-[11px] font-mono text-dim">
+                      {String(i + 1).padStart(2, "0")}
+                    </span>
+                  </div>
+                  <h3 className="mt-4 text-[17px] font-semibold text-ink">{caseItem.title}</h3>
+                  <p className="mt-2 text-[13px] text-body group-hover:text-ink leading-relaxed transition-colors duration-400">
+                    {caseItem.scope}
+                  </p>
+                  <div className="mt-5 flex items-end justify-between gap-3">
+                    <div className="flex flex-wrap gap-2">
+                      {caseItem.tags.map((tag) => (
+                        <span
+                          key={tag}
+                          className="text-[11px] text-body bg-white/[0.07] group-hover:text-gold group-hover:bg-gold/10 px-3 py-1 rounded-full transition-colors duration-400"
+                        >
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
+                    <span className="shrink-0 inline-flex items-center gap-1.5 text-[12px] font-semibold text-gold group-hover:gap-2 transition-all duration-300">
+                      연혁 보기
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                        <path d="M5 12h14M12 5l7 7-7 7" />
+                      </svg>
+                    </span>
+                  </div>
                 </div>
-              </div>
+              </Link>
             </motion.div>
           ))}
         </motion.div>

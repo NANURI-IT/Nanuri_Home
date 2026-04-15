@@ -90,7 +90,7 @@ export default function CompanySummary() {
                 <span className="absolute top-5 right-5 text-[11px] font-mono text-dim">
                   {String(i + 1).padStart(2, "0")}
                 </span>
-                <div className="w-12 h-12 rounded-xl bg-white/[0.08] flex items-center justify-center text-body group-hover:text-gold group-hover:bg-gold/10 group-hover:shadow-md group-hover:shadow-gold/25 transition-all duration-400">
+                <div className="hidden sm:flex w-12 h-12 rounded-xl bg-white/[0.08] items-center justify-center text-body group-hover:text-gold group-hover:bg-gold/10 group-hover:shadow-md group-hover:shadow-gold/25 transition-all duration-400">
                   {cardItem.icon}
                 </div>
                 <h3 className="mt-5 text-[15px] font-semibold text-white">{cardItem.title}</h3>

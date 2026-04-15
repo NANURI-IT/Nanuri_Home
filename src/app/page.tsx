@@ -38,6 +38,8 @@ export default function Home() {
         </div>
         <div className="home-snap-section">
           <TrustFactors />
+        </div>
+        <div className="home-snap-section">
           <StatsCounter />
         </div>
         <div className="home-snap-section">

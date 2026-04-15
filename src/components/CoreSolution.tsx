@@ -25,9 +25,9 @@ export default function CoreSolution() {
     <section id="solution" className="py-14 md:py-24 px-6 relative overflow-hidden scroll-mt-20">
       <div className="relative max-w-6xl mx-auto">
         <div className="grid md:grid-cols-2 gap-14 md:gap-16 items-center">
-          {/* Left: visual showcase with floating cards */}
+          {/* Left: visual showcase with floating cards (hidden on mobile) */}
           <motion.div
-            className="glass glass-static relative rounded-2xl overflow-hidden min-h-[480px]"
+            className="glass glass-static relative rounded-2xl overflow-hidden min-h-[480px] hidden md:block"
             initial="hidden"
             whileInView="show"
             viewport={{ once: true, margin: "-60px" }}
