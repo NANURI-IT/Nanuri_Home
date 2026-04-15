@@ -210,15 +210,23 @@ export default function BusinessAreas() {
                   {area.description}
                 </p>
                 {area.href ? (
-                  <span
-                    className="mt-5 inline-flex items-center gap-1.5 text-[11px] font-semibold uppercase tracking-[0.1em] opacity-0 -translate-y-1 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300"
-                    style={{ color: area.accent, fontFamily: "var(--font-space-mono), monospace" }}
-                  >
-                    {area.tag}
-                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                      <path d="M5 12h14M12 5l7 7-7 7" />
-                    </svg>
-                  </span>
+                  <div className="mt-5 flex items-center justify-between">
+                    <span
+                      className="inline-flex items-center gap-1.5 text-[11px] font-semibold uppercase tracking-[0.1em] opacity-0 -translate-y-1 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300"
+                      style={{ color: area.accent, fontFamily: "var(--font-space-mono), monospace" }}
+                    >
+                      {area.tag}
+                    </span>
+                    <span
+                      className="inline-flex items-center gap-1.5 text-[12px] font-semibold group-hover:gap-2.5 transition-all duration-300"
+                      style={{ color: area.accent }}
+                    >
+                      자세히 보기
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                        <path d="M5 12h14M12 5l7 7-7 7" />
+                      </svg>
+                    </span>
+                  </div>
                 ) : (
                   <span className="mt-5 inline-flex items-center gap-1.5 text-[10px] text-dim uppercase tracking-wider">
                     <span className="w-1 h-1 rounded-full bg-dim" />

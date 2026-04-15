@@ -120,6 +120,39 @@ export default function Header() {
               <div className="absolute left-1/2 -translate-x-1/2 top-full pt-3">
                 <div className="dropdown-panel w-[300px] overflow-hidden rounded-2xl border">
                   <div className="p-2">
+                    <Link
+                      href="/#business"
+                      onClick={() => setBizOpen(false)}
+                      className="dropdown-item flex items-center justify-between gap-3 px-3 py-2.5 rounded-lg group transition-colors duration-200 border-b mb-1 pb-3"
+                      style={{ borderColor: "var(--color-glass-border)" }}
+                    >
+                      <div>
+                        <p className="text-[13px] font-semibold text-ink">All Service</p>
+                        <p
+                          className="text-[10px] tracking-[0.08em] uppercase"
+                          style={{
+                            color: "var(--color-accent-cyan)",
+                            fontFamily: "var(--font-space-mono), monospace",
+                          }}
+                        >
+                          All Business Areas
+                        </p>
+                      </div>
+                      <svg
+                        width="14"
+                        height="14"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        className="opacity-0 group-hover:opacity-100 group-hover:translate-x-0.5 transition-all duration-200"
+                        style={{ color: "var(--color-accent-cyan)" }}
+                      >
+                        <path d="M5 12h14M12 5l7 7-7 7" />
+                      </svg>
+                    </Link>
                     {services.map((s) => (
                       <Link
                         key={s.href}
@@ -214,6 +247,14 @@ export default function Header() {
           </button>
           {mobileBizOpen && (
             <div className="pl-4 pb-2 border-l-2 ml-1 space-y-2" style={{ borderColor: "var(--color-glass-border)" }}>
+              <Link
+                href="/#business"
+                className="block py-2 text-[13px] font-semibold"
+                style={{ color: "var(--color-accent-cyan)" }}
+                onClick={() => setMobileOpen(false)}
+              >
+                사업영역 전체
+              </Link>
               {services.map((s) => (
                 <Link
                   key={s.href}

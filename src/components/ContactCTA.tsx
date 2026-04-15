@@ -18,11 +18,13 @@ export default function ContactCTA() {
     {
       label: "전화",
       value: "02.6969.0319",
+      href: "tel:02-6969-0319",
       icon: <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z" /></svg>,
     },
     {
       label: "이메일",
       value: "mie.shin@nanuriit.kr",
+      href: "mailto:mie.shin@nanuriit.kr",
       icon: <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" /><path d="M22 6l-10 7L2 6" /></svg>,
     },
     {
@@ -110,31 +112,46 @@ export default function ContactCTA() {
           whileInView="show"
           viewport={{ once: true, margin: "-60px" }}
         >
-          {contactInfo.map((info) => (
-            <motion.div
-              key={info.label}
-              variants={item}
-              className="glass rounded-2xl p-6 flex flex-col items-center gap-3 text-center"
-            >
-              <div
-                className="w-10 h-10 rounded-xl flex items-center justify-center"
-                style={{
-                  background: "rgba(0, 212, 255, 0.1)",
-                  color: "var(--color-accent-cyan)",
-                }}
-              >
-                {info.icon}
-              </div>
-              <div>
-                <p
-                  className="text-[12px] font-semibold text-body uppercase tracking-wider"
+          {contactInfo.map((info) => {
+            const content = (
+              <>
+                <div
+                  className="w-10 h-10 rounded-xl flex items-center justify-center"
+                  style={{
+                    background: "rgba(0, 212, 255, 0.1)",
+                    color: "var(--color-accent-cyan)",
+                  }}
                 >
-                  {info.label}
-                </p>
-                <p className="mt-1 text-[13px] text-ink font-medium">{info.value}</p>
-              </div>
-            </motion.div>
-          ))}
+                  {info.icon}
+                </div>
+                <div>
+                  <p
+                    className="text-[12px] font-semibold text-body uppercase tracking-wider"
+                  >
+                    {info.label}
+                  </p>
+                  <p className="mt-1 text-[13px] text-ink font-medium">{info.value}</p>
+                </div>
+              </>
+            );
+
+            return (
+              <motion.div key={info.label} variants={item}>
+                {"href" in info && info.href ? (
+                  <a
+                    href={info.href}
+                    className="glass rounded-2xl p-6 flex flex-col items-center gap-3 text-center h-full hover:brightness-110 transition-all duration-200 cursor-pointer"
+                  >
+                    {content}
+                  </a>
+                ) : (
+                  <div className="glass rounded-2xl p-6 flex flex-col items-center gap-3 text-center h-full">
+                    {content}
+                  </div>
+                )}
+              </motion.div>
+            );
+          })}
         </motion.div>
       </div>
     </section>

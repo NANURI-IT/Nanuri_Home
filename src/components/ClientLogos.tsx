@@ -32,7 +32,7 @@ const clients = [
   { name: "DB Inc.", logo: "DB", color: "#00843D" },
   { name: "투이컨설팅", logo: "2e", color: "#5E7A93" },
   { name: "S-Core", logo: "SC", color: "#1428A0" },
-  { name: "SK C&C", logo: "SK", color: "#ED1C24" },
+  { name: "SK AX", logo: "SK", color: "#ED1C24" },
 ];
 
 export default function ClientLogos() {
