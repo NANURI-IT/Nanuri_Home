@@ -35,7 +35,7 @@ export default function ContactCTA() {
   ];
 
   return (
-    <section id="contact" className="py-28 px-6 relative overflow-hidden">
+    <section id="contact" className="py-28 px-6 relative overflow-hidden scroll-mt-20">
       <div className="relative max-w-4xl mx-auto">
         {/* Main CTA glass card with conic rotation bg */}
         <motion.div

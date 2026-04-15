@@ -23,12 +23,18 @@ export default function Header() {
   const [bizOpen, setBizOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const bizRef = useRef<HTMLDivElement>(null);
+  const mobileMenuBtnRef = useRef<HTMLButtonElement>(null);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 80);
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
+
+  const closeMobileMenu = () => {
+    setMobileOpen(false);
+    setTimeout(() => mobileMenuBtnRef.current?.focus(), 0);
+  };
 
   // Outside click close for dropdown (touch-friendly)
   useEffect(() => {
@@ -64,7 +70,7 @@ export default function Header() {
           <span className="relative h-9 w-9 shrink-0">
             <Image
               src={brandMarkSrc}
-              alt=""
+              alt="나누리아이티 로고"
               fill
               priority
               sizes="36px"
@@ -216,6 +222,7 @@ export default function Header() {
 
           {/* Mobile menu */}
           <button
+            ref={mobileMenuBtnRef}
             className="md:hidden p-2 rounded-lg transition-colors"
             onClick={() => setMobileOpen(!mobileOpen)}
             aria-label="메뉴 열기"
@@ -231,7 +238,7 @@ export default function Header() {
       {/* Mobile menu */}
       {mobileOpen && (
         <nav className="dropdown-panel md:hidden px-6 py-3 max-h-[80vh] overflow-y-auto border-t">
-          <Link href="/about" className="block py-3 text-sm" style={{ color: "var(--color-text-muted)" }} onClick={() => setMobileOpen(false)}>
+          <Link href="/about" className="block py-3 text-sm" style={{ color: "var(--color-text-muted)" }} onClick={closeMobileMenu}>
             회사소개
           </Link>
 
@@ -251,7 +258,7 @@ export default function Header() {
                 href="/#business"
                 className="block py-2 text-[13px] font-semibold"
                 style={{ color: "var(--color-accent-cyan)" }}
-                onClick={() => setMobileOpen(false)}
+                onClick={closeMobileMenu}
               >
                 사업영역 전체
               </Link>
@@ -261,7 +268,7 @@ export default function Header() {
                   href={s.href}
                   className="block py-2 text-[13px]"
                   style={{ color: "var(--color-text-muted)" }}
-                  onClick={() => setMobileOpen(false)}
+                  onClick={closeMobileMenu}
                 >
                   {s.label}
                 </Link>
@@ -269,10 +276,10 @@ export default function Header() {
             </div>
           )}
 
-          <Link href="/services/ibims" className="block py-3 text-sm" style={{ color: "var(--color-text-muted)" }} onClick={() => setMobileOpen(false)}>
+          <Link href="/services/ibims" className="block py-3 text-sm" style={{ color: "var(--color-text-muted)" }} onClick={closeMobileMenu}>
             솔루션
           </Link>
-          <Link href="/about#history" className="block py-3 text-sm" style={{ color: "var(--color-text-muted)" }} onClick={() => setMobileOpen(false)}>
+          <Link href="/about#history" className="block py-3 text-sm" style={{ color: "var(--color-text-muted)" }} onClick={closeMobileMenu}>
             구축사례
           </Link>
 
@@ -283,7 +290,7 @@ export default function Header() {
               background: "linear-gradient(135deg, var(--color-accent-cyan), var(--color-accent-indigo))",
               color: "#000",
             }}
-            onClick={() => setMobileOpen(false)}
+            onClick={closeMobileMenu}
           >
             도입 상담
           </Link>

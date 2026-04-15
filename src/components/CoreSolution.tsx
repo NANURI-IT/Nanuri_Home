@@ -22,7 +22,7 @@ const checklist = [
 
 export default function CoreSolution() {
   return (
-    <section id="solution" className="py-24 px-6 relative overflow-hidden">
+    <section id="solution" className="py-24 px-6 relative overflow-hidden scroll-mt-20">
       <div className="relative max-w-6xl mx-auto">
         <div className="grid md:grid-cols-2 gap-14 md:gap-16 items-center">
           {/* Left: visual showcase with floating cards */}

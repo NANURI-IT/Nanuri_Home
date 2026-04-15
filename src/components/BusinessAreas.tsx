@@ -108,7 +108,7 @@ const subAreas: SubArea[] = [
 
 export default function BusinessAreas() {
   return (
-    <section id="business" className="py-24 px-6 relative overflow-hidden">
+    <section id="business" className="py-24 px-6 relative overflow-hidden scroll-mt-20">
       <div className="orb-float-slow absolute -top-20 -right-20 w-80 h-80 bg-navy/[0.03] rounded-full blur-3xl" />
 
       <div className="relative max-w-6xl mx-auto">

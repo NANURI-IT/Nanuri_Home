@@ -18,7 +18,7 @@ export default function Footer() {
               <span className="relative h-10 w-10 shrink-0">
                 <Image
                   src={brandMarkSrc}
-                  alt=""
+                  alt="나누리아이티 로고"
                   fill
                   sizes="40px"
                   className="object-contain"
