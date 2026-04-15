@@ -126,27 +126,16 @@ export default function HeroSection() {
                 href="/about"
                 className="group relative w-full sm:w-auto sm:min-w-[200px] inline-flex items-center justify-center gap-2 px-10 py-4 rounded-full text-[14px] font-bold transition-all duration-300 hover:-translate-y-1 hover:scale-[1.03] active:scale-[0.97] active:translate-y-0.5 overflow-hidden"
                 style={{
-                  background: "linear-gradient(170deg, rgba(0,212,255,0.9) 0%, rgba(99,102,241,0.8) 50%, rgba(99,102,241,0.7) 100%)",
+                  background: "linear-gradient(135deg, rgba(0,212,255,0.9), rgba(99,102,241,0.8))",
                   border: "1px solid rgba(255,255,255,0.3)",
-                  borderBottom: "1px solid rgba(0,0,0,0.15)",
                   color: "#fff",
-                  boxShadow: "0 10px 40px rgba(0,212,255,0.3), 0 2px 4px rgba(0,0,0,0.2), inset 0 2px 0 rgba(255,255,255,0.4), inset 0 -2px 4px rgba(0,0,0,0.15)",
-                  textShadow: "0 1px 2px rgba(0,0,0,0.25)",
+                  boxShadow: "0 4px 24px rgba(0,212,255,0.3), inset 0 1px 0 rgba(255,255,255,0.3)",
                 }}
               >
-                {/* 상단 볼록 광택 */}
                 <span
-                  className="absolute inset-x-0 top-0 h-[50%] rounded-full pointer-events-none"
+                  className="absolute inset-0 rounded-full pointer-events-none"
                   style={{
-                    background: "linear-gradient(180deg, rgba(255,255,255,0.35) 0%, rgba(255,255,255,0.08) 60%, transparent 100%)",
-                  }}
-                  aria-hidden="true"
-                />
-                {/* 하단 반사광 */}
-                <span
-                  className="absolute inset-x-4 bottom-[3px] h-[1px] rounded-full pointer-events-none"
-                  style={{
-                    background: "linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent)",
+                    background: "linear-gradient(135deg, rgba(255,255,255,0.35) 0%, rgba(255,255,255,0.1) 30%, transparent 60%)",
                   }}
                   aria-hidden="true"
                 />
@@ -159,26 +148,17 @@ export default function HeroSection() {
                 href="#business"
                 className="group relative w-full sm:w-auto sm:min-w-[200px] inline-flex items-center justify-center gap-2 px-10 py-4 rounded-full text-[14px] font-bold transition-all duration-300 hover:-translate-y-1 hover:scale-[1.03] active:scale-[0.97] active:translate-y-0.5 overflow-hidden"
                 style={{
-                  background: "linear-gradient(170deg, var(--color-glass-highlight), var(--color-glass-bg) 50%, var(--color-glass-bg))",
+                  background: "var(--color-glass-bg)",
                   border: "1px solid var(--color-glass-border)",
                   color: "var(--color-ink)",
-                  backdropFilter: "blur(20px) saturate(1.6)",
-                  boxShadow: "0 10px 40px rgba(0,0,0,0.12), 0 2px 4px rgba(0,0,0,0.08), inset 0 2px 0 var(--color-glass-highlight), inset 0 -2px 4px rgba(0,0,0,0.05)",
+                  backdropFilter: "blur(20px)",
+                  boxShadow: "inset 0 1px 0 var(--color-glass-highlight)",
                 }}
               >
-                {/* 상단 볼록 광택 */}
                 <span
-                  className="absolute inset-x-0 top-0 h-[50%] rounded-full pointer-events-none"
+                  className="absolute inset-0 rounded-full pointer-events-none"
                   style={{
-                    background: "linear-gradient(180deg, rgba(255,255,255,0.28) 0%, rgba(255,255,255,0.05) 60%, transparent 100%)",
-                  }}
-                  aria-hidden="true"
-                />
-                {/* 하단 반사광 */}
-                <span
-                  className="absolute inset-x-4 bottom-[3px] h-[1px] rounded-full pointer-events-none"
-                  style={{
-                    background: "linear-gradient(90deg, transparent, rgba(255,255,255,0.15), transparent)",
+                    background: "linear-gradient(135deg, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0.05) 30%, transparent 60%)",
                   }}
                   aria-hidden="true"
                 />

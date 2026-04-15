@@ -41,7 +41,7 @@ export default function StatsCounter() {
   return (
     <section className="relative z-10 px-6 -mt-16 sm:-mt-20 mb-8">
       <motion.div
-        className="glass max-w-5xl mx-auto rounded-2xl overflow-hidden"
+        className="glass glass-static max-w-5xl mx-auto rounded-2xl overflow-hidden"
         initial={{ opacity: 0, y: 32 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-60px" }}

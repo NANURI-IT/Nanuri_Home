@@ -10,7 +10,7 @@ const item = {
 
 export default function IbimsFeatures() {
   return (
-    <section className="py-24 px-6 relative overflow-hidden">
+    <section className="py-14 md:py-24 px-6 relative overflow-hidden">
       <div className="relative max-w-5xl mx-auto">
         <motion.div
           className="text-center"

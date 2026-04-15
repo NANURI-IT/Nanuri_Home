@@ -19,7 +19,7 @@ const slideRight = {
 
 export default function Vision() {
   return (
-    <section className="py-24 px-6 relative overflow-hidden">
+    <section className="py-14 md:py-24 px-6 relative overflow-hidden">
       <div className="relative max-w-6xl mx-auto">
         <motion.div
           className="text-center"
@@ -37,7 +37,7 @@ export default function Vision() {
           </p>
         </motion.div>
 
-        <div className="glass mt-16 rounded-2xl overflow-hidden relative">
+        <div className="glass glass-static mt-16 rounded-2xl overflow-hidden relative">
           <div className="orb-float absolute top-[10%] left-[5%] w-[300px] h-[300px] bg-white/[0.03] rounded-full blur-[100px]" />
 
           <div className="relative grid md:grid-cols-2 gap-10 items-center p-8 md:p-14">

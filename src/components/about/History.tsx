@@ -151,7 +151,7 @@ function isBoldLine(text: string) {
 
 export default function History() {
   return (
-    <section id="history" className="py-24 px-6 relative overflow-hidden scroll-mt-20">
+    <section id="history" className="py-14 md:py-24 px-6 relative overflow-hidden scroll-mt-20">
       <div className="absolute inset-0 dot-grid opacity-20" />
 
       <div className="relative max-w-4xl mx-auto">

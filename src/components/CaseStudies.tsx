@@ -41,7 +41,7 @@ const cases = [
 
 export default function CaseStudies() {
   return (
-    <section id="cases" className="py-24 px-6 relative overflow-hidden scroll-mt-20">
+    <section id="cases" className="py-14 md:py-24 px-6 relative overflow-hidden scroll-mt-20">
       <div className="absolute inset-0 dot-grid opacity-20" />
 
       <div className="relative max-w-6xl mx-auto">
@@ -70,7 +70,7 @@ export default function CaseStudies() {
             <motion.div
               key={caseItem.title}
               variants={item}
-              className="glass gradient-border group relative rounded-2xl overflow-hidden transition-shadow duration-500"
+              className="glass glass-static group relative rounded-2xl overflow-hidden transition-shadow duration-500"
             >
               <div className="relative z-10 p-8">
                 <div className="flex items-center justify-between">

@@ -53,7 +53,7 @@ const summaryItems = [
 
 export default function CompanySummary() {
   return (
-    <section id="company" className="py-24 px-6 relative overflow-hidden scroll-mt-20">
+    <section id="company" className="py-14 md:py-24 px-6 relative overflow-hidden scroll-mt-20">
       <div className="absolute inset-0 dot-grid opacity-30" />
 
       <div className="relative max-w-6xl mx-auto">
@@ -84,7 +84,7 @@ export default function CompanySummary() {
             <motion.div
               key={cardItem.title}
               variants={item}
-              className="glass gradient-border group relative rounded-2xl overflow-hidden transition-shadow duration-500 hover:-translate-y-1"
+              className="glass glass-static group relative rounded-2xl overflow-hidden transition-shadow duration-500"
             >
               <div className="relative z-10 p-7">
                 <span className="absolute top-5 right-5 text-[11px] font-mono text-dim">

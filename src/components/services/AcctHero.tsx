@@ -9,7 +9,7 @@ const item = {
 
 export default function AcctHero() {
   return (
-    <section className="relative py-28 sm:py-36 px-6 overflow-hidden">
+    <section className="relative py-20 md:py-28 lg:py-36 px-6 overflow-hidden">
       <div className="orb-float absolute top-[10%] right-[8%] w-80 h-80 bg-navy/5 rounded-full blur-3xl" />
       <div className="orb-float-reverse absolute bottom-[10%] left-[5%] w-96 h-96 bg-gold/[0.03] rounded-full blur-3xl" />
       <div className="absolute inset-0 dot-grid opacity-30" />

@@ -44,7 +44,7 @@ const features = [
 
 export default function PropFeatures() {
   return (
-    <section className="py-24 px-6 relative overflow-hidden">
+    <section className="py-14 md:py-24 px-6 relative overflow-hidden">
       <div className="relative max-w-6xl mx-auto">
         <motion.div
           className="text-center"
@@ -72,7 +72,7 @@ export default function PropFeatures() {
             <motion.div
               key={f.title}
               variants={item}
-              className="glass gradient-border group relative rounded-2xl overflow-hidden transition-shadow duration-500"
+              className="glass glass-static group relative rounded-2xl overflow-hidden transition-shadow duration-500"
             >
               <div className="relative z-10 p-8">
                 <div className="w-13 h-13 rounded-2xl bg-white/[0.08] flex items-center justify-center text-body group-hover:text-gold group-hover:bg-gold/10 transition-all duration-400 w-[52px] h-[52px]">

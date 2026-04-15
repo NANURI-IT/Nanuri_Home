@@ -20,7 +20,6 @@ export default function Home() {
       <main className="flex-1 relative">
         <div className="home-snap-section">
           <HeroSection />
-          <StatsCounter />
         </div>
         <div className="home-snap-section">
           <CompanySummary />
@@ -39,6 +38,7 @@ export default function Home() {
         </div>
         <div className="home-snap-section">
           <TrustFactors />
+          <StatsCounter />
         </div>
         <div className="home-snap-section">
           <TechMarquee />

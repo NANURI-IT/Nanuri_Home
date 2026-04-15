@@ -35,11 +35,11 @@ export default function ContactCTA() {
   ];
 
   return (
-    <section id="contact" className="py-28 px-6 relative overflow-hidden scroll-mt-20">
+    <section id="contact" className="py-16 md:py-28 px-6 relative overflow-hidden scroll-mt-20">
       <div className="relative max-w-4xl mx-auto">
         {/* Main CTA glass card with conic rotation bg */}
         <motion.div
-          className="glass relative rounded-2xl overflow-hidden"
+          className="glass glass-static relative rounded-2xl overflow-hidden"
           initial="hidden"
           whileInView="show"
           viewport={{ once: true, margin: "-80px" }}
@@ -145,7 +145,7 @@ export default function ContactCTA() {
                     {content}
                   </a>
                 ) : (
-                  <div className="glass rounded-2xl p-6 flex flex-col items-center gap-3 text-center h-full">
+                  <div className="glass glass-static rounded-2xl p-6 flex flex-col items-center gap-3 text-center h-full">
                     {content}
                   </div>
                 )}

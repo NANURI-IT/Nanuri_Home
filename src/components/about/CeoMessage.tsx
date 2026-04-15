@@ -9,7 +9,7 @@ const item = {
 
 export default function CeoMessage() {
   return (
-    <section className="py-24 px-6 relative overflow-hidden">
+    <section className="py-14 md:py-24 px-6 relative overflow-hidden">
       <div className="orb-float-slow absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-navy/[0.02] rounded-full blur-[100px]" />
 
       <motion.div
@@ -23,7 +23,7 @@ export default function CeoMessage() {
           className="rounded-2xl p-px overflow-hidden"
           style={{ background: "linear-gradient(135deg, rgba(0,212,255,0.2), rgba(99,102,241,0.15), rgba(16,185,129,0.15))" }}
         >
-          <div className="glass rounded-2xl p-10 sm:p-14 relative">
+          <div className="glass glass-static rounded-2xl p-10 sm:p-14 relative">
             <span className="text-xs font-semibold text-navy tracking-widest uppercase">CEO Message</span>
             <h2 className="mt-4 text-xl sm:text-2xl font-bold text-ink tracking-tight leading-snug">
               지속가능경영과 사회적 책임

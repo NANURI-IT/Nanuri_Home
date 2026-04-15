@@ -32,7 +32,7 @@ const trustItems = [
 
 export default function TrustFactors() {
   return (
-    <section className="py-24 px-6 relative overflow-hidden">
+    <section className="py-14 md:py-24 px-6 relative overflow-hidden">
       <div className="orb-float-slow absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-navy/[0.02] rounded-full blur-[100px]" />
 
       <div className="relative max-w-6xl mx-auto">
@@ -61,7 +61,7 @@ export default function TrustFactors() {
             <motion.div
               key={trustItem.title}
               variants={item}
-              className="glass gradient-border group relative rounded-2xl overflow-hidden transition-shadow duration-500"
+              className="glass glass-static group relative rounded-2xl overflow-hidden transition-shadow duration-500"
             >
               <div className="relative z-10 p-8 text-center">
                 <div className="w-14 h-14 mx-auto rounded-2xl bg-white/[0.08] flex items-center justify-center text-body group-hover:text-gold group-hover:bg-gold/10 group-hover:shadow-md group-hover:shadow-gold/25 transition-all duration-400">

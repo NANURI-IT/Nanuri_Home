@@ -61,7 +61,7 @@ const flowStages = [
 
 export default function SiLoanSystem() {
   return (
-    <section className="py-24 px-6 relative overflow-hidden">
+    <section className="py-14 md:py-24 px-6 relative overflow-hidden">
       <div className="absolute inset-0 dot-grid opacity-20" />
 
       <div className="relative max-w-6xl mx-auto">

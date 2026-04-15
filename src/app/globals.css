@@ -279,7 +279,7 @@ h1, h2, h3 {
   left: 0;
   right: 0;
   height: 1px;
-  background: linear-gradient(90deg, transparent 10%, var(--color-glass-highlight), transparent 90%);
+  background: transparent;
 }
 .glass::after {
   content: '';
@@ -296,6 +296,19 @@ h1, h2, h3 {
 }
 [data-theme="light"] .glass:hover {
   box-shadow: 0 20px 60px rgba(74, 106, 133, 0.1), 0 0 40px rgba(212, 148, 58, 0.05);
+}
+
+/* Static glass card (non-clickable, info only) - no hover effects */
+.glass-static {
+  cursor: default;
+}
+.glass-static:hover {
+  background: var(--color-glass-bg);
+  transform: none;
+  box-shadow: none;
+}
+[data-theme="light"] .glass-static:hover {
+  box-shadow: none;
 }
 
 /* Glass pill (theme toggle, badges) */

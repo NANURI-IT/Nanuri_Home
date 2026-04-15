@@ -108,7 +108,7 @@ const subAreas: SubArea[] = [
 
 export default function BusinessAreas() {
   return (
-    <section id="business" className="py-24 px-6 relative overflow-hidden scroll-mt-20">
+    <section id="business" className="py-14 md:py-24 px-6 relative overflow-hidden scroll-mt-20">
       <div className="orb-float-slow absolute -top-20 -right-20 w-80 h-80 bg-navy/[0.03] rounded-full blur-3xl" />
 
       <div className="relative max-w-6xl mx-auto">
@@ -128,8 +128,7 @@ export default function BusinessAreas() {
 
         {/* Hero: 금융 SI */}
         <motion.div
-          className="mt-16 rounded-2xl p-px overflow-hidden"
-          style={{ background: "linear-gradient(135deg, rgba(0,212,255,0.25), rgba(99,102,241,0.2), rgba(16,185,129,0.2))" }}
+          className="mt-16"
           initial="hidden"
           whileInView="show"
           viewport={{ once: true, margin: "-80px" }}
@@ -137,7 +136,7 @@ export default function BusinessAreas() {
         >
           <Link
             href={heroArea.href}
-            className="glass group rounded-2xl relative overflow-hidden block transition-shadow duration-500"
+            className="glass group rounded-2xl relative overflow-hidden block transition-all duration-500 hover:-translate-y-1"
           >
             <div className="orb-float absolute top-[10%] left-[5%] w-[300px] h-[300px] bg-white/[0.03] rounded-full blur-[100px]" />
             <div className="orb-float-reverse absolute bottom-[10%] right-[10%] w-[200px] h-[200px] bg-gold/[0.06] rounded-full blur-[80px]" />
@@ -248,7 +247,7 @@ export default function BusinessAreas() {
               <motion.div
                 key={area.title}
                 variants={item}
-                className={`${cardClass} cursor-default`}
+                className={`${cardClass} glass-static`}
               >
                 {cardInner}
               </motion.div>
