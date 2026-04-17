@@ -67,10 +67,10 @@ export default function TrustFactors() {
                 <div className="w-14 h-14 mx-auto rounded-2xl bg-white/[0.08] flex items-center justify-center text-body group-hover:text-gold group-hover:bg-gold/10 group-hover:shadow-md group-hover:shadow-gold/25 transition-all duration-400">
                   {trustItem.icon}
                 </div>
-                <h3 className="mt-6 text-[16px] font-bold text-ink leading-snug whitespace-pre-line">
+                <h3 className="mt-6 card-title font-bold text-ink leading-snug whitespace-pre-line">
                   {trustItem.title}
                 </h3>
-                <p className="mt-3 text-[13px] text-body group-hover:text-ink leading-relaxed transition-colors duration-400">
+                <p className="mt-3 card-body text-body group-hover:text-ink transition-colors duration-400">
                   {trustItem.description}
                 </p>
               </div>

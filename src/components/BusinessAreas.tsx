@@ -148,7 +148,7 @@ export default function BusinessAreas() {
                     <span className="absolute inline-flex h-full w-full rounded-full bg-gold opacity-40 animate-ping" />
                     <span className="relative inline-flex rounded-full h-2 w-2 bg-gold" />
                   </span>
-                  <span className="text-[11px] font-medium text-body">Core Business</span>
+                  <span className="card-kicker font-medium text-body">Core Business</span>
                 </div>
                 <div className="w-14 h-14 rounded-2xl bg-white/[0.08] flex items-center justify-center text-gold">
                   {heroArea.icon}
@@ -157,12 +157,12 @@ export default function BusinessAreas() {
 
               <div className="flex-1">
                 <h3 className="text-2xl md:text-3xl font-bold text-ink tracking-tight">{heroArea.title}</h3>
-                <p className="mt-1 text-[12px] text-dim tracking-wider font-medium uppercase">{heroArea.english}</p>
-                <p className="mt-5 text-[15px] text-body leading-relaxed max-w-2xl">{heroArea.description}</p>
+                <p className="mt-1 card-meta text-dim tracking-wider font-medium uppercase">{heroArea.english}</p>
+                <p className="mt-5 card-body text-body max-w-2xl">{heroArea.description}</p>
               </div>
             </div>
 
-            <span className="absolute bottom-6 right-6 md:bottom-8 md:right-8 inline-flex items-center gap-2 text-[13px] font-semibold text-gold group-hover:gap-3 transition-all duration-300">
+            <span className="absolute bottom-6 right-6 md:bottom-8 md:right-8 inline-flex items-center gap-2 card-meta font-semibold text-gold group-hover:gap-3 transition-all duration-300">
               자세히 보기
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                 <path d="M5 12h14M12 5l7 7-7 7" />
@@ -197,28 +197,28 @@ export default function BusinessAreas() {
                     aria-hidden="true"
                   />
                 </div>
-                <h3 className="sm:mt-5 text-[17px] font-bold text-ink" style={{ fontFamily: "var(--font-outfit), sans-serif" }}>
+                <h3 className="sm:mt-5 card-title font-bold text-ink" style={{ fontFamily: "var(--font-outfit), sans-serif" }}>
                   {area.title}
                 </h3>
                 <p
-                  className="mt-1 text-[10px] uppercase tracking-[0.1em] font-medium opacity-70"
+                  className="mt-1 card-kicker uppercase tracking-[0.1em] font-medium opacity-70"
                   style={{ color: area.accent, fontFamily: "var(--font-space-mono), monospace" }}
                 >
                   {area.english}
                 </p>
-                <p className="mt-4 text-[13px] text-body leading-[1.75] flex-1">
+                <p className="mt-4 card-body text-body flex-1">
                   {area.description}
                 </p>
                 {area.href ? (
                   <div className="mt-5 flex items-center justify-between">
                     <span
-                      className="inline-flex items-center gap-1.5 text-[11px] font-semibold uppercase tracking-[0.1em] opacity-0 -translate-y-1 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300"
+                      className="inline-flex items-center gap-1.5 card-kicker font-semibold uppercase tracking-[0.1em] opacity-0 -translate-y-1 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300"
                       style={{ color: area.accent, fontFamily: "var(--font-space-mono), monospace" }}
                     >
                       {area.tag}
                     </span>
                     <span
-                      className="inline-flex items-center gap-1.5 text-[12px] font-semibold group-hover:gap-2.5 transition-all duration-300"
+                      className="inline-flex items-center gap-1.5 card-meta font-semibold group-hover:gap-2.5 transition-all duration-300"
                       style={{ color: area.accent }}
                     >
                       자세히 보기
@@ -228,7 +228,7 @@ export default function BusinessAreas() {
                     </span>
                   </div>
                 ) : (
-                  <span className="mt-5 inline-flex items-center gap-1.5 text-[10px] text-dim uppercase tracking-wider">
+                  <span className="mt-5 inline-flex items-center gap-1.5 card-kicker text-dim uppercase tracking-wider">
                     <span className="w-1 h-1 rounded-full bg-dim" />
                     Coming Soon
                   </span>

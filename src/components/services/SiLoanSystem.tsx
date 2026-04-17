@@ -47,12 +47,6 @@ const flowStages = [
     color: "bg-navy",
     blocks: [
       { title: "사후 관리", items: ["조기기채관리", "감제부실인정리", "특수채권관리"] },
-    ],
-  },
-  {
-    header: "통계 / 관리정보",
-    color: "bg-navy",
-    blocks: [
       { title: "부도/연체정보", items: ["연체 정보", "부도 정보", "회수 정보"] },
       { title: "자산 건전성 분류", items: ["자산건전성분류", "대손충당금산출"] },
     ],
@@ -88,46 +82,43 @@ export default function SiLoanSystem() {
           viewport={{ once: true, margin: "-60px" }}
           variants={item}
         >
-          {/* Stage headers - horizontal flow */}
-          <div className="flex flex-wrap gap-2 mb-6">
-            {flowStages.map((stage, i) => (
-              <div key={stage.header} className="flex items-center gap-2">
-                <span className="px-4 py-1.5 bg-navy text-white text-[11px] sm:text-[12px] font-bold rounded-lg whitespace-nowrap">
-                  {stage.header}
-                </span>
-                {i < flowStages.length - 1 && (
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="text-dim shrink-0 hidden md:block">
-                    <path d="M5 12h14M12 5l7 7-7 7" />
-                  </svg>
-                )}
-              </div>
-            ))}
-          </div>
-
-          {/* Detailed blocks */}
+          {/* Flow grid — each column contains header + its blocks */}
           <motion.div
-            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4"
+            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4"
             variants={container}
             initial="hidden"
             whileInView="show"
             viewport={{ once: true, margin: "-40px" }}
           >
-            {flowStages.map((stage) => (
-              <div key={stage.header} className="space-y-3">
+            {flowStages.map((stage, i) => (
+              <div key={stage.header} className="flex flex-col gap-3">
+                {/* Stage header */}
+                <div className="flex items-center gap-2">
+                  <span className="flex-1 text-center px-4 py-2 bg-navy text-white card-title font-bold rounded-lg">
+                    {stage.header}
+                  </span>
+                  {i < flowStages.length - 1 && (
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="text-dim shrink-0 hidden lg:block">
+                      <path d="M5 12h14M12 5l7 7-7 7" />
+                    </svg>
+                  )}
+                </div>
+
+                {/* Blocks for this stage */}
                 {stage.blocks.map((block) => (
                   <motion.div
                     key={block.title}
                     variants={item}
                     className="rounded-xl border border-line/80 bg-surface p-4 hover:border-navy/20 hover:shadow-md transition-all duration-300"
                   >
-                    <h4 className="text-[12px] font-bold text-navy border-b border-line pb-2 mb-2.5">
+                    <h4 className="card-title font-bold text-navy border-b border-line pb-2 mb-3">
                       {block.title}
                     </h4>
-                    <ul className="space-y-1.5">
+                    <ul className="space-y-2">
                       {block.items.map((li) => (
-                        <li key={li} className="flex items-start gap-2">
-                          <span className="mt-1.5 w-1 h-1 rounded-full bg-gold shrink-0" />
-                          <span className="text-[11px] text-body leading-relaxed">{li}</span>
+                        <li key={li} className="flex items-start gap-2.5">
+                          <span className="mt-2 w-1.5 h-1.5 rounded-full bg-gold shrink-0" />
+                          <span className="card-body text-body">{li}</span>
                         </li>
                       ))}
                     </ul>

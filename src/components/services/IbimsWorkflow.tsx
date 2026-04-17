@@ -1,8 +1,8 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
+import ZoomableImage from "@/components/ui/ZoomableImage";
 
 const item = {
   hidden: { opacity: 0, y: 32 },
@@ -30,22 +30,18 @@ export default function IbimsWorkflow() {
         </motion.div>
 
         <motion.div
-          className="glass mt-14 rounded-2xl overflow-hidden p-5 sm:p-10"
+          className="glass mt-14 rounded-2xl overflow-hidden p-3 sm:p-10"
           initial="hidden"
           whileInView="show"
           viewport={{ once: true, margin: "-60px" }}
           variants={item}
         >
-          <div className="relative w-full bg-white rounded-xl overflow-hidden p-4">
-            <Image
-              src={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/images/ibims-workflow.webp`}
-              alt="IBIMS 업무 구성도 - Deal 소싱부터 성과관리까지 전 과정"
-              width={1600}
-              height={1200}
-              className="w-full h-auto"
-              priority={false}
-            />
-          </div>
+          <ZoomableImage
+            src={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/images/ibims-workflow.webp`}
+            alt="IBIMS 업무 구성도 - Deal 소싱부터 성과관리까지 전 과정"
+            width={1600}
+            height={1200}
+          />
         </motion.div>
 
         {/* CTA */}

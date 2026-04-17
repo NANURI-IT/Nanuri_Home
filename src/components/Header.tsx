@@ -24,6 +24,7 @@ export default function Header() {
   const [scrolled, setScrolled] = useState(false);
   const bizRef = useRef<HTMLDivElement>(null);
   const mobileMenuBtnRef = useRef<HTMLButtonElement>(null);
+  const mobileMenuRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 80);
@@ -52,6 +53,28 @@ export default function Header() {
     };
   }, [bizOpen]);
 
+  // Outside click / ESC close for mobile menu
+  useEffect(() => {
+    if (!mobileOpen) return;
+    const onDown = (e: MouseEvent | TouchEvent) => {
+      const target = e.target as Node;
+      if (mobileMenuRef.current?.contains(target)) return;
+      if (mobileMenuBtnRef.current?.contains(target)) return;
+      setMobileOpen(false);
+    };
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") closeMobileMenu();
+    };
+    document.addEventListener("mousedown", onDown);
+    document.addEventListener("touchstart", onDown);
+    document.addEventListener("keydown", onKey);
+    return () => {
+      document.removeEventListener("mousedown", onDown);
+      document.removeEventListener("touchstart", onDown);
+      document.removeEventListener("keydown", onKey);
+    };
+  }, [mobileOpen]);
+
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
@@ -78,7 +101,7 @@ export default function Header() {
             />
           </span>
           <span
-            className="text-xl font-bold tracking-tight bg-clip-text text-transparent"
+            className="text-2xl font-bold tracking-tight bg-clip-text text-transparent"
             style={{
               backgroundImage: "linear-gradient(135deg, var(--color-logo-from), var(--color-logo-to))",
               fontFamily: "var(--font-outfit), sans-serif",
@@ -103,7 +126,7 @@ export default function Header() {
               onClick={() => setBizOpen((v) => !v)}
               aria-haspopup="menu"
               aria-expanded={bizOpen}
-              className="nav-text flex items-center gap-1 px-4 py-2 text-[14px] font-medium transition-colors duration-300 focus:outline-none focus-visible:text-[color:var(--color-accent-cyan)]"
+              className="nav-text flex items-center gap-1 px-4 py-2 text-[17px] font-medium transition-colors duration-300 focus:outline-none focus-visible:text-[color:var(--color-accent-cyan)]"
               style={{ color: "var(--color-text-muted)" }}
             >
               <span className="hover:text-[color:var(--color-accent-cyan)]">사업영역</span>
@@ -124,7 +147,7 @@ export default function Header() {
 
             {bizOpen && (
               <div className="absolute left-1/2 -translate-x-1/2 top-full pt-3">
-                <div className="dropdown-panel w-[300px] overflow-hidden rounded-2xl border">
+                <div className="dropdown-panel w-[340px] overflow-hidden rounded-2xl border">
                   <div className="p-2">
                     <Link
                       href="/#business"
@@ -133,9 +156,9 @@ export default function Header() {
                       style={{ borderColor: "var(--color-glass-border)" }}
                     >
                       <div>
-                        <p className="text-[13px] font-semibold text-ink">All Service</p>
+                        <p className="text-[16px] font-semibold text-ink">All Service</p>
                         <p
-                          className="text-[10px] tracking-[0.08em] uppercase"
+                          className="text-[12px] tracking-[0.08em] uppercase"
                           style={{
                             color: "var(--color-accent-cyan)",
                             fontFamily: "var(--font-space-mono), monospace",
@@ -167,9 +190,9 @@ export default function Header() {
                         className="dropdown-item flex items-center justify-between gap-3 px-3 py-2.5 rounded-lg group transition-colors duration-200"
                       >
                         <div>
-                          <p className="text-[13px] font-semibold text-ink">{s.label}</p>
+                          <p className="text-[16px] font-semibold text-ink">{s.label}</p>
                           <p
-                            className="text-[10px] tracking-[0.08em] uppercase"
+                            className="text-[12px] tracking-[0.08em] uppercase"
                             style={{
                               color: "var(--color-accent-cyan)",
                               fontFamily: "var(--font-space-mono), monospace",
@@ -208,7 +231,7 @@ export default function Header() {
         <div className="flex items-center gap-3">
           <Link
             href="/contact"
-            className="hidden sm:inline-flex items-center px-5 py-2 rounded-full text-[12px] font-bold tracking-wide transition-all duration-300 hover:-translate-y-0.5"
+            className="hidden sm:inline-flex items-center px-5 py-2 rounded-full text-[15px] font-bold tracking-wide transition-all duration-300 hover:-translate-y-0.5"
             style={{
               background: "linear-gradient(135deg, var(--color-accent-cyan), var(--color-accent-indigo))",
               color: "#000",
@@ -237,13 +260,13 @@ export default function Header() {
 
       {/* Mobile menu */}
       {mobileOpen && (
-        <nav className="dropdown-panel md:hidden px-6 py-3 max-h-[80vh] overflow-y-auto border-t">
-          <Link href="/about" className="block py-3 text-sm" style={{ color: "var(--color-text-muted)" }} onClick={closeMobileMenu}>
+        <nav ref={mobileMenuRef} className="dropdown-panel md:hidden px-6 py-3 max-h-[80vh] overflow-y-auto border-t">
+          <Link href="/about" className="block py-3 text-[17px]" style={{ color: "var(--color-text-muted)" }} onClick={closeMobileMenu}>
             회사소개
           </Link>
 
           <button
-            className="w-full flex items-center justify-between py-3 text-sm"
+            className="w-full flex items-center justify-between py-3 text-[17px]"
             style={{ color: "var(--color-text-muted)" }}
             onClick={() => setMobileBizOpen(!mobileBizOpen)}
           >
@@ -256,7 +279,7 @@ export default function Header() {
             <div className="pl-4 pb-2 border-l-2 ml-1 space-y-2" style={{ borderColor: "var(--color-glass-border)" }}>
               <Link
                 href="/#business"
-                className="block py-2 text-[13px] font-semibold"
+                className="block py-2 text-[16px] font-semibold"
                 style={{ color: "var(--color-accent-cyan)" }}
                 onClick={closeMobileMenu}
               >
@@ -266,7 +289,7 @@ export default function Header() {
                 <Link
                   key={s.href}
                   href={s.href}
-                  className="block py-2 text-[13px]"
+                  className="block py-2 text-[20px]"
                   style={{ color: "var(--color-text-muted)" }}
                   onClick={closeMobileMenu}
                 >
@@ -276,16 +299,16 @@ export default function Header() {
             </div>
           )}
 
-          <Link href="/services/ibims" className="block py-3 text-sm" style={{ color: "var(--color-text-muted)" }} onClick={closeMobileMenu}>
+          <Link href="/services/ibims" className="block py-3 text-[17px]" style={{ color: "var(--color-text-muted)" }} onClick={closeMobileMenu}>
             솔루션
           </Link>
-          <Link href="/about#history" className="block py-3 text-sm" style={{ color: "var(--color-text-muted)" }} onClick={closeMobileMenu}>
+          <Link href="/about#history" className="block py-3 text-[17px]" style={{ color: "var(--color-text-muted)" }} onClick={closeMobileMenu}>
             구축사례
           </Link>
 
           <Link
             href="/contact"
-            className="block mt-2 mb-2 text-center py-3 text-sm font-bold rounded-full"
+            className="block mt-2 mb-2 text-center py-3 text-[17px] font-bold rounded-full"
             style={{
               background: "linear-gradient(135deg, var(--color-accent-cyan), var(--color-accent-indigo))",
               color: "#000",
@@ -304,7 +327,7 @@ function NavLink({ href, children }: { href: string; children: React.ReactNode }
   return (
     <Link
       href={href}
-      className="nav-text relative px-4 py-2 text-[14px] font-medium transition-colors duration-300 group"
+      className="nav-text relative px-4 py-2 text-[17px] font-medium transition-colors duration-300 group"
       style={{ color: "var(--color-text-muted)" }}
     >
       <span className="group-hover:text-[color:var(--color-accent-cyan)] transition-colors">{children}</span>

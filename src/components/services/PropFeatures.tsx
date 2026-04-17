@@ -78,12 +78,12 @@ export default function PropFeatures() {
                 <div className="w-13 h-13 rounded-2xl bg-white/[0.08] flex items-center justify-center text-body group-hover:text-gold group-hover:bg-gold/10 transition-all duration-400 w-[52px] h-[52px]">
                   {f.icon}
                 </div>
-                <h3 className="mt-6 text-[17px] font-bold text-ink">{f.title}</h3>
+                <h3 className="mt-6 card-title font-bold text-ink">{f.title}</h3>
                 <ul className="mt-5 space-y-3">
                   {f.desc.map((d) => (
                     <li key={d} className="flex items-start gap-3">
                       <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-gold/60 shrink-0" />
-                      <span className="text-[13px] text-body leading-relaxed">{d}</span>
+                      <span className="card-body text-body">{d}</span>
                     </li>
                   ))}
                 </ul>

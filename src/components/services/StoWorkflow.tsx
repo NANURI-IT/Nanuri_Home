@@ -62,13 +62,13 @@ const bizChannel = [
 function PillGroup({ title, subs, accent = false }: { title: string; subs: string[]; accent?: boolean }) {
   return (
     <div className="flex flex-col items-center">
-      <div className={`w-full text-center px-4 py-2.5 rounded-xl mb-3 ${accent ? "bg-gold" : "bg-navy/70"}`}>
-        <span className="text-[12px] font-bold text-white">{title}</span>
+      <div className={`w-full text-center px-4 py-3 rounded-xl mb-3 ${accent ? "bg-gold" : "bg-navy/70"}`}>
+        <span className="card-body font-bold text-white">{title}</span>
       </div>
       <div className="flex flex-col gap-1.5 w-full">
         {subs.map((s) => (
-          <div key={s} className="text-center px-3 py-2 bg-surface rounded-xl border border-line/50 hover:border-navy/20 hover:shadow-sm transition-all duration-300">
-            <span className="text-[11px] text-body">{s}</span>
+          <div key={s} className="text-center px-3 py-2.5 bg-surface rounded-xl border border-line/50 hover:border-navy/20 hover:shadow-sm transition-all duration-300">
+            <span className="card-meta text-body">{s}</span>
           </div>
         ))}
       </div>
@@ -105,8 +105,8 @@ export default function StoWorkflow() {
           viewport={{ once: true, margin: "-60px" }}
           variants={item}
         >
-          <div className="bg-navy rounded-xl px-6 py-3 mb-6 text-center">
-            <span className="text-[15px] font-bold text-white">토큰증권 업무 구성도</span>
+          <div className="bg-navy rounded-xl px-6 py-3.5 mb-6 text-center">
+            <span className="card-title font-bold text-white">토큰증권 업무 구성도</span>
           </div>
 
           <motion.div
@@ -132,8 +132,8 @@ export default function StoWorkflow() {
           viewport={{ once: true, margin: "-60px" }}
           variants={item}
         >
-          <div className="bg-gold rounded-xl px-6 py-3 mb-6 text-center max-w-xs mx-auto">
-            <span className="text-[15px] font-bold text-white">토큰증권 채널</span>
+          <div className="bg-gold rounded-xl px-6 py-3.5 mb-6 text-center max-w-xs mx-auto">
+            <span className="card-title font-bold text-white">토큰증권 채널</span>
           </div>
 
           <motion.div

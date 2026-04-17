@@ -79,11 +79,11 @@ export default function ContactInfo() {
               </div>
               <div>
                 <p
-                  className="text-[12px] font-semibold text-body uppercase tracking-wider"
+                  className="card-meta font-semibold text-body uppercase tracking-wider"
                 >
                   {info.label}
                 </p>
-                <p className="mt-1 text-[13px] text-ink font-medium whitespace-pre-line">
+                <p className="mt-1 card-body text-ink font-medium whitespace-pre-line">
                   {info.value}
                 </p>
               </div>

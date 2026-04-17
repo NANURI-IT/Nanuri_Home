@@ -1,8 +1,8 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
+import ZoomableImage from "@/components/ui/ZoomableImage";
 
 const item = {
   hidden: { opacity: 0, y: 32 },
@@ -31,22 +31,18 @@ export default function AcctWorkflow() {
         </motion.div>
 
         <motion.div
-          className="glass mt-14 rounded-2xl p-5 sm:p-10"
+          className="glass mt-14 rounded-2xl p-3 sm:p-10"
           initial="hidden"
           whileInView="show"
           viewport={{ once: true, margin: "-60px" }}
           variants={item}
         >
-          <div className="relative w-full bg-white rounded-xl overflow-hidden p-4">
-            <Image
-              src={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/images/acct-workflow.webp`}
-              alt="회계 시스템 업무 구성도 - 계정계, 회계시스템, 관리회계, 세무회계, 재무회계, 자금관리, 고정자산, 예산관리"
-              width={1200}
-              height={1500}
-              className="w-full h-auto"
-              priority={false}
-            />
-          </div>
+          <ZoomableImage
+            src={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/images/acct-workflow.webp`}
+            alt="회계 시스템 업무 구성도 - 계정계, 회계시스템, 관리회계, 세무회계, 재무회계, 자금관리, 고정자산, 예산관리"
+            width={1200}
+            height={1500}
+          />
         </motion.div>
 
         {/* CTA */}

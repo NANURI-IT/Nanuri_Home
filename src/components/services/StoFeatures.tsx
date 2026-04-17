@@ -72,8 +72,8 @@ export default function StoFeatures() {
                 <div className="w-12 h-12 rounded-2xl bg-white/[0.08] flex items-center justify-center text-body group-hover:text-gold group-hover:bg-gold/10 transition-all duration-400">
                   {f.icon}
                 </div>
-                <h3 className="mt-5 text-[16px] font-bold text-ink">{f.title}</h3>
-                <p className="mt-3 text-[13px] text-body leading-relaxed">{f.desc}</p>
+                <h3 className="mt-5 card-title font-bold text-ink">{f.title}</h3>
+                <p className="mt-3 card-body text-body">{f.desc}</p>
               </div>
             </motion.div>
           ))}

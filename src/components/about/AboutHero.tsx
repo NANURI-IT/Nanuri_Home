@@ -29,12 +29,12 @@ export default function AboutHero() {
           <span className="gradient-text">전문 파트너</span>
         </h1>
 
-        <p className="mt-6 text-[15px] sm:text-base text-body leading-relaxed max-w-xl mx-auto">
+        <p className="mt-6 text-[17px] sm:text-[18px] text-body leading-relaxed max-w-xl mx-auto">
           수십 년간 금융권에서 쌓아온 깊은 개발 경험과 전문성을 바탕으로,
           최고의 금융 IT 솔루션을 제공합니다.
         </p>
 
-        <p className="mt-3 text-[14px] text-dim">
+        <p className="mt-3 text-[16px] text-dim">
           신뢰할 수 있는 전문가와 혁신적인 전문 개발진이 함께합니다.
         </p>
       </motion.div>

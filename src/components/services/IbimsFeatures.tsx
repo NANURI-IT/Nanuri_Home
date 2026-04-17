@@ -1,7 +1,7 @@
 "use client";
 
-import Image from "next/image";
 import { motion } from "framer-motion";
+import ZoomableImage from "@/components/ui/ZoomableImage";
 
 const item = {
   hidden: { opacity: 0, y: 32 },
@@ -30,22 +30,18 @@ export default function IbimsFeatures() {
         </motion.div>
 
         <motion.div
-          className="glass mt-14 rounded-2xl overflow-hidden p-5 sm:p-10"
+          className="glass mt-14 rounded-2xl overflow-hidden p-3 sm:p-10"
           initial="hidden"
           whileInView="show"
           viewport={{ once: true, margin: "-60px" }}
           variants={item}
         >
-          <div className="relative w-full bg-white rounded-xl overflow-hidden p-4">
-            <Image
-              src={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/images/ibims-features.webp`}
-              alt="IBIMS 특장점 - IB/PI Deal 관리, Deal 실행 및 투자자산 관리, IB/PI 투자자산 관리"
-              width={1600}
-              height={900}
-              className="w-full h-auto"
-              priority={false}
-            />
-          </div>
+          <ZoomableImage
+            src={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/images/ibims-features.webp`}
+            alt="IBIMS 특장점 - IB/PI Deal 관리, Deal 실행 및 투자자산 관리, IB/PI 투자자산 관리"
+            width={1600}
+            height={900}
+          />
         </motion.div>
       </div>
     </section>

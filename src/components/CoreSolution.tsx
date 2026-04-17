@@ -152,7 +152,7 @@ export default function CoreSolution() {
               <span className="gradient-text">IBIMS</span>
             </h2>
 
-            <p className="mt-5 text-[15px] text-body leading-relaxed max-w-md">
+            <p className="mt-5 text-[17px] text-body leading-relaxed max-w-md">
               투자은행 업무와 관련한 일체의 영업활동을 지원하는 토탈 솔루션
             </p>
 
@@ -170,7 +170,7 @@ export default function CoreSolution() {
                       <path d="M20 6L9 17l-5-5" />
                     </svg>
                   </span>
-                  <span className="text-[14px] text-body leading-relaxed">{text}</span>
+                  <span className="card-body text-body">{text}</span>
                 </li>
               ))}
             </ul>

@@ -29,7 +29,7 @@ export default function CeoMessage() {
               지속가능경영과 사회적 책임
             </h2>
 
-            <div className="mt-8 space-y-4 text-[14px] sm:text-[15px] text-body leading-[1.85]">
+            <div className="mt-8 space-y-4 card-body text-body">
               <p>
                 회사는 사회적 책임을 기업 경영의 중요한 기준으로 삼고 있습니다.
                 우리는 준법과 윤리를 바탕으로 환경과 사회에 대한 책임을 성실히 이행하겠습니다.
@@ -47,8 +47,8 @@ export default function CeoMessage() {
                 </svg>
               </div>
               <div>
-                <p className="text-[15px] font-bold text-ink">신미선</p>
-                <p className="text-[12px] text-dim">나누리아이티 대표이사</p>
+                <p className="card-body font-bold text-ink">신미선</p>
+                <p className="card-meta text-dim">나누리아이티 대표이사</p>
               </div>
             </div>
           </div>

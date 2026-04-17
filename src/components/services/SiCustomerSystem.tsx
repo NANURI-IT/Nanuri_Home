@@ -69,9 +69,9 @@ export default function SiCustomerSystem() {
         >
           {/* Center hub */}
           <div className="flex justify-center mb-10">
-            <div className="w-28 h-28 rounded-full bg-navy/10 border-2 border-navy/20 flex flex-col items-center justify-center">
-              <span className="text-[13px] font-bold text-ink">고객정보</span>
-              <span className="text-[11px] text-navy font-medium">Life Cycle</span>
+            <div className="w-32 h-32 rounded-full bg-navy/10 border-2 border-navy/20 flex flex-col items-center justify-center">
+              <span className="card-body font-bold text-ink">고객정보</span>
+              <span className="card-body text-navy font-medium">Life Cycle</span>
             </div>
           </div>
 
@@ -92,8 +92,8 @@ export default function SiCustomerSystem() {
                 <div className="w-10 h-10 mx-auto rounded-xl bg-raised flex items-center justify-center text-navy group-hover:bg-navy group-hover:text-white transition-all duration-300">
                   {a.icon}
                 </div>
-                <h3 className="mt-3 text-[13px] font-bold text-ink">{a.title}</h3>
-                <p className="mt-1.5 text-[11px] text-body leading-relaxed">{a.desc}</p>
+                <h3 className="mt-3 card-body font-bold text-ink">{a.title}</h3>
+                <p className="mt-1.5 card-body text-body">{a.desc}</p>
               </motion.div>
             ))}
           </motion.div>

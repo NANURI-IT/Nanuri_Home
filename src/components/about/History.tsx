@@ -164,7 +164,7 @@ export default function History() {
         >
           <span className="text-xs font-semibold text-navy tracking-widest uppercase">History</span>
           <h2 className="mt-3 text-2xl md:text-[32px] font-bold text-ink tracking-tight">나누리아이티 연혁</h2>
-          <p className="mt-4 text-[15px] text-body max-w-lg mx-auto leading-relaxed">
+          <p className="mt-4 text-[17px] text-body max-w-lg mx-auto leading-relaxed">
             나누리아이티는 오늘도 고객의 성공을 만들어 가고 있습니다.
           </p>
         </motion.div>
@@ -199,7 +199,7 @@ export default function History() {
                   }}
                 >
                   <span
-                    className="text-[13px] font-bold text-black"
+                    className="card-meta font-bold text-black"
                     style={{ fontFamily: "var(--font-space-mono), monospace" }}
                   >
                     {group.year}
@@ -224,7 +224,7 @@ export default function History() {
                         boxShadow: "0 0 8px rgba(0, 212, 255, 0.5)",
                       }}
                     />
-                    <p className={`text-[13px] sm:text-[14px] leading-relaxed ${isBoldLine(text) ? "font-bold text-ink" : "text-body"}`}>{text}</p>
+                    <p className={`card-body ${isBoldLine(text) ? "font-bold text-ink" : "text-body"}`}>{text}</p>
                   </div>
                 ))}
               </div>

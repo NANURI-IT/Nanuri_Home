@@ -73,8 +73,8 @@ export default function Location() {
                 {info.icon}
               </div>
               <div>
-                <p className="text-[12px] font-medium text-dim uppercase tracking-wider">{info.label}</p>
-                <p className="mt-1 text-[13px] text-ink font-medium whitespace-pre-line">{info.value}</p>
+                <p className="card-meta font-medium text-dim uppercase tracking-wider">{info.label}</p>
+                <p className="mt-1 card-body text-ink font-medium whitespace-pre-line">{info.value}</p>
               </div>
             </div>
           ))}

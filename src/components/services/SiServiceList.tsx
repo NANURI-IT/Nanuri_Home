@@ -57,7 +57,7 @@ export default function SiServiceList() {
               <div className="relative z-10 px-5 py-4 flex items-center gap-3">
                 <span className="w-1.5 h-1.5 rounded-full bg-gold shrink-0" />
                 <span
-                  className="text-[13px] sm:text-[14px] font-medium text-ink transition-colors duration-300"
+                  className="card-body font-medium text-ink transition-colors duration-300"
                   style={{ }}
                 >
                   <span className="group-hover:text-[color:var(--color-accent-cyan)] transition-colors">{service}</span>

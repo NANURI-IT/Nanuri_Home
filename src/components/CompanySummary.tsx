@@ -87,14 +87,14 @@ export default function CompanySummary() {
               className="glass glass-static group relative rounded-2xl overflow-hidden transition-shadow duration-500"
             >
               <div className="relative z-10 p-7">
-                <span className="absolute top-5 right-5 text-[11px] font-mono text-dim">
+                <span className="absolute top-5 right-5 card-kicker font-mono text-dim">
                   {String(i + 1).padStart(2, "0")}
                 </span>
                 <div className="hidden sm:flex w-12 h-12 rounded-xl bg-white/[0.08] items-center justify-center text-body group-hover:text-gold group-hover:bg-gold/10 group-hover:shadow-md group-hover:shadow-gold/25 transition-all duration-400">
                   {cardItem.icon}
                 </div>
-                <h3 className="mt-5 text-[15px] font-semibold text-white">{cardItem.title}</h3>
-                <p className="mt-2.5 text-[13px] text-body leading-relaxed group-hover:text-ink transition-colors duration-400">
+                <h3 className="mt-5 card-body font-semibold text-white">{cardItem.title}</h3>
+                <p className="mt-2.5 card-body text-body group-hover:text-ink transition-colors duration-400">
                   {cardItem.description}
                 </p>
               </div>

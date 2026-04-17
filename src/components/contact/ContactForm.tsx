@@ -23,7 +23,7 @@ const serviceOptions = [
 ];
 
 const inputBaseClass =
-  "w-full rounded-xl px-4 py-3 text-[14px] text-ink placeholder:text-body border outline-none transition-all duration-200";
+  "w-full rounded-xl px-4 py-3 card-body text-ink placeholder:text-body border outline-none transition-all duration-200";
 
 const inputStyle = {
   background: "var(--color-card)",
@@ -107,14 +107,14 @@ export default function ContactForm() {
             <h3 className="text-xl font-bold text-ink">
               기본 메일 앱이 설정되어 있지 않습니다
             </h3>
-            <p className="mt-3 text-[14px] text-body max-w-sm leading-relaxed">
+            <p className="mt-3 card-body text-body max-w-sm">
               개인 메일로 상담 요청 부탁드립니다.
             </p>
             <div className="mt-6 flex items-center gap-2">
-              <span className="text-[14px] font-medium text-ink">{EMAIL}</span>
+              <span className="card-body font-medium text-ink">{EMAIL}</span>
               <button
                 onClick={handleCopy}
-                className="inline-flex items-center gap-1.5 px-4 py-2 rounded-lg text-[13px] font-medium transition-all duration-200"
+                className="inline-flex items-center gap-1.5 px-4 py-2 rounded-lg card-meta font-medium transition-all duration-200"
                 style={{
                   background: copied
                     ? "rgba(16, 185, 129, 0.15)"
@@ -157,7 +157,7 @@ export default function ContactForm() {
               </svg>
             </div>
             <h3 className="text-xl font-bold text-ink">메일 앱이 열렸습니다</h3>
-            <p className="mt-3 text-[14px] text-body max-w-sm leading-relaxed">
+            <p className="mt-3 card-body text-body max-w-sm">
               메일 앱에서 내용을 확인하시고 전송해주세요.
               <br />
               감사합니다.
@@ -171,7 +171,7 @@ export default function ContactForm() {
             setCopied(false);
             setForm({ company: "", name: "", phone: "", service: "", message: "" });
           }}
-          className="mt-8 text-[13px] font-medium transition-colors"
+          className="mt-8 card-meta font-medium transition-colors"
           style={{ color: "var(--color-accent-cyan)" }}
         >
           새 문의 작성하기
@@ -191,7 +191,7 @@ export default function ContactForm() {
     >
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
         <div>
-          <label htmlFor="company" className="block text-[12px] font-semibold text-body mb-1.5 uppercase tracking-wider">
+          <label htmlFor="company" className="block card-meta font-semibold text-body mb-1.5 uppercase tracking-wider">
             회사명 <span style={{ color: "var(--color-accent-rose)" }}>*</span>
           </label>
           <input
@@ -206,7 +206,7 @@ export default function ContactForm() {
           />
         </div>
         <div>
-          <label htmlFor="name" className="block text-[12px] font-semibold text-body mb-1.5 uppercase tracking-wider">
+          <label htmlFor="name" className="block card-meta font-semibold text-body mb-1.5 uppercase tracking-wider">
             담당자명 <span style={{ color: "var(--color-accent-rose)" }}>*</span>
           </label>
           <input
@@ -224,7 +224,7 @@ export default function ContactForm() {
 
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
         <div>
-          <label htmlFor="phone" className="block text-[12px] font-semibold text-body mb-1.5 uppercase tracking-wider">
+          <label htmlFor="phone" className="block card-meta font-semibold text-body mb-1.5 uppercase tracking-wider">
             연락처 <span style={{ color: "var(--color-accent-rose)" }}>*</span>
           </label>
           <input
@@ -239,7 +239,7 @@ export default function ContactForm() {
           />
         </div>
         <div>
-          <label htmlFor="service" className="block text-[12px] font-semibold text-body mb-1.5 uppercase tracking-wider">
+          <label htmlFor="service" className="block card-meta font-semibold text-body mb-1.5 uppercase tracking-wider">
             관심 서비스 <span style={{ color: "var(--color-accent-rose)" }}>*</span>
           </label>
           <select
@@ -263,7 +263,7 @@ export default function ContactForm() {
       </div>
 
       <div>
-        <label htmlFor="message" className="block text-[12px] font-semibold text-body mb-1.5 uppercase tracking-wider">
+        <label htmlFor="message" className="block card-meta font-semibold text-body mb-1.5 uppercase tracking-wider">
           메시지
         </label>
         <textarea
@@ -279,7 +279,7 @@ export default function ContactForm() {
 
       <button
         type="submit"
-        className="group mt-2 w-full inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full text-[14px] font-bold transition-all duration-300 hover:-translate-y-0.5"
+        className="group mt-2 w-full inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full card-body font-bold transition-all duration-300 hover:-translate-y-0.5"
         style={{
           background: "linear-gradient(135deg, var(--color-accent-cyan), var(--color-accent-indigo))",
           color: "#000",

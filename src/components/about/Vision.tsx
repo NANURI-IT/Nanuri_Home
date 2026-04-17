@@ -48,10 +48,10 @@ export default function Vision() {
               variants={slideLeft}
             >
               <h3 className="text-2xl md:text-3xl font-bold text-ink tracking-tight">창조적인 혁신</h3>
-              <p className="mt-2 text-[13px] text-dim tracking-wide">
+              <p className="mt-2 card-body text-dim tracking-wide">
                 일상의 모든 순간, 더 나은 금융을 위한 IT 기업
               </p>
-              <p className="mt-6 text-[15px] text-body leading-relaxed">
+              <p className="mt-6 card-body text-body">
                 금융에 필요한 모든 솔루션을 개발하는 나누리아이티는 고객의 비즈니스에 맞춘
                 최적의 서비스를 제공하고, 지속적인 기술 개발을 통해 세계 최고의 금융 IT 기업이 되고자 합니다.
               </p>
@@ -65,7 +65,7 @@ export default function Vision() {
               className="flex items-center justify-center"
             >
               <div className="p-8 rounded-2xl bg-white/[0.06] border border-white/[0.08]">
-                <p className="text-lg sm:text-xl font-bold text-ink leading-relaxed italic text-center">
+                <p className="text-2xl sm:text-3xl font-bold text-ink leading-relaxed italic text-center">
                   &ldquo;We Create new finance with
                   <br />
                   <span className="text-gold">Creative ideas</span> and <span className="text-gold">innovation</span>&rdquo;

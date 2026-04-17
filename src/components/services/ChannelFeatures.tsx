@@ -111,7 +111,7 @@ export default function ChannelFeatures() {
                   <div className="w-20 h-20 rounded-full border-2 border-navy/20 bg-navy/5 flex items-center justify-center text-navy">
                     {f.icon}
                   </div>
-                  <h3 className="mt-3 text-[13px] font-bold text-navy leading-snug whitespace-pre-line">
+                  <h3 className="mt-3 card-meta font-bold text-navy leading-snug whitespace-pre-line">
                     {f.title}
                   </h3>
                 </div>
@@ -121,7 +121,7 @@ export default function ChannelFeatures() {
                   {f.bullets.map((b, i) => (
                     <li key={i} className="flex items-start gap-2.5">
                       <span className="mt-2 w-1.5 h-1.5 rounded-full bg-gold shrink-0" />
-                      <span className="text-[13px] text-body leading-relaxed">{b}</span>
+                      <span className="card-body text-body">{b}</span>
                     </li>
                   ))}
                 </ul>

@@ -59,7 +59,7 @@ export default function Mission() {
             <br className="hidden sm:block" />
             <span className="gradient-text">IT 파트너</span>
           </h2>
-          <p className="mt-4 text-[15px] text-body max-w-2xl mx-auto leading-relaxed">
+          <p className="mt-4 text-[17px] md:text-[15px] text-body max-w-2xl mx-auto leading-relaxed">
             기술로 금융을 혁신하고, 가치로 미래를 연결하며, 경험을 바탕으로 변화를 선도합니다.
             정확한 기술, 신뢰받는 솔루션을 제공하며, 금융을 더 안전하게 기술을 더 앞서가는 전문 IT 기업입니다.
           </p>
@@ -83,7 +83,7 @@ export default function Mission() {
                   {v.icon}
                 </div>
                 <h3 className="mt-6 text-[16px] font-bold text-ink leading-snug">{v.title}</h3>
-                <p className="mt-3 text-[13px] text-body leading-relaxed">{v.desc}</p>
+                <p className="mt-3 card-body text-body">{v.desc}</p>
               </div>
             </motion.div>
           ))}

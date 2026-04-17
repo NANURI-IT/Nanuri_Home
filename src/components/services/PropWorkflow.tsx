@@ -15,7 +15,7 @@ const container = {
 
 const products = [
   "국내/해외 주식", "원화/외화 채권", "국내/해외 선물",
-  "장외 파생", "장외 주식/채권", "CD", "CP", "RP",
+  "장외 파생", "장외 주식/채권", "CD/CP/RP",
 ];
 
 const bizBlocks = [
@@ -112,24 +112,24 @@ export default function PropWorkflow() {
         >
           {/* Top title bar */}
           <div className="flex flex-col lg:flex-row gap-4 mb-6">
-            <div className="flex-1 text-center py-2.5 bg-navy rounded-lg">
-              <span className="text-[13px] font-bold text-white">고유자산 업무 구성도</span>
+            <div className="flex-1 text-center py-3 bg-navy rounded-lg">
+              <span className="card-body font-bold text-white">고유자산 업무 구성도</span>
             </div>
-            <div className="lg:w-32 text-center py-2.5 bg-navy rounded-lg">
-              <span className="text-[13px] font-bold text-white">대외기관</span>
+            <div className="lg:w-36 text-center py-3 bg-navy rounded-lg">
+              <span className="card-body font-bold text-white">대외기관</span>
             </div>
           </div>
 
           {/* Main 3-column row */}
           <div className="flex flex-col lg:flex-row gap-4 items-stretch">
             {/* Left: 고유상품 */}
-            <div className="lg:w-28 shrink-0 space-y-2">
+            <div className="lg:w-32 shrink-0 space-y-2">
               <div className="text-center py-2 bg-surface rounded-lg border border-line">
-                <span className="text-[11px] font-bold text-ink">고유상품</span>
+                <span className="card-meta font-bold text-ink">고유상품</span>
               </div>
               {products.map((p) => (
-                <div key={p} className="text-center py-1.5 bg-surface rounded-lg border border-line/60">
-                  <span className="text-[10px] text-body">{p}</span>
+                <div key={p} className="text-center py-2 bg-surface rounded-lg border border-line/60">
+                  <span className="card-meta text-body">{p}</span>
                 </div>
               ))}
             </div>
@@ -144,8 +144,8 @@ export default function PropWorkflow() {
               viewport={{ once: true, margin: "-40px" }}
             >
               <div className="rounded-2xl bg-surface/50 p-4 sm:p-5 h-full">
-                <div className="text-center py-2 bg-navy/10 border border-navy/20 rounded-lg mb-4">
-                  <span className="text-[13px] font-bold text-navy">고유자산 업무</span>
+                <div className="text-center py-2.5 bg-navy/10 border border-navy/20 rounded-lg mb-4">
+                  <span className="card-body font-bold text-navy">고유자산 업무</span>
                 </div>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
@@ -155,14 +155,14 @@ export default function PropWorkflow() {
                       variants={item}
                       className="glass rounded-xl p-4 transition-all duration-300"
                     >
-                      <h4 className="text-[12px] font-bold text-white bg-navy/75 rounded-lg px-3 py-1.5 mb-3 text-center">
+                      <h4 className="card-meta font-bold text-white bg-navy/75 rounded-lg px-3 py-2 mb-3 text-center">
                         {block.title}
                       </h4>
-                      <ul className="space-y-1.5">
+                      <ul className="space-y-2">
                         {block.items.map((li, i) => (
                           <li key={i} className="flex items-start gap-2">
-                            <span className="mt-1.5 w-1 h-1 rounded-full bg-gold shrink-0" />
-                            <span className="text-[10px] sm:text-[11px] text-body leading-relaxed">{li}</span>
+                            <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-gold shrink-0" />
+                            <span className="card-meta text-body">{li}</span>
                           </li>
                         ))}
                       </ul>
@@ -180,13 +180,13 @@ export default function PropWorkflow() {
             </div>
 
             {/* Right: 대외기관 */}
-            <div className="lg:w-28 shrink-0 flex lg:flex-col flex-row flex-wrap gap-2 items-center justify-center">
+            <div className="lg:w-32 shrink-0 flex lg:flex-col flex-row flex-wrap gap-2 items-center justify-center">
               {externalOrgs.map((org) => (
                 <div
                   key={org}
-                  className="flex items-center justify-center w-20 h-14 lg:w-full lg:h-auto lg:py-3 rounded-2xl bg-gold/10 border border-gold/25 hover:bg-gold/20 transition-colors duration-300"
+                  className="flex items-center justify-center w-20 h-14 lg:w-full lg:h-auto lg:py-3.5 rounded-2xl bg-gold/10 border border-gold/25 hover:bg-gold/20 transition-colors duration-300"
                 >
-                  <span className="text-[12px] font-bold text-gold-dark">{org}</span>
+                  <span className="card-meta font-bold text-gold-dark">{org}</span>
                 </div>
               ))}
             </div>
@@ -203,8 +203,8 @@ export default function PropWorkflow() {
           <div className="rounded-xl border-2 border-dashed border-gold/30 bg-gold/[0.04] p-4">
             <div className="flex flex-wrap justify-center gap-2">
               {bottomSystems.map((sys) => (
-                <div key={sys} className="glass px-5 py-2.5 rounded-lg transition-all">
-                  <span className="text-[12px] font-bold text-ink">{sys}</span>
+                <div key={sys} className="glass px-6 py-3 rounded-lg transition-all">
+                  <span className="card-meta font-bold text-ink">{sys}</span>
                 </div>
               ))}
             </div>

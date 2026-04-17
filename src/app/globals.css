@@ -311,6 +311,38 @@ h1, h2, h3 {
   box-shadow: none;
 }
 
+/* Mobile: reduce backdrop-filter blur for performance */
+@media (max-width: 767px) {
+  .glass {
+    backdrop-filter: blur(12px) saturate(1.2);
+    -webkit-backdrop-filter: blur(12px) saturate(1.2);
+  }
+  .dropdown-panel {
+    backdrop-filter: blur(16px) saturate(1.4);
+    -webkit-backdrop-filter: blur(16px) saturate(1.4);
+  }
+}
+
+/* ═══════════════════════════════════════════════
+   CARD TYPOGRAPHY SCALE
+   Semantic sizing utilities for card internals.
+   Each token auto-bumps on mobile (≤767px) to
+   improve legibility without per-component edits.
+   ═══════════════════════════════════════════════ */
+.card-kicker   { font-size: 11px; }
+.card-meta     { font-size: 13px; }
+.card-body     { font-size: 15px; line-height: 1.7; }
+.card-title    { font-size: 17px; }
+.card-title-lg { font-size: 20px; }
+
+@media (max-width: 767px) {
+  .card-kicker   { font-size: 13px; }
+  .card-meta     { font-size: 15px; }
+  .card-body     { font-size: 17px; }
+  .card-title    { font-size: 19px; }
+  .card-title-lg { font-size: 22px; }
+}
+
 /* Glass pill (theme toggle, badges) */
 .glass-pill {
   background: var(--color-glass-bg);

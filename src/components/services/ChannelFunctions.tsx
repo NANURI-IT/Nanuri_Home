@@ -1,8 +1,8 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
+import ZoomableImage from "@/components/ui/ZoomableImage";
 
 const item = {
   hidden: { opacity: 0, y: 32 },
@@ -83,9 +83,9 @@ export default function ChannelFunctions() {
           viewport={{ once: true, margin: "-80px" }}
           variants={item}
         >
-          <span className="text-xs font-semibold text-navy tracking-widest uppercase">Main Function</span>
-          <h2 className="mt-3 text-2xl md:text-[32px] font-bold text-ink tracking-tight">주요 기능</h2>
-          <p className="mt-4 text-[15px] text-body max-w-2xl mx-auto leading-relaxed">
+          <span className="text-[13px] font-semibold text-navy tracking-widest uppercase">Main Function</span>
+          <h2 className="mt-3 text-[28px] md:text-[36px] font-bold text-ink tracking-tight">주요 기능</h2>
+          <p className="mt-4 card-title text-body max-w-2xl mx-auto">
             Query 편집 및 강력한 시뮬레이터를 제공하며,
             각 업무에 맞춘 컨트롤을 다량 제공 및 구현 가능합니다.
           </p>
@@ -93,22 +93,18 @@ export default function ChannelFunctions() {
 
         {/* Screenshot showcase */}
         <motion.div
-          className="glass mt-12 rounded-2xl overflow-hidden"
+          className="glass mt-12 rounded-2xl overflow-hidden p-3 sm:p-6"
           initial="hidden"
           whileInView="show"
           viewport={{ once: true, margin: "-60px" }}
           variants={item}
         >
-          <div className="relative w-full bg-white rounded-xl overflow-hidden p-4">
-            <Image
-              src={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/images/channel-functions.webp`}
-              alt="채널 서비스 주요 기능 - Query 편집기, 시뮬레이터, 업무별 컨트롤 화면"
-              width={1920}
-              height={1080}
-              className="w-full h-auto"
-              priority={false}
-            />
-          </div>
+          <ZoomableImage
+            src={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/images/channel-functions.webp`}
+            alt="채널 서비스 주요 기능 - Query 편집기, 시뮬레이터, 업무별 컨트롤 화면"
+            width={1920}
+            height={1080}
+          />
         </motion.div>
 
         {/* IDE area descriptions */}
@@ -126,10 +122,10 @@ export default function ChannelFunctions() {
               className="pl-4 border-l-[3px] relative"
               style={{ borderColor: area.color }}
             >
-              <h3 className="text-[17px] font-bold tracking-tight" style={{ color: area.color }}>
+              <h3 className="card-title-lg font-bold tracking-tight" style={{ color: area.color }}>
                 {area.title}
               </h3>
-              <p className="mt-3 text-[13px] text-body leading-relaxed">{area.desc}</p>
+              <p className="mt-3 card-title text-body">{area.desc}</p>
             </motion.div>
           ))}
         </motion.div>
@@ -152,13 +148,13 @@ export default function ChannelFunctions() {
                 <div className="w-12 h-12 rounded-2xl bg-white/[0.08] flex items-center justify-center text-body group-hover:text-gold group-hover:bg-gold/10 transition-all duration-400">
                   {f.icon}
                 </div>
-                <h3 className="mt-6 text-[17px] font-bold text-ink">{f.title}</h3>
-                <p className="mt-3 text-[13px] text-body leading-relaxed">{f.desc}</p>
-                <ul className="mt-5 space-y-2 pt-4 border-t border-white/[0.08]">
+                <h3 className="mt-6 card-title-lg font-bold text-ink">{f.title}</h3>
+                <p className="mt-3 card-title text-body">{f.desc}</p>
+                <ul className="mt-5 space-y-2.5 pt-4 border-t border-white/[0.08]">
                   {f.bullets.map((b) => (
                     <li key={b} className="flex items-center gap-2.5">
                       <span className="w-1.5 h-1.5 rounded-full bg-gold/60 shrink-0" />
-                      <span className="text-[12px] text-body">{b}</span>
+                      <span className="card-body text-body">{b}</span>
                     </li>
                   ))}
                 </ul>
@@ -178,8 +174,8 @@ export default function ChannelFunctions() {
           <div className="relative grid sm:grid-cols-2 lg:grid-cols-4 gap-0 divide-y sm:divide-y-0 sm:divide-x divide-white/[0.08]">
             {devStack.map((d) => (
               <div key={d.label} className="p-6 sm:p-7">
-                <p className="text-[11px] text-gold font-bold tracking-widest uppercase">{d.label}</p>
-                <p className="mt-2 text-[14px] font-semibold text-ink">{d.value}</p>
+                <p className="card-meta text-gold font-bold tracking-widest uppercase">{d.label}</p>
+                <p className="mt-2 card-title font-semibold text-ink">{d.value}</p>
               </div>
             ))}
           </div>

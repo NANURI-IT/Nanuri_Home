@@ -65,9 +65,9 @@ export default function StatsCounter() {
               >
                 <AnimatedNumber value={stat.value} suffix={stat.suffix} />
               </div>
-              <p className="mt-2 text-[13px] font-semibold text-ink">{stat.label}</p>
+              <p className="mt-2 card-meta font-semibold text-ink">{stat.label}</p>
               <p
-                className="mt-1 text-[10px] tracking-[0.15em] uppercase text-dim"
+                className="mt-1 card-kicker tracking-[0.15em] uppercase text-dim"
                 style={{ fontFamily: "var(--font-space-mono), monospace" }}
               >
                 {stat.sub}

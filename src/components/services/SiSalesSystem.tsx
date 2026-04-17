@@ -85,12 +85,12 @@ export default function SiSalesSystem() {
                 <div className="w-11 h-11 rounded-xl bg-white/[0.08] flex items-center justify-center text-body group-hover:text-gold group-hover:bg-gold/10 transition-all duration-400">
                   {feature.icon}
                 </div>
-                <h3 className="mt-5 text-[16px] font-bold text-ink">{feature.title}</h3>
+                <h3 className="mt-5 card-title font-bold text-ink">{feature.title}</h3>
                 <ul className="mt-4 space-y-2.5">
                   {feature.items.map((li, i) => (
                     <li key={i} className="flex items-start gap-2.5">
                       <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-gold/60 shrink-0" />
-                      <span className="text-[13px] text-body leading-relaxed">{li}</span>
+                      <span className="card-body text-body">{li}</span>
                     </li>
                   ))}
                 </ul>

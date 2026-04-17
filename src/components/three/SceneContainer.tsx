@@ -14,17 +14,25 @@ export default function SceneContainer() {
   const isDark = theme === "dark";
   const isHome = pathname === "/";
   const [isTabActive, setIsTabActive] = useState(true);
+  const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
     const onVisibility = () => setIsTabActive(!document.hidden);
     document.addEventListener("visibilitychange", onVisibility);
 
+    const mq = window.matchMedia("(max-width: 767px)");
+    const onResize = () => setIsMobile(mq.matches);
+    onResize();
+    mq.addEventListener("change", onResize);
+
     return () => {
       document.removeEventListener("visibilitychange", onVisibility);
+      mq.removeEventListener("change", onResize);
     };
   }, []);
 
   if (!isDark) return null;
+  if (isMobile) return null;
 
   const paused = !isTabActive;
 

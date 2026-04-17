@@ -72,7 +72,7 @@ export default function ClientLogos() {
               >
                 {client.logo}
               </div>
-              <span className="text-[12px] font-medium text-body group-hover:text-ink whitespace-nowrap transition-colors duration-300">
+              <span className="card-meta font-medium text-body group-hover:text-ink whitespace-nowrap transition-colors duration-300">
                 {client.name}
               </span>
             </motion.div>
