@@ -158,11 +158,11 @@ export default function BusinessAreas() {
               <div className="flex-1">
                 <h3 className="text-2xl md:text-3xl font-bold text-ink tracking-tight">{heroArea.title}</h3>
                 <p className="mt-1 card-meta text-dim tracking-wider font-medium uppercase">{heroArea.english}</p>
-                <p className="mt-5 card-body text-body max-w-2xl">{heroArea.description}</p>
+                <p className="mt-5 card-body text-body max-w-2xl pb-10 md:pb-0">{heroArea.description}</p>
               </div>
             </div>
 
-            <span className="absolute bottom-6 right-6 md:bottom-8 md:right-8 inline-flex items-center gap-2 card-meta font-semibold text-gold group-hover:gap-3 transition-all duration-300">
+            <span className="absolute bottom-6 right-6 md:bottom-8 md:right-8 inline-flex items-center gap-2 card-meta font-semibold text-gold group-hover:gap-3 transition-all duration-300 whitespace-nowrap">
               자세히 보기
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                 <path d="M5 12h14M12 5l7 7-7 7" />
@@ -218,7 +218,7 @@ export default function BusinessAreas() {
                       {area.tag}
                     </span>
                     <span
-                      className="inline-flex items-center gap-1.5 card-meta font-semibold group-hover:gap-2.5 transition-all duration-300"
+                      className="inline-flex items-center gap-1.5 card-meta font-semibold group-hover:gap-2.5 transition-all duration-300 whitespace-nowrap"
                       style={{ color: area.accent }}
                     >
                       자세히 보기

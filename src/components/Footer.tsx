@@ -25,7 +25,7 @@ export default function Footer() {
                 />
               </span>
               <span
-                className="inline-block text-3xl md:text-2xl font-bold tracking-tight bg-clip-text text-transparent"
+                className="inline-block text-2xl md:text-2xl font-bold tracking-tight bg-clip-text text-transparent"
                 style={{
                   backgroundImage: "linear-gradient(135deg, var(--color-logo-from), var(--color-logo-to))",
                   fontFamily: "var(--font-outfit), sans-serif",
@@ -35,7 +35,7 @@ export default function Footer() {
               </span>
             </Link>
             <p
-              className="text-[22px] md:text-[16px] leading-relaxed max-w-sm"
+              className="text-[18px] md:text-[16px] leading-relaxed max-w-sm"
               style={{ color: "var(--color-text-muted)" }}
             >
               풍부한 금융권 개발 경험과 전문성을 바탕으로 금융 IT 서비스를 제공합니다.
@@ -64,7 +64,7 @@ export default function Footer() {
             <FooterLink href="mailto:mie.shin@nanuriit.kr">mie.shin@nanuriit.kr</FooterLink>
             <FooterLink href="tel:02-6969-0319">02.6969.0319</FooterLink>
             <span
-              className="block text-[21px] md:text-[15px] leading-relaxed"
+              className="block text-[17px] md:text-[15px] leading-relaxed"
               style={{ color: "var(--color-text-muted)" }}
             >
               서울시 영등포구 선유로49길 23,
@@ -79,13 +79,13 @@ export default function Footer() {
           style={{ borderColor: "var(--color-glass-border)" }}
         >
           <span
-            className="nav-text text-[20px] md:text-[14px] font-normal"
+            className="nav-text text-[16px] md:text-[14px] font-normal"
             style={{ color: "var(--color-text-muted)" }}
           >
             © {new Date().getFullYear()} Nanuri IT Co., Ltd. All Rights Reserved.
           </span>
           <span
-            className="nav-text text-[20px] md:text-[14px] font-medium tracking-[-0.01em]"
+            className="nav-text text-[16px] md:text-[14px] font-medium tracking-[-0.01em]"
             style={{ color: "var(--color-text-muted)" }}
           >
             CEO · <span className="text-ink">신미선</span>
@@ -100,7 +100,7 @@ function FooterCol({ title, children }: { title: string; children: React.ReactNo
   return (
     <div>
       <h4
-        className="nav-text text-[20px] md:text-[14px] font-semibold mb-4"
+        className="nav-text text-[16px] md:text-[14px] font-semibold mb-4"
         style={{ color: "var(--color-accent-cyan)" }}
       >
         {title}
@@ -112,7 +112,7 @@ function FooterCol({ title, children }: { title: string; children: React.ReactNo
 
 function FooterLink({ href, children }: { href: string; children: React.ReactNode }) {
   const isExternal = href.startsWith("mailto:") || href.startsWith("tel:");
-  const className = "text-[21px] md:text-[15px] transition-colors duration-300 hover:text-[color:var(--color-accent-cyan)]";
+  const className = "text-[17px] md:text-[15px] transition-colors duration-300 hover:text-[color:var(--color-accent-cyan)]";
   const style = { color: "var(--color-text-primary)", opacity: 0.6 };
 
   if (isExternal) {

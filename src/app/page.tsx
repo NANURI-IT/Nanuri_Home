@@ -1,6 +1,5 @@
 import Header from "@/components/Header";
 import HeroSection from "@/components/HeroSection";
-import StatsCounter from "@/components/StatsCounter";
 import CompanySummary from "@/components/CompanySummary";
 import BusinessAreas from "@/components/BusinessAreas";
 import CoreSolution from "@/components/CoreSolution";
@@ -38,9 +37,6 @@ export default function Home() {
         </div>
         <div className="home-snap-section">
           <TrustFactors />
-        </div>
-        <div className="home-snap-section">
-          <StatsCounter />
         </div>
         <div className="home-snap-section">
           <TechMarquee />

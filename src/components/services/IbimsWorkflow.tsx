@@ -24,8 +24,8 @@ export default function IbimsWorkflow() {
         >
           <span className="text-xs font-semibold text-navy tracking-widest uppercase">Workflow</span>
           <h2 className="mt-3 text-2xl md:text-[32px] font-bold text-ink tracking-tight">업무 구성도</h2>
-          <p className="mt-4 text-[15px] text-body max-w-lg mx-auto leading-relaxed">
-            초기 Deal 소싱부터 성과관리까지 End-to-End 프로세스를 지원합니다.
+          <p className="mt-4 text-[17px] text-body max-w-lg mx-auto leading-relaxed">
+            초기 Deal 소싱부터 성과관리까지 <br/> End-to-End 프로세스를 지원합니다.
           </p>
         </motion.div>
 

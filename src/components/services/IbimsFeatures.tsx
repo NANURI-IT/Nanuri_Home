@@ -23,8 +23,8 @@ export default function IbimsFeatures() {
           <h2 className="mt-3 text-2xl md:text-[32px] font-bold text-ink tracking-tight">
             &ldquo;IBIMS&rdquo; 특장점
           </h2>
-          <p className="mt-4 text-[15px] text-body max-w-2xl mx-auto leading-relaxed">
-            IB 통합관리시스템에서는 ECM, DCM, PF, PI 등 IB/PI업무를 처리할 수 있으며,
+          <p className="mt-4 text-[17px] text-body max-w-2xl mx-auto leading-relaxed">
+            IB 통합관리시스템에서는 ECM, DCM, PF, PI 등 IB/PI업무를 처리할 수 있으며,<br/>
             기업여신, 채권, 수익증권, 상장 주식 등 투자 자산을 관리할 수 있습니다.
           </p>
         </motion.div>

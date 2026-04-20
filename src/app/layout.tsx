@@ -96,7 +96,7 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body className="min-h-full flex flex-col relative">
+      <body className="min-h-full flex flex-col relative word-keep-all">
         <ThemeProvider>
           <ScrollReset />
           <SceneContainer />

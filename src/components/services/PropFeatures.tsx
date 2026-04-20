@@ -36,7 +36,7 @@ const features = [
     desc: [
       "각 투자 전략의 성과를 실시간으로 추적",
       "맞춤형 리포트 생성으로 투자자와 내부 이해관계자 보고서 작성",
-      "KPI 대시보드와 통합하여 직관적인 시각화 제공",
+      "KPI 대시보드와 통합하여 시각화 제공",
     ],
     icon: <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M18 20V10M12 20V4M6 20v-6" /></svg>,
   },
@@ -56,7 +56,7 @@ export default function PropFeatures() {
           <span className="text-xs font-semibold text-navy tracking-widest uppercase">Main Function</span>
           <h2 className="mt-3 text-2xl md:text-[32px] font-bold text-ink tracking-tight">주요 기능</h2>
           <p className="mt-4 text-[15px] text-body max-w-2xl mx-auto leading-relaxed">
-            고유자산(Prop Trading) 업무를 위해 정확한 데이터 분석, 위험관리,
+            고유자산(Prop Trading) 업무를 위해 <br/>정확한 데이터 분석, 위험관리,
             실시간 성과 모니터링 등 필수 기능들을 제공합니다.
           </p>
         </motion.div>

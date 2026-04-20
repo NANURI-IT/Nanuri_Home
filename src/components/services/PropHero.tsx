@@ -33,7 +33,7 @@ export default function PropHero() {
         </h1>
 
         <p className="mt-6 text-[15px] sm:text-base text-body leading-relaxed max-w-xl mx-auto">
-          고유자산 솔루션을 통해 투자 결정을 최적화하고 리스크 관리를 강화하세요.
+          고유자산 솔루션을 통해 투자 결정을 최적화하고 리스크 관리를 강화하세요.<br/>
           궁극적으로 수익성을 높일 수 있는 최고의 솔루션을 경험하세요.
         </p>
       </motion.div>

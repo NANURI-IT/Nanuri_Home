@@ -38,7 +38,9 @@ export default function IbimsHero() {
         <p className="mt-4 text-[17px] text-dim font-medium">투자은행 업무를 위한 토탈 솔루션</p>
 
         <p className="mt-6 text-[15px] sm:text-base text-body leading-relaxed max-w-xl mx-auto">
-          투자은행 업무와 관련하여 &ldquo;초기 Deal 소싱에서의 사전영업부터 성과관리까지&rdquo;
+          투자은행 업무와 관련하여 <br />
+          <strong className="font-bold text-ink">&ldquo;초기 Deal 소싱에서의 사전영업부터{" "}
+          성과관리까지&rdquo;</strong> <br />
           모든 업무 활동을 지원하는 솔루션입니다.
         </p>
       </motion.div>

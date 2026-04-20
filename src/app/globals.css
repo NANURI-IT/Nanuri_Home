@@ -153,6 +153,13 @@ h1, h2, h3 {
   overflow-wrap: break-word;
 }
 
+/* Global Korean word-break toggle — add/remove `word-keep-all` class on <body> to switch */
+body.word-keep-all,
+body.word-keep-all * {
+  word-break: keep-all;
+  overflow-wrap: break-word;
+}
+
 /* Refined sans for nav, footer brand text */
 .nav-text {
   font-family: "Pretendard Variable", var(--font-noto-sans-kr), -apple-system, sans-serif;

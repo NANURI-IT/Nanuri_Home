@@ -12,8 +12,8 @@ const historyData = [
     year: "2026",
     items: [
       "하나금융TI '우수협력사' 선정",
-      "금융 IT Business Partner 선정 (LG CNS)",
-      "하나증권 ITO운영 및 관리 (하나금융티아이)",
+      "금융 IT Biz. Partner 선정 (LG CNS)",
+      "하나증권 ITO운영 및 관리 (하나금융TI)",
       "종합수익관리 프로젝트 (제주은행)",
       "연금차세대 시스템 진단컨설팅 (미래에셋증권)",
       "발행어음 시스템 고도화개발 2차 (하나증권)",

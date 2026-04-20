@@ -52,8 +52,8 @@ export default function Location() {
         >
           <span className="text-xs font-semibold text-navy tracking-widest uppercase">Location</span>
           <h2 className="mt-3 text-2xl md:text-[32px] font-bold text-ink tracking-tight">찾아오시는 길</h2>
-          <p className="mt-4 text-[15px] text-body max-w-lg mx-auto leading-relaxed">
-            전문 금융 솔루션을 통한 고객의 성공을 나누리아이티가 함께합니다.
+          <p className="mt-4 text-[18px] text-body max-w-lg mx-auto leading-relaxed">
+            전문 금융 솔루션을 통한 고객의 성공을 <br/> 나누리아이티가 함께합니다.
           </p>
         </motion.div>
 

@@ -112,8 +112,8 @@ export default function HeroSection() {
                 fontSize: "clamp(0.95rem, 1.6vw, 1.15rem)",
               }}
             >
-              수십 년간 금융권에서 쌓아온 경험과 전문성으로
-              <br className="hidden sm:block" />
+              수십 년간 금융권에서 쌓아온 <span className="hidden sm:inline">경험과 </span>전문성으로
+              <br />
               차세대 금융 IT 서비스를 제공합니다
             </motion.p>
 

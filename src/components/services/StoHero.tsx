@@ -33,7 +33,7 @@ export default function StoHero() {
         </h1>
 
         <p className="mt-6 text-[15px] sm:text-base text-body leading-relaxed max-w-xl mx-auto">
-          토큰증권 발행 및 유통 관리 기능, 블록체인 기술과 금융IT 경험으로
+          토큰증권 발행 및 유통 관리 기능, 블록체인 기술로<br/>
           특화된 토큰증권 발행 및 거래 솔루션을 제공합니다.
         </p>
       </motion.div>

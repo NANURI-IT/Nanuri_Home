@@ -92,8 +92,8 @@ export default function StoWorkflow() {
           <span className="text-xs font-semibold text-navy tracking-widest uppercase">Workflow</span>
           <h2 className="mt-3 text-2xl md:text-[32px] font-bold text-ink tracking-tight">업무 구성도</h2>
           <p className="mt-4 text-[15px] text-body max-w-2xl mx-auto leading-relaxed">
-            토큰 증권 발행을 위한 <strong className="text-ink">상품 관리 영역</strong>과 계좌 개설, 입출금, 청약의 <strong className="text-ink">토큰 증권 영역</strong>,
-            청산 및 결제를 위한 <strong className="text-ink">오퍼레이션 영역</strong>으로 이루어집니다.
+            토큰 증권 발행을 위한 <strong className="text-ink">상품 관리 영역</strong>과 <br/>계좌 개설, 입출금, 청약의 <strong className="text-ink">토큰 증권 영역</strong>,
+            <br/>청산 및 결제를 위한 <strong className="text-ink">오퍼레이션 영역</strong>으로 이루어집니다.
           </p>
         </motion.div>
 
