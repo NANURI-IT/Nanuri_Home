@@ -12,25 +12,26 @@
 
 ## File Structure
 
-| Action | Path | Responsibility |
-|--------|------|---------------|
-| Create | `src/app/contact/page.tsx` | 페이지 컴포넌트 + metadata |
-| Create | `src/components/contact/ContactForm.tsx` | 폼 glass 패널 |
-| Create | `src/components/contact/ContactInfo.tsx` | 회사 정보 카드 + 지도 |
-| Modify | `src/components/Header.tsx:169-178, 237-246` | "도입 문의" → "도입 상담", href → `/contact` |
-| Modify | `src/components/ContactCTA.tsx:80-93` | "도입 문의하기" → "도입 상담", href → `/contact` |
-| Modify | `src/components/services/IbimsWorkflow.tsx:60` | href → `/contact` |
-| Modify | `src/components/services/SiLoanSystem.tsx:150` | href → `/contact` |
-| Modify | `src/components/services/PropWorkflow.tsx:223` | href → `/contact` |
-| Modify | `src/components/services/StoWorkflow.tsx:163` | href → `/contact` |
-| Modify | `src/components/services/AcctWorkflow.tsx:61` | href → `/contact` |
-| Modify | `src/components/services/ChannelFunctions.tsx:197` | href → `/contact` |
+| Action | Path                                               | Responsibility                                   |
+| ------ | -------------------------------------------------- | ------------------------------------------------ |
+| Create | `src/app/contact/page.tsx`                         | 페이지 컴포넌트 + metadata                       |
+| Create | `src/components/contact/ContactForm.tsx`           | 폼 glass 패널                                    |
+| Create | `src/components/contact/ContactInfo.tsx`           | 회사 정보 카드 + 지도                            |
+| Modify | `src/components/Header.tsx:169-178, 237-246`       | "도입 문의" → "도입 상담", href → `/contact`     |
+| Modify | `src/components/ContactCTA.tsx:80-93`              | "도입 문의하기" → "도입 상담", href → `/contact` |
+| Modify | `src/components/services/IbimsWorkflow.tsx:60`     | href → `/contact`                                |
+| Modify | `src/components/services/SiLoanSystem.tsx:150`     | href → `/contact`                                |
+| Modify | `src/components/services/PropWorkflow.tsx:223`     | href → `/contact`                                |
+| Modify | `src/components/services/StoWorkflow.tsx:163`      | href → `/contact`                                |
+| Modify | `src/components/services/AcctWorkflow.tsx:61`      | href → `/contact`                                |
+| Modify | `src/components/services/ChannelFunctions.tsx:197` | href → `/contact`                                |
 
 ---
 
 ### Task 1: ContactInfo 컴포넌트 생성
 
 **Files:**
+
 - Create: `src/components/contact/ContactInfo.tsx`
 
 - [ ] **Step 1: Create ContactInfo component**
@@ -45,7 +46,10 @@ const item = {
   show: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.65, ease: [0.16, 1, 0.3, 1] as [number, number, number, number] },
+    transition: {
+      duration: 0.65,
+      ease: [0.16, 1, 0.3, 1] as [number, number, number, number],
+    },
   },
 };
 
@@ -60,17 +64,35 @@ const contactInfo = [
     value: "02.6969.0319",
     href: "tel:02-6969-0319",
     icon: (
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+      <svg
+        width="18"
+        height="18"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      >
         <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z" />
       </svg>
     ),
   },
   {
     label: "이메일",
-    value: "mie.shin@nanuriit.kr",
-    href: "mailto:mie.shin@nanuriit.kr",
+    value: "info@nanuriit.kr",
+    href: "mailto:info@nanuriit.kr",
     icon: (
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+      <svg
+        width="18"
+        height="18"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      >
         <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
         <path d="M22 6l-10 7L2 6" />
       </svg>
@@ -78,10 +100,20 @@ const contactInfo = [
   },
   {
     label: "주소",
-    value: "서울특별시 영등포구 선유로49길 23, 1016호\n(양평동 4가, 아이에스비즈타워2차)",
+    value:
+      "서울특별시 영등포구 선유로49길 23, 1016호\n(양평동 4가, 아이에스비즈타워2차)",
     href: undefined,
     icon: (
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+      <svg
+        width="18"
+        height="18"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      >
         <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
         <circle cx="12" cy="10" r="3" />
       </svg>
@@ -131,7 +163,11 @@ export default function ContactInfo() {
 
           if (info.href) {
             return (
-              <a key={info.label} href={info.href} className="transition-opacity hover:opacity-80">
+              <a
+                key={info.label}
+                href={info.href}
+                className="transition-opacity hover:opacity-80"
+              >
                 {content}
               </a>
             );
@@ -180,6 +216,7 @@ git commit -m "feat: add ContactInfo component with company info cards and map"
 ### Task 2: ContactForm 컴포넌트 생성
 
 **Files:**
+
 - Create: `src/components/contact/ContactForm.tsx`
 
 - [ ] **Step 1: Create ContactForm component**
@@ -195,7 +232,10 @@ const item = {
   show: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.65, ease: [0.16, 1, 0.3, 1] as [number, number, number, number] },
+    transition: {
+      duration: 0.65,
+      ease: [0.16, 1, 0.3, 1] as [number, number, number, number],
+    },
   },
 };
 
@@ -235,12 +275,12 @@ export default function ContactForm() {
 
     // mailto fallback — 추후 API Route로 교체
     const subject = encodeURIComponent(
-      `[도입 상담] ${form.company} - ${form.service}`
+      `[도입 상담] ${form.company} - ${form.service}`,
     );
     const body = encodeURIComponent(
-      `회사명: ${form.company}\n담당자명: ${form.name}\n연락처: ${form.phone}\n관심 서비스: ${form.service}\n\n${form.message}`
+      `회사명: ${form.company}\n담당자명: ${form.name}\n연락처: ${form.phone}\n관심 서비스: ${form.service}\n\n${form.message}`,
     );
-    window.open(`mailto:mie.shin@nanuriit.kr?subject=${subject}&body=${body}`);
+    window.open(`mailto:info@nanuriit.kr?subject=${subject}&body=${body}`);
     setSubmitted(true);
   };
 
@@ -259,7 +299,16 @@ export default function ContactForm() {
             color: "var(--color-accent-cyan)",
           }}
         >
-          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <svg
+            width="28"
+            height="28"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          >
             <path d="M20 6L9 17l-5-5" />
           </svg>
         </div>
@@ -272,7 +321,13 @@ export default function ContactForm() {
         <button
           onClick={() => {
             setSubmitted(false);
-            setForm({ company: "", name: "", phone: "", service: "", message: "" });
+            setForm({
+              company: "",
+              name: "",
+              phone: "",
+              service: "",
+              message: "",
+            });
           }}
           className="mt-8 text-[13px] font-medium transition-colors"
           style={{ color: "var(--color-accent-cyan)" }}
@@ -294,7 +349,10 @@ export default function ContactForm() {
     >
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
         <div>
-          <label htmlFor="company" className="block text-[12px] font-medium text-dim mb-1.5 uppercase tracking-wider">
+          <label
+            htmlFor="company"
+            className="block text-[12px] font-medium text-dim mb-1.5 uppercase tracking-wider"
+          >
             회사명 <span style={{ color: "var(--color-accent-rose)" }}>*</span>
           </label>
           <input
@@ -309,8 +367,12 @@ export default function ContactForm() {
           />
         </div>
         <div>
-          <label htmlFor="name" className="block text-[12px] font-medium text-dim mb-1.5 uppercase tracking-wider">
-            담당자명 <span style={{ color: "var(--color-accent-rose)" }}>*</span>
+          <label
+            htmlFor="name"
+            className="block text-[12px] font-medium text-dim mb-1.5 uppercase tracking-wider"
+          >
+            담당자명{" "}
+            <span style={{ color: "var(--color-accent-rose)" }}>*</span>
           </label>
           <input
             id="name"
@@ -327,7 +389,10 @@ export default function ContactForm() {
 
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
         <div>
-          <label htmlFor="phone" className="block text-[12px] font-medium text-dim mb-1.5 uppercase tracking-wider">
+          <label
+            htmlFor="phone"
+            className="block text-[12px] font-medium text-dim mb-1.5 uppercase tracking-wider"
+          >
             연락처 <span style={{ color: "var(--color-accent-rose)" }}>*</span>
           </label>
           <input
@@ -342,8 +407,12 @@ export default function ContactForm() {
           />
         </div>
         <div>
-          <label htmlFor="service" className="block text-[12px] font-medium text-dim mb-1.5 uppercase tracking-wider">
-            관심 서비스 <span style={{ color: "var(--color-accent-rose)" }}>*</span>
+          <label
+            htmlFor="service"
+            className="block text-[12px] font-medium text-dim mb-1.5 uppercase tracking-wider"
+          >
+            관심 서비스{" "}
+            <span style={{ color: "var(--color-accent-rose)" }}>*</span>
           </label>
           <select
             id="service"
@@ -366,7 +435,10 @@ export default function ContactForm() {
       </div>
 
       <div>
-        <label htmlFor="message" className="block text-[12px] font-medium text-dim mb-1.5 uppercase tracking-wider">
+        <label
+          htmlFor="message"
+          className="block text-[12px] font-medium text-dim mb-1.5 uppercase tracking-wider"
+        >
           메시지
         </label>
         <textarea
@@ -384,7 +456,8 @@ export default function ContactForm() {
         type="submit"
         className="group mt-2 w-full inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full text-[14px] font-bold transition-all duration-300 hover:-translate-y-0.5"
         style={{
-          background: "linear-gradient(135deg, var(--color-accent-cyan), var(--color-accent-indigo))",
+          background:
+            "linear-gradient(135deg, var(--color-accent-cyan), var(--color-accent-indigo))",
           color: "#000",
           boxShadow: "0 4px 24px rgba(0, 212, 255, 0.25)",
         }}
@@ -423,6 +496,7 @@ git commit -m "feat: add ContactForm component with mailto fallback"
 ### Task 3: /contact 페이지 생성
 
 **Files:**
+
 - Create: `src/app/contact/page.tsx`
 
 - [ ] **Step 1: Create page component**
@@ -497,6 +571,7 @@ git commit -m "feat: add /contact page with form and company info"
 ### Task 4: Header 버튼 변경
 
 **Files:**
+
 - Modify: `src/components/Header.tsx:169-178` (데스크톱 pill)
 - Modify: `src/components/Header.tsx:237-246` (모바일 하단)
 
@@ -548,6 +623,7 @@ git commit -m "feat: update header buttons to link to /contact page"
 ### Task 5: ContactCTA 버튼 변경
 
 **Files:**
+
 - Modify: `src/components/ContactCTA.tsx:80-93`
 
 - [ ] **Step 1: Change mailto link to /contact Link**
@@ -557,6 +633,7 @@ In `src/components/ContactCTA.tsx`, replace the `<a href="mailto:...">` with a N
 Add `import Link from "next/link";` at the top.
 
 Change lines 80-93 from:
+
 ```tsx
 <a
   href="mailto:help@nanuriit.kr"
@@ -569,6 +646,7 @@ Change lines 80-93 from:
 ```
 
 To:
+
 ```tsx
 <Link
   href="/contact"
@@ -596,6 +674,7 @@ git commit -m "feat: update ContactCTA button to link to /contact page"
 ### Task 6: 서비스 페이지 버튼 변경 (6 files)
 
 **Files:**
+
 - Modify: `src/components/services/IbimsWorkflow.tsx:60`
 - Modify: `src/components/services/SiLoanSystem.tsx:150`
 - Modify: `src/components/services/PropWorkflow.tsx:223`
@@ -634,6 +713,7 @@ git commit -m "feat: update service page CTA buttons to link to /contact"
 - [ ] **Step 1: Full page test**
 
 Navigate to `http://localhost:3300/contact`:
+
 - 2-column layout (desktop), single column (mobile)
 - Form fields: 회사명, 담당자명, 연락처, 관심 서비스, 메시지
 - Required validation on 회사명, 담당자명, 연락처, 관심 서비스

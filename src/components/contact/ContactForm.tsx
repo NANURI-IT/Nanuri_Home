@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 import { motion } from "framer-motion";
 
 const item = {
@@ -30,12 +31,13 @@ const inputStyle = {
   borderColor: "var(--color-glass-border)",
 };
 
-const EMAIL = "mie.shin@nanuriit.kr";
+const EMAIL = "info@nanuriit.kr";
 
 export default function ContactForm() {
   const [submitted, setSubmitted] = useState(false);
   const [mailFailed, setMailFailed] = useState(false);
   const [copied, setCopied] = useState(false);
+  const [agreed, setAgreed] = useState(false);
   const [form, setForm] = useState({
     company: "",
     name: "",
@@ -49,6 +51,7 @@ export default function ContactForm() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    if (!agreed) return;
 
     const subject = encodeURIComponent(
       `[도입 상담] ${form.company} - ${form.service}`
@@ -169,6 +172,7 @@ export default function ContactForm() {
             setSubmitted(false);
             setMailFailed(false);
             setCopied(false);
+            setAgreed(false);
             setForm({ company: "", name: "", phone: "", service: "", message: "" });
           }}
           className="mt-8 card-meta font-medium transition-colors"
@@ -277,9 +281,64 @@ export default function ContactForm() {
         />
       </div>
 
+      {/* 개인정보 수집·이용 동의 */}
+      <div
+        className="mt-2 rounded-xl p-4 border"
+        style={{
+          background: "var(--color-card)",
+          borderColor: "var(--color-glass-border)",
+        }}
+      >
+        <p className="card-meta font-semibold text-body uppercase tracking-wider mb-2">
+          개인정보 수집·이용 동의
+        </p>
+        <ul className="text-[13px] text-body leading-relaxed mb-3 list-disc pl-5 flex flex-col gap-1">
+          <li>
+            <span className="text-ink font-medium">수집 항목</span>: 회사명,
+            담당자명, 연락처, 관심 서비스, 문의 메시지
+          </li>
+          <li>
+            <span className="text-ink font-medium">수집·이용 목적</span>: 도입
+            상담 문의 응대 및 서비스 안내
+          </li>
+          <li>
+            <span className="text-ink font-medium">보유·이용 기간</span>: 문의
+            처리 완료 후 1년간 보관 후 파기
+          </li>
+        </ul>
+        <p className="text-[12px] text-body mb-3">
+          정보주체는 동의를 거부할 권리가 있으며, 동의 거부 시 문의 접수가
+          제한될 수 있습니다. 자세한 내용은{" "}
+          <Link
+            href="/privacy"
+            className="underline font-semibold"
+            style={{ color: "var(--color-accent-cyan)" }}
+            target="_blank"
+            rel="noopener"
+          >
+            개인정보처리방침
+          </Link>
+          을 확인해주세요.
+        </p>
+        <label className="flex items-start gap-2 cursor-pointer select-none">
+          <input
+            type="checkbox"
+            required
+            checked={agreed}
+            onChange={(e) => setAgreed(e.target.checked)}
+            className="mt-1 w-4 h-4 shrink-0 accent-[var(--color-accent-cyan)] cursor-pointer"
+          />
+          <span className="text-[14px] text-ink">
+            위 개인정보 수집·이용에 동의합니다{" "}
+            <span style={{ color: "var(--color-accent-rose)" }}>*</span>
+          </span>
+        </label>
+      </div>
+
       <button
         type="submit"
-        className="group mt-2 w-full inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full card-body font-bold transition-all duration-300 hover:-translate-y-0.5"
+        disabled={!agreed}
+        className="group mt-2 w-full inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full card-body font-bold transition-all duration-300 hover:-translate-y-0.5 disabled:opacity-40 disabled:cursor-not-allowed disabled:hover:translate-y-0"
         style={{
           background: "linear-gradient(135deg, var(--color-accent-cyan), var(--color-accent-indigo))",
           color: "#000",

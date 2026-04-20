@@ -57,11 +57,12 @@ export default function Footer() {
             <FooterLink href="/about">회사소개</FooterLink>
             <FooterLink href="/about#history">연혁</FooterLink>
             <FooterLink href="/#contact">도입 문의</FooterLink>
+            <FooterLink href="/privacy">개인정보처리방침</FooterLink>
           </FooterCol>
 
           {/* Contact */}
           <FooterCol title="Contact">
-            <FooterLink href="mailto:mie.shin@nanuriit.kr">mie.shin@nanuriit.kr</FooterLink>
+            <FooterLink href="mailto:info@nanuriit.kr">info@nanuriit.kr</FooterLink>
             <FooterLink href="tel:02-6969-0319">02.6969.0319</FooterLink>
             <span
               className="block text-[17px] md:text-[15px] leading-relaxed"
@@ -75,20 +76,37 @@ export default function Footer() {
         </div>
 
         <div
-          className="pt-8 border-t flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3"
+          className="pt-8 border-t flex flex-col gap-4"
           style={{ borderColor: "var(--color-glass-border)" }}
         >
+          <div
+            className="flex flex-col sm:flex-row sm:flex-wrap gap-x-5 gap-y-1.5 text-[15px] md:text-[13px] leading-relaxed"
+            style={{ color: "var(--color-text-muted)" }}
+          >
+            <span>
+              <span className="font-medium">상호</span> 주식회사 나누리아이티
+            </span>
+            <span>
+              <span className="font-medium">대표이사</span>{" "}
+              <span className="text-ink">신미선</span>
+            </span>
+            <span>
+              <span className="font-medium">개인정보보호책임자</span> 신미선
+              (info@nanuriit.kr)
+            </span>
+          </div>
+          <p
+            className="text-[13px] md:text-[12px] leading-relaxed"
+            style={{ color: "var(--color-text-muted)", opacity: 0.8 }}
+          >
+            본 사이트에 게시된 이메일 주소는 전자우편 무단수집을 거부하며, 위반
+            시 정보통신망법에 의해 처벌됩니다.
+          </p>
           <span
             className="nav-text text-[16px] md:text-[14px] font-normal"
             style={{ color: "var(--color-text-muted)" }}
           >
             © {new Date().getFullYear()} Nanuri IT Co., Ltd. All Rights Reserved.
-          </span>
-          <span
-            className="nav-text text-[16px] md:text-[14px] font-medium tracking-[-0.01em]"
-            style={{ color: "var(--color-text-muted)" }}
-          >
-            CEO · <span className="text-ink">신미선</span>
           </span>
         </div>
       </div>

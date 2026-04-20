@@ -14,7 +14,13 @@ const container = {
 };
 
 export default function ContactCTA() {
-  const contactInfo = [
+  const contactInfo: {
+    label: string;
+    value: string;
+    detail?: string;
+    href?: string;
+    icon: React.ReactNode;
+  }[] = [
     {
       label: "전화",
       value: "02.6969.0319",
@@ -23,13 +29,14 @@ export default function ContactCTA() {
     },
     {
       label: "이메일",
-      value: "mie.shin@nanuriit.kr",
-      href: "mailto:mie.shin@nanuriit.kr",
+      value: "info@nanuriit.kr",
+      href: "mailto:info@nanuriit.kr",
       icon: <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" /><path d="M22 6l-10 7L2 6" /></svg>,
     },
     {
       label: "주소",
-      value: "서울특별시 영등포구 선유로49길 23, 1016호 (양평동 4가, 아이에스비즈타워2차)",
+      value: "서울특별시 영등포구 선유로49길 23, 1016호",
+      detail: "(양평동 4가, 아이에스비즈타워2차)",
       icon: <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" /><circle cx="12" cy="10" r="3" /></svg>,
     },
   ];
@@ -106,7 +113,7 @@ export default function ContactCTA() {
 
         {/* Contact info cards */}
         <motion.div
-          className="mt-8 grid grid-cols-1 sm:grid-cols-3 gap-4"
+          className="mt-8 grid grid-cols-1 sm:grid-cols-[1fr_1.2fr_1.8fr] gap-4"
           variants={container}
           initial="hidden"
           whileInView="show"
@@ -116,7 +123,7 @@ export default function ContactCTA() {
             const content = (
               <>
                 <div
-                  className="w-10 h-10 rounded-xl flex items-center justify-center"
+                  className="w-10 h-10 shrink-0 rounded-xl flex items-center justify-center"
                   style={{
                     background: "rgba(0, 212, 255, 0.1)",
                     color: "var(--color-accent-cyan)",
@@ -124,20 +131,25 @@ export default function ContactCTA() {
                 >
                   {info.icon}
                 </div>
-                <div>
+                <div className="min-w-0">
                   <p
                     className="card-meta font-semibold text-body uppercase tracking-wider"
                   >
                     {info.label}
                   </p>
-                  <p className="mt-1 card-body text-ink font-medium">{info.value}</p>
+                  <p className="mt-1 card-body text-ink font-medium whitespace-nowrap">
+                    {info.value}
+                  </p>
+                  {info.detail && (
+                    <p className="mt-0.5 text-[12px] text-body">{info.detail}</p>
+                  )}
                 </div>
               </>
             );
 
             return (
               <motion.div key={info.label} variants={item}>
-                {"href" in info && info.href ? (
+                {info.href ? (
                   <a
                     href={info.href}
                     className="glass rounded-2xl p-6 flex flex-col items-center gap-3 text-center h-full hover:brightness-110 transition-all duration-200 cursor-pointer"

@@ -55,18 +55,18 @@ Footer (기존)
 
 glass 패널 안에 폼 필드 배치.
 
-| 필드 | name | type | required | 비고 |
-|------|------|------|----------|------|
-| 회사명 | company | text | true | |
-| 담당자명 | name | text | true | |
-| 연락처 | phone | tel | true | |
-| 관심 서비스 | service | select | true | 옵션: 금융 SI, IB 시스템(IBIMS), 고유자산, 토큰증권(STO), 회계 서비스, 채널 서비스, 기타 |
-| 메시지 | message | textarea | false | placeholder: "문의하실 내용을 입력해주세요" |
+| 필드        | name    | type     | required | 비고                                                                                     |
+| ----------- | ------- | -------- | -------- | ---------------------------------------------------------------------------------------- |
+| 회사명      | company | text     | true     |                                                                                          |
+| 담당자명    | name    | text     | true     |                                                                                          |
+| 연락처      | phone   | tel      | true     |                                                                                          |
+| 관심 서비스 | service | select   | true     | 옵션: 금융 SI, IB 시스템(IBIMS), 고유자산, 토큰증권(STO), 회계 서비스, 채널 서비스, 기타 |
+| 메시지      | message | textarea | false    | placeholder: "문의하실 내용을 입력해주세요"                                              |
 
 - 각 input focus: `outline-none ring-2 ring-cyan-500/30` + border-color cyan
 - 스타일: glass 배경, rounded-2xl, 기존 CSS 변수 사용
 - 제출 버튼: primary gradient, "도입 상담 신청하기 →"
-- 제출 동작: 현재는 `mailto:mie.shin@nanuriit.kr`로 fallback (subject/body에 폼 데이터 인코딩). 추후 API Route 연동 시 fetch로 교체.
+- 제출 동작: 현재는 `mailto:info@nanuriit.kr`로 fallback (subject/body에 폼 데이터 인코딩). 추후 API Route 연동 시 fetch로 교체.
 - 제출 후 간단한 "문의가 접수되었습니다" 상태 표시
 
 ### 3. `ContactInfo.tsx`
@@ -74,8 +74,9 @@ glass 패널 안에 폼 필드 배치.
 회사 기본정보 카드 3개 + Google Map embed.
 
 연락처 정보:
+
 - 전화: 02.6969.0319
-- 이메일: mie.shin@nanuriit.kr
+- 이메일: info@nanuriit.kr
 - 주소: 서울특별시 영등포구 선유로49길 23, 1016호 (양평동 4가, 아이에스비즈타워2차)
 
 카드 스타일: Location.tsx 패턴과 동일 (glass rounded-2xl, icon + label + value).
@@ -83,19 +84,20 @@ glass 패널 안에 폼 필드 배치.
 
 ## 기존 버튼 변경
 
-| 파일 | 현재 텍스트 | 변경 텍스트 | 현재 href | 변경 href |
-|------|-----------|-----------|----------|----------|
-| Header.tsx (데스크톱 pill) | 도입 문의 | 도입 상담 | /#contact | /contact |
-| Header.tsx (모바일 하단) | 도입 문의 | 도입 상담 | /#contact | /contact |
-| ContactCTA.tsx (메인 CTA) | 도입 문의하기 | 도입 상담 | mailto:help@nanuriit.kr | /contact |
-| services/ibims - IbimsWorkflow.tsx | IBIMS 도입 문의 | 유지 | /#contact | /contact |
-| services/financial-si - SiLoanSystem.tsx | 도입 문의하기 | 유지 | /#contact | /contact |
-| services/proprietary - PropWorkflow.tsx | 도입 문의하기 | 유지 | /#contact | /contact |
-| services/sto - StoWorkflow.tsx | 도입 문의하기 | 유지 | /#contact | /contact |
-| services/accounting - AcctWorkflow.tsx | 도입 문의하기 | 유지 | /#contact | /contact |
-| services/channel - ChannelFunctions.tsx | 도입 문의하기 | 유지 | /#contact | /contact |
+| 파일                                     | 현재 텍스트     | 변경 텍스트 | 현재 href               | 변경 href |
+| ---------------------------------------- | --------------- | ----------- | ----------------------- | --------- |
+| Header.tsx (데스크톱 pill)               | 도입 문의       | 도입 상담   | /#contact               | /contact  |
+| Header.tsx (모바일 하단)                 | 도입 문의       | 도입 상담   | /#contact               | /contact  |
+| ContactCTA.tsx (메인 CTA)                | 도입 문의하기   | 도입 상담   | mailto:help@nanuriit.kr | /contact  |
+| services/ibims - IbimsWorkflow.tsx       | IBIMS 도입 문의 | 유지        | /#contact               | /contact  |
+| services/financial-si - SiLoanSystem.tsx | 도입 문의하기   | 유지        | /#contact               | /contact  |
+| services/proprietary - PropWorkflow.tsx  | 도입 문의하기   | 유지        | /#contact               | /contact  |
+| services/sto - StoWorkflow.tsx           | 도입 문의하기   | 유지        | /#contact               | /contact  |
+| services/accounting - AcctWorkflow.tsx   | 도입 문의하기   | 유지        | /#contact               | /contact  |
+| services/channel - ChannelFunctions.tsx  | 도입 문의하기   | 유지        | /#contact               | /contact  |
 
 변경하지 않는 것:
+
 - HeroSection "도입 상담 시작" → /#contact 유지 (메인 페이지 내 스크롤)
 - ContactCTA 전화 버튼 → tel: 유지
 - Footer "도입 문의" 링크 → /#contact 유지
@@ -110,6 +112,7 @@ glass 패널 안에 폼 필드 배치.
 ## 이메일 연동 (추후)
 
 현재는 mailto fallback. 추후 연동 시:
+
 1. `src/app/api/contact/route.ts` API Route 생성
-2. Resend 또는 Nodemailer로 mie.shin@nanuriit.kr에 이메일 발송
+2. Resend 또는 Nodemailer로 info@nanuriit.kr에 이메일 발송
 3. ContactForm의 handleSubmit을 fetch POST로 교체

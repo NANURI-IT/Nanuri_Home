@@ -13,16 +13,16 @@ const item = {
 };
 
 const services = [
-  "계좌/출납/뱅킹 시스템",
-  "청약/권리 시스템",
-  "주문/체결/결제 시스템",
-  "유가증권 관리시스템",
-  "금융상품 시스템",
-  "영업지원 시스템",
-  "통합리스크 시스템",
+  "계좌/출납/뱅킹",
+  "청약/권리",
+  "주문/체결/결제",
+  "유가증권 관리",
+  "금융상품",
+  "영업지원",
+  "통합리스크",
   "DW/CRM",
-  "영업 관리 시스템",
-  "고객 관리 시스템",
+  "영업 관리",
+  "고객 관리",
   "여신 관리",
 ];
 
@@ -56,10 +56,7 @@ export default function SiServiceList() {
             >
               <div className="relative z-10 px-5 py-4 flex items-center gap-3">
                 <span className="w-1.5 h-1.5 rounded-full bg-gold shrink-0" />
-                <span
-                  className="card-body font-medium text-ink transition-colors duration-300"
-                  style={{ }}
-                >
+                <span className="text-[15px] font-medium text-ink transition-colors duration-300">
                   <span className="group-hover:text-[color:var(--color-accent-cyan)] transition-colors">{service}</span>
                 </span>
               </div>
