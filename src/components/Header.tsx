@@ -225,6 +225,7 @@ export default function Header() {
 
           <NavLink href="/services/ibims">솔루션</NavLink>
           <NavLink href="/about#history">구축사례</NavLink>
+          <NavLink href="/esg">ESG</NavLink>
         </nav>
 
         {/* Right cluster: CTA + Theme toggle */}
@@ -304,6 +305,9 @@ export default function Header() {
           </Link>
           <Link href="/about#history" className="block py-3 text-[17px]" style={{ color: "var(--color-text-muted)" }} onClick={closeMobileMenu}>
             구축사례
+          </Link>
+          <Link href="/esg" className="block py-3 text-[17px]" style={{ color: "var(--color-text-muted)" }} onClick={closeMobileMenu}>
+            ESG
           </Link>
 
           <Link

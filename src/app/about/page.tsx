@@ -5,6 +5,7 @@ import AboutHero from "@/components/about/AboutHero";
 import Mission from "@/components/about/Mission";
 import CeoMessage from "@/components/about/CeoMessage";
 import Vision from "@/components/about/Vision";
+import BusinessPerformance from "@/components/about/BusinessPerformance";
 import History from "@/components/about/History";
 import Location from "@/components/about/Location";
 
@@ -23,6 +24,7 @@ export default function AboutPage() {
         <Mission />
         <CeoMessage />
         <Vision />
+        <BusinessPerformance />
         <History />
         <Location />
       </main>
