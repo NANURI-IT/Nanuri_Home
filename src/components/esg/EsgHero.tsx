@@ -78,8 +78,9 @@ export default function EsgHero() {
         </h1>
 
         <p className="mt-6 text-[16px] sm:text-[17px] text-body leading-relaxed max-w-2xl mx-auto">
-          나누리아이티는 지속가능한 기업문화를 정착시키기 위해 환경경영, 사회책임경영,
-          윤리·준법경영에 대한 관리체계를 수립하고 있습니다.
+          나누리아이티는 지속가능한 기업문화를 정착시키기 위해
+          <br />
+          환경경영, 사회책임경영, 윤리·준법경영에 대한 관리체계를 만들어나갑니다.
         </p>
 
         <p className="mt-4 text-[15px] text-dim leading-relaxed max-w-2xl mx-auto">
