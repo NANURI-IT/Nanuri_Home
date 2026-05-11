@@ -188,7 +188,7 @@ const pillars: Pillar[] = [
     englishLabel: "Environment",
     title: "환경경영",
     description:
-      "나누리아이티는 시스템 개발, 구축, 운영 및 서비스 제공 과정에서 발생할 수 있는 환경 리스크를 최소화하고, 에너지 절약과 자원 절감 중심의 친환경 경영을 실천하고자 합니다.",
+      "나누리아이티는 시스템 개발, 구축, 운영 및 서비스 제공 과정에서 발생할 수 있는 환경 리스크를 최소화하고, 에너지 절약과 자원 절감 중심의 환경 경영을 실천하고자 합니다.",
     accent: "var(--color-accent-emerald)",
     accentSoft: "rgba(16, 185, 129, 0.12)",
     overlayRgb: "5, 46, 32",
@@ -209,7 +209,7 @@ const pillars: Pillar[] = [
     englishLabel: "Social",
     title: "사회책임경영",
     description:
-      "나누리아이티는 노동인권, 개인정보 보호, 안전보건, 공정거래, 사회공헌을 사회책임경영의 핵심 영역으로 삼고, 구성원과 고객, 협력사, 지역사회가 함께 성장할 수 있는 책임경영을 지향합니다.",
+      "나누리아이티는 노동인권, 개인정보 보호, 안전보건, 공정거래를 사회책임경영의 핵심 영역으로 삼고, 구성원과 고객, 협력사, 지역사회가 함께 성장할 수 있는 책임경영을 지향합니다.",
     accent: "var(--color-accent-cyan)",
     accentSoft: "rgba(0, 212, 255, 0.12)",
     overlayRgb: "8, 32, 56",
