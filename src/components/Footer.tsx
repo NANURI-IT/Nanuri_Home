@@ -58,12 +58,14 @@ export default function Footer() {
             <FooterLink href="/about#history">연혁</FooterLink>
             <FooterLink href="/#contact">도입 문의</FooterLink>
             <FooterLink href="/privacy">개인정보처리방침</FooterLink>
+            <FooterLink href="/esg/ethics">윤리경영 정책</FooterLink>
+            <FooterLink href="/esg/ethics/report">윤리 신고</FooterLink>
           </FooterCol>
 
           {/* Contact */}
           <FooterCol title="Contact">
             <FooterLink href="mailto:info@nanuriit.kr">info@nanuriit.kr</FooterLink>
-            <FooterLink href="tel:02-6969-0319">02.6969.0319</FooterLink>
+            <FooterLink href="tel:02-6959-0319">02.6959.0319</FooterLink>
             <span
               className="block text-[17px] md:text-[15px] leading-relaxed"
               style={{ color: "var(--color-text-muted)" }}

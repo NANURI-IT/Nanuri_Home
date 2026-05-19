@@ -3,6 +3,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import EsgHero from "@/components/esg/EsgHero";
 import EsgPillars from "@/components/esg/EsgPillars";
+import EsgEthicsCta from "@/components/esg/EsgEthicsCta";
 
 export const metadata: Metadata = {
   title: "ESG 경영",
@@ -17,6 +18,7 @@ export default function EsgPage() {
       <main className="flex-1 relative pt-16">
         <EsgHero />
         <EsgPillars />
+        <EsgEthicsCta />
       </main>
       <Footer />
     </>

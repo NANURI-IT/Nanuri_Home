@@ -267,6 +267,17 @@ body.word-keep-all * {
 }
 
 /* ═══════════════════════════════════════════════
+   CEO SIGNATURE — invert black ink to white in dark mode
+   (transparent-background PNG technique)
+   ═══════════════════════════════════════════════ */
+.ceo-signature-img {
+  transition: filter 0.3s ease;
+}
+[data-theme="dark"] .ceo-signature-img {
+  filter: brightness(0) invert(1);
+}
+
+/* ═══════════════════════════════════════════════
    GLASS SYSTEM
    ═══════════════════════════════════════════════ */
 .glass {

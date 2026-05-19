@@ -17,12 +17,21 @@ const services = [
   { label: "채널 서비스", href: "/services/channel", english: "Channel Service" },
 ];
 
+const esgMenu = [
+  { label: "ESG 개요", href: "/esg", english: "ESG Overview" },
+  { label: "윤리경영 정책", href: "/esg/ethics", english: "Code of Ethics" },
+  { label: "윤리 위반 신고", href: "/esg/ethics/report", english: "Ethics Report" },
+];
+
 export default function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [mobileBizOpen, setMobileBizOpen] = useState(false);
+  const [mobileEsgOpen, setMobileEsgOpen] = useState(false);
   const [bizOpen, setBizOpen] = useState(false);
+  const [esgOpen, setEsgOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const bizRef = useRef<HTMLDivElement>(null);
+  const esgRef = useRef<HTMLDivElement>(null);
   const mobileMenuBtnRef = useRef<HTMLButtonElement>(null);
   const mobileMenuRef = useRef<HTMLElement>(null);
 
@@ -52,6 +61,21 @@ export default function Header() {
       document.removeEventListener("touchstart", onDown);
     };
   }, [bizOpen]);
+
+  useEffect(() => {
+    if (!esgOpen) return;
+    const onDown = (e: MouseEvent | TouchEvent) => {
+      if (esgRef.current && !esgRef.current.contains(e.target as Node)) {
+        setEsgOpen(false);
+      }
+    };
+    document.addEventListener("mousedown", onDown);
+    document.addEventListener("touchstart", onDown);
+    return () => {
+      document.removeEventListener("mousedown", onDown);
+      document.removeEventListener("touchstart", onDown);
+    };
+  }, [esgOpen]);
 
   // Outside click / ESC close for mobile menu
   useEffect(() => {
@@ -225,7 +249,81 @@ export default function Header() {
 
           <NavLink href="/services/ibims">솔루션</NavLink>
           <NavLink href="/about#history">구축사례</NavLink>
-          <NavLink href="/esg">ESG</NavLink>
+
+          {/* ESG dropdown */}
+          <div
+            className="relative"
+            ref={esgRef}
+            onMouseEnter={() => setEsgOpen(true)}
+            onMouseLeave={() => setEsgOpen(false)}
+          >
+            <button
+              onClick={() => setEsgOpen((v) => !v)}
+              aria-haspopup="menu"
+              aria-expanded={esgOpen}
+              className="nav-text flex items-center gap-1 px-4 py-2 text-[17px] font-medium transition-colors duration-300 focus:outline-none focus-visible:text-[color:var(--color-accent-cyan)]"
+              style={{ color: "var(--color-text-muted)" }}
+            >
+              <span className="hover:text-[color:var(--color-accent-cyan)]">ESG</span>
+              <svg
+                width="10"
+                height="10"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2.5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                className={`transition-transform duration-200 ${esgOpen ? "rotate-180" : ""}`}
+              >
+                <path d="M6 9l6 6 6-6" />
+              </svg>
+            </button>
+
+            {esgOpen && (
+              <div className="absolute left-1/2 -translate-x-1/2 top-full pt-3">
+                <div className="dropdown-panel w-[320px] overflow-hidden rounded-2xl border">
+                  <div className="p-2">
+                    {esgMenu.map((m) => (
+                      <Link
+                        key={m.href}
+                        href={m.href}
+                        onClick={() => setEsgOpen(false)}
+                        className="dropdown-item flex items-center justify-between gap-3 px-3 py-2.5 rounded-lg group transition-colors duration-200"
+                      >
+                        <div>
+                          <p className="text-[16px] font-semibold text-ink">{m.label}</p>
+                          <p
+                            className="text-[12px] tracking-[0.08em] uppercase"
+                            style={{
+                              color: "var(--color-accent-cyan)",
+                              fontFamily: "var(--font-space-mono), monospace",
+                            }}
+                          >
+                            {m.english}
+                          </p>
+                        </div>
+                        <svg
+                          width="14"
+                          height="14"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          strokeWidth="2"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          className="opacity-0 group-hover:opacity-100 group-hover:translate-x-0.5 transition-all duration-200"
+                          style={{ color: "var(--color-accent-cyan)" }}
+                        >
+                          <path d="M5 12h14M12 5l7 7-7 7" />
+                        </svg>
+                      </Link>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            )}
+          </div>
         </nav>
 
         {/* Right cluster: CTA + Theme toggle */}
@@ -306,9 +404,32 @@ export default function Header() {
           <Link href="/about#history" className="block py-3 text-[17px]" style={{ color: "var(--color-text-muted)" }} onClick={closeMobileMenu}>
             구축사례
           </Link>
-          <Link href="/esg" className="block py-3 text-[17px]" style={{ color: "var(--color-text-muted)" }} onClick={closeMobileMenu}>
+
+          <button
+            className="w-full flex items-center justify-between py-3 text-[17px]"
+            style={{ color: "var(--color-text-muted)" }}
+            onClick={() => setMobileEsgOpen(!mobileEsgOpen)}
+          >
             ESG
-          </Link>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className={`transition-transform duration-200 ${mobileEsgOpen ? "rotate-180" : ""}`}>
+              <path d="M6 9l6 6 6-6" />
+            </svg>
+          </button>
+          {mobileEsgOpen && (
+            <div className="pl-4 pb-2 border-l-2 ml-1 space-y-2" style={{ borderColor: "var(--color-glass-border)" }}>
+              {esgMenu.map((m) => (
+                <Link
+                  key={m.href}
+                  href={m.href}
+                  className="block py-2 text-[16px]"
+                  style={{ color: "var(--color-text-muted)" }}
+                  onClick={closeMobileMenu}
+                >
+                  {m.label}
+                </Link>
+              ))}
+            </div>
+          )}
 
           <Link
             href="/contact"

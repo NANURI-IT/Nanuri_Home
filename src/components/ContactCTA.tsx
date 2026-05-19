@@ -23,8 +23,8 @@ export default function ContactCTA() {
   }[] = [
     {
       label: "전화",
-      value: "02.6969.0319",
-      href: "tel:02-6969-0319",
+      value: "02.6959.0319",
+      href: "tel:02-6959-0319",
       icon: <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z" /></svg>,
     },
     {
@@ -102,10 +102,10 @@ export default function ContactCTA() {
                 </svg>
               </Link>
               <a
-                href="tel:02-6969-0319"
+                href="tel:02-6959-0319"
                 className="glass w-full sm:w-auto inline-flex items-center justify-center px-10 py-4 rounded-full text-[14px] font-semibold text-ink transition-all duration-300"
               >
-                02.6969.0319
+                02.6959.0319
               </a>
             </div>
           </div>

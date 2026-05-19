@@ -1,7 +1,7 @@
 const EFFECTIVE_DATE = "2026-04-20";
 const DPO_NAME = "신미선";
 const DPO_EMAIL = "info@nanuriit.kr";
-const DPO_PHONE = "02.6969.0319";
+const DPO_PHONE = "02.6959.0319";
 
 type Section = {
   id: string;
