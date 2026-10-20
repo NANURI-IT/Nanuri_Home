@@ -8,10 +8,6 @@ import AiAxSubnav from "@/components/services/AiAxSubnav";
 import AiAxConditions from "@/components/services/AiAxConditions";
 import AiAxPipeline from "@/components/services/AiAxPipeline";
 import AiAxModelValidation from "@/components/services/AiAxModelValidation";
-import AiAxAssistant from "@/components/services/AiAxAssistant";
-import AiAxIdpDemo from "@/components/services/AiAxIdpDemo";
-import AiAxServices from "@/components/services/AiAxServices";
-import AiAxProcess from "@/components/services/AiAxProcess";
 import AiAxFaq from "@/components/services/AiAxFaq";
 import AiAxCta from "@/components/services/AiAxCta";
 import { AIAX_FAQ } from "@/components/services/aiax/faq";
@@ -31,8 +27,6 @@ export const metadata: Metadata = {
     "금융 AI",
     "온프레미스 LLM",
     "LLM 검증",
-    "문서 AI",
-    "IDP",
     "금융분야 인공지능 가이드라인",
     "나누리아이티",
   ],
@@ -71,10 +65,6 @@ export default function AiAxPage() {
           <AiAxConditions />
           <AiAxPipeline />
           <AiAxModelValidation />
-          <AiAxAssistant />
-          <AiAxIdpDemo />
-          <AiAxServices />
-          <AiAxProcess />
           <AiAxFaq />
           <AiAxCta />
         </AiAxShell>

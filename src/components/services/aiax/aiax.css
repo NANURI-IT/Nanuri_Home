@@ -24,7 +24,6 @@
   --aiax-track: rgba(255, 255, 255, 0.12);
   --aiax-node-bg: #0e1a2c;
   --aiax-frame-bg: #0b1526;
-  --aiax-band: rgba(13, 22, 39, 0.88);
   --aiax-muted-line: rgba(238, 238, 242, 0.32);
   --aiax-gborder: linear-gradient(135deg, rgba(0, 212, 255, 0.42), rgba(99, 102, 241, 0.36));
   --aiax-focus: #00d4ff;
@@ -50,7 +49,6 @@
   --aiax-track: #c9d3e6;
   --aiax-node-bg: #ffffff;
   --aiax-frame-bg: #ffffff;
-  --aiax-band: #eef2f9;
   --aiax-muted-line: #9aa4bd;
   --aiax-gborder: linear-gradient(135deg, rgba(29, 106, 140, 0.4), rgba(79, 70, 229, 0.32));
   --aiax-focus: #1d6a8c;
@@ -83,11 +81,6 @@
 .aiax-eyebrow { color: var(--color-accent-cyan); }
 [data-theme="light"] .aiax-eyebrow { color: var(--color-navy); }
 
-.aiax-band {
-  background: var(--aiax-band);
-  border-top: 1px solid var(--color-line);
-  border-bottom: 1px solid var(--color-line);
-}
 .aiax-gborder { background: var(--aiax-gborder); }
 .aiax-frame-inner { background: var(--aiax-frame-bg); }
 [data-theme="light"] .aiax-frame-inner { box-shadow: 0 10px 40px rgba(21, 32, 53, 0.06); }
@@ -112,43 +105,6 @@
   background: var(--aiax-human-face);
   box-shadow: var(--aiax-human-face-shadow);
 }
-
-/* 금지 구역 빗금 */
-.aiax-hatch { background-image: repeating-linear-gradient(135deg, rgba(255, 255, 255, 0.025) 0 1px, transparent 1px 9px); }
-[data-theme="light"] .aiax-hatch { background-image: repeating-linear-gradient(135deg, rgba(21, 32, 53, 0.035) 0 1px, transparent 1px 9px); }
-
-/* ── 항상 어두운 콘솔 (테마 무관 고정 팔레트) ── */
-.aiax-console {
-  --c-bg: #0a1220;
-  --c-head: #0e1828;
-  --c-line: rgba(255, 255, 255, 0.08);
-  --c-text: #c9d3e3;   /* 12.4:1 */
-  --c-dim: #8b97ab;    /* 6.35:1 — 지난 줄(muted)은 투명도 대신 이 색을 씁니다 */
-  --c-strong: #eeeef2;
-  --c-ai: #00d4ff;
-  --c-gate: #10b981;
-  --c-human: #a5b4fc;
-  --c-block: #fb7185;
-  background: var(--c-bg);
-  color: var(--c-text);
-  border: 1px solid var(--c-line);
-}
-[data-theme="light"] .aiax-console { box-shadow: 0 12px 40px rgba(21, 32, 53, 0.18); }
-.aiax-console .aiax-console-head { background: var(--c-head); border-bottom: 1px solid var(--c-line); color: var(--c-dim); }
-.aiax-console :focus-visible { outline-color: #00d4ff; }
-.aiax-console pre,
-.aiax-console code { font-family: var(--font-space-mono), "Pretendard Variable", ui-monospace, monospace; }
-.aiax-line-block { background: rgba(251, 113, 133, 0.1); box-shadow: inset 2px 0 0 #fb7185; }
-.aiax-line-pass { background: rgba(16, 185, 129, 0.1); box-shadow: inset 2px 0 0 #10b981; }
-.aiax-flag { text-decoration: underline wavy #fb7185; text-decoration-thickness: 1.5px; text-underline-offset: 4px; }
-
-/* ── 문서 AI 종이 (테마 무관 밝은 종이) ── */
-.aiax-paper { background: #fafbfd; color: #1b2333; box-shadow: 0 20px 60px rgba(0, 0, 0, 0.45); }
-[data-theme="light"] .aiax-paper { box-shadow: 0 10px 30px rgba(21, 32, 53, 0.12); border: 1px solid #dde3f0; }
-
-/* ── 마스킹 표기(C7, 2차 보강): ○/● 로 가린 값을 작은 칩으로. 글자색은 상속(정보 텍스트 대비 유지) ── */
-.aiax-mask { border-radius: 3px; padding: 0 0.2em; letter-spacing: 0.04em; background: var(--color-raised); }
-.aiax-paper .aiax-mask { background: #e6eaf2; color: #1b2333; }
 
 /* ── 히어로 h1 2행 리빌(캐럿) : sm 이상만 ── */
 .aiax-h1-caret { display: none; }
@@ -205,23 +161,6 @@
 }
 .aiax-rail-mover { animation: aiax-rail 3.6s linear 1 both; }
 
-/* ── 다이어그램 활성 연결선 흐름 ── */
-@keyframes aiax-dash { to { stroke-dashoffset: -20; } }
-.aiax-flow { stroke-dasharray: 4 6; animation: aiax-dash 1.2s linear infinite; }
-
-/* ── 대기 링 맥동 (사람 게이트 앞에서 3회, 클래스가 다시 붙으면 다시 시작) ──
-   CTA 승인 칸의 숨쉬기는 화면 진입 시점에 맞춰야 하므로 CSS가 아니라 C12의 framer whileInView로 처리합니다. */
-@keyframes aiax-ring { 0%, 100% { transform: scale(1); opacity: 0.35; } 50% { transform: scale(1.3); opacity: 0.75; } }
-.aiax-ring-wait { transform-box: fill-box; transform-origin: center; animation: aiax-ring 1.2s ease-in-out 3; }
-
-/* ── 추출 중 쉬머 ── */
-@keyframes aiax-shimmer { from { background-position: 100% 0; } to { background-position: -100% 0; } }
-.aiax-shimmer {
-  background: linear-gradient(90deg, var(--color-raised) 0%, rgba(255, 255, 255, 0.22) 50%, var(--color-raised) 100%);
-  background-size: 200% 100%;
-  animation: aiax-shimmer 0.6s linear;
-}
-
 /* ── 서브내비 ── (실제 값은 aiax/subnav.css의 nav.aiax-subnav-bar가 덮어씁니다. 여기는 기본값)
    접두(-webkit-) 선언을 먼저, 표준 선언을 마지막에: Lightning CSS가 마지막 것만 남기므로 순서가 반대면 Chromium 블러가 꺼집니다. */
 .aiax-subnav {
@@ -248,18 +187,12 @@
    .aiax-noscrollbar : 네이티브 스크롤바 숨김(Windows Chrome의 화살표 달린 얇은 막대 포함). 스크롤은 그대로 됩니다.
      섹션 CSS의 scrollbar-width:thin이나 [scrollbar-width:thin] 유틸리티와 같이 붙어도 이기도록 !important.
      위치 표시는 점·"n / N"·칩 등 캐러셀 자체 표시기로 대신합니다.
-   .aiax-fade-x : 양 끝 16px 페이드. 좌우 여백이 16px보다 큰 번짐 캐러셀(-mx-6 px-6 등)에 씁니다
-     (첫·마지막 카드가 여백 안에서 시작하므로 페이드에 먹히지 않음). 끝의 포커스 링이 흐려질 수 있으니
-     안쪽 조작 요소에는 .aiax-focus-inset을 함께 씁니다. 접두 선언을 먼저 둡니다(Lightning CSS 순서 규칙, 아래 서브내비 주석). */
+*/
 .aiax-noscrollbar {
   scrollbar-width: none !important;
   -ms-overflow-style: none !important;
 }
 .aiax-noscrollbar::-webkit-scrollbar { display: none !important; }
-.aiax-fade-x {
-  -webkit-mask-image: linear-gradient(90deg, transparent, #000 16px, #000 calc(100% - 16px), transparent);
-  mask-image: linear-gradient(90deg, transparent, #000 16px, #000 calc(100% - 16px), transparent);
-}
 /* 1280px 이상에서는 칩이 스크롤 없이 모두 들어가므로 양 끝 페이드를 끕니다(1024px에서는 여유가 약 40px뿐이라 유지). */
 @media (min-width: 1280px) {
   .aiax-subnav-scroll { -webkit-mask-image: none; mask-image: none; }
@@ -285,10 +218,7 @@
   .aiax-h1-reveal { animation: none !important; clip-path: none !important; }
   .aiax-h1-caret { display: none !important; }
   .aiax-emph,
-  .aiax-rail-mover,
-  .aiax-flow,
-  .aiax-ring-wait,
-  .aiax-shimmer { animation: none !important; }
+  .aiax-rail-mover { animation: none !important; }
   .aiax-rail-mover { display: none !important; }
   /* 공용 훅: clip-path·scale로 "드러나는" 요소에 data-reveal을 붙이면 감소 모션에서 처음부터 최종 상태로 보입니다
      (QA r2: C3 '저희의 설계' 패널·대시가 inset(100%)·scaleX(0)에 머문 문제). 투명도는 건드리지 않습니다. */

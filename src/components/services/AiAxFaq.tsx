@@ -8,7 +8,7 @@ import { AIAX_ID, ArrowIcon, EASE, MONO, SectionHeader, VIEWPORT, cn } from "./a
 
 /* ─────────── 문구 (spec C11, 그대로) ─────────── */
 const FAQ = {
-  eyebrow: "08 · FAQ",
+  eyebrow: "04 · FAQ",
   title: "자주 묻는 질문",
   lead: "도입을 검토하실 때 가장 먼저 나오는 질문에 답했습니다. 더 구체적인 질문은 상담에서 귀사의 환경을 기준으로 답변드리겠습니다.",
   ask: "질문 남기기",
