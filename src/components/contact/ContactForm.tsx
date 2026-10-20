@@ -20,6 +20,7 @@ const serviceOptions = [
   "토큰증권(STO)",
   "회계 서비스",
   "채널 서비스",
+  "AI · AX 서비스",
   "기타",
 ];
 

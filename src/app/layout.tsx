@@ -7,6 +7,7 @@ import NoiseOverlay from "@/components/ui/NoiseOverlay";
 import CursorGlow from "@/components/ui/CursorGlow";
 import ScrollToTop from "@/components/ui/ScrollToTop";
 import ScrollReset from "@/components/ui/ScrollReset";
+import { OG_IMAGE_DEFAULT, SITE_NAME } from "@/lib/seo";
 
 const notoSansKR = Noto_Sans_KR({
   variable: "--font-noto-sans-kr",
@@ -42,25 +43,22 @@ export const metadata: Metadata = {
     "STO", "회계서비스", "채널서비스", "퇴직연금", "금융IT", "증권시스템구축",
     "투자은행시스템", "금융시스템통합", "금융IT전문기업",
   ],
+  // canonical·og:url은 하위 페이지에 그대로 상속되므로 루트에 두지 않고, 페이지마다 pageSeo()로 지정합니다.
   openGraph: {
     title: "나누리아이티 | 금융 IT 전문기업",
     description: "금융·증권 업무 시스템 구축에 특화된 IT 파트너. 69건 이상의 프로젝트 수행, 15개 주요 금융 파트너사와 함께합니다.",
-    url: "https://nanuriit.kr",
-    siteName: "나누리아이티",
+    siteName: SITE_NAME,
     type: "website",
     locale: "ko_KR",
+    images: [OG_IMAGE_DEFAULT],
   },
+  // 제목·설명·이미지는 페이지별 openGraph에서 자동으로 채워집니다.
   twitter: {
     card: "summary_large_image",
-    title: "나누리아이티 | 금융 IT 전문기업",
-    description: "금융·증권 업무 시스템 구축에 특화된 IT 파트너",
   },
   robots: {
     index: true,
     follow: true,
-  },
-  alternates: {
-    canonical: "https://nanuriit.kr",
   },
 };
 

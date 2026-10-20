@@ -23,7 +23,7 @@ const cases = [
   {
     category: "투자은행",
     title: "투자은행 지원 시스템",
-    scope: "IB 딜 관리 · 심사 · 실행 지원 시스템 구축",
+    scope: "IB deal 관리 · 심사 · 실행 지원 시스템 구축",
     tags: ["IB 시스템", "IBIMS"],
   },
   {

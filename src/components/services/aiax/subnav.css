@@ -1,0 +1,89 @@
+/* ═══════════════════════════════════════════════════════════
+   AI · AX 서브내비(C2) 전용 스타일 — 새 클래스는 .aiax-subnav- 접두
+   - AiAxSubnav.tsx에서만 import 합니다.
+   - Tailwind의 dark 변형은 쓰지 않습니다. 라이트는 [data-theme="light"]로 덮어씁니다.
+   - 이 파일은 aiax.css보다 먼저 실릴 수 있으므로(page.tsx가 컴포넌트를 먼저 import),
+     aiax.css의 .aiax-subnav(0,1,0)·[data-theme="light"] .aiax-subnav(0,2,0)보다
+     특이도를 한 단계 높여(nav. 접두) 순서와 무관하게 이 파일의 값이 적용되게 합니다.
+   ═══════════════════════════════════════════════════════════ */
+
+/* ── 바 배경 ──
+   ⚠ 접두 선언(-webkit-)을 먼저, 표준 선언을 마지막에 둡니다. 빌드의 Lightning CSS는
+   같은 속성의 접두/표준 선언 중 마지막 것만 남기므로, 순서가 반대면 표준 backdrop-filter가
+   사라져 Chromium에서 블러가 꺼집니다(-webkit-backdrop-filter는 Chromium이 지원하지 않음).
+   배경은 블러가 없어도(미지원·저사양) 아래 글자가 비쳐 칩과 겹쳐 읽히지 않을 만큼 불투명하게. */
+nav.aiax-subnav-bar {
+  background: rgba(7, 16, 28, 0.94);
+  -webkit-backdrop-filter: blur(16px) saturate(1.4);
+  backdrop-filter: blur(16px) saturate(1.4);
+}
+[data-theme="light"] nav.aiax-subnav-bar { background: rgba(244, 246, 251, 0.95); }
+/* 모바일: 헤더 blur와 겹쳐 스크롤마다 두 겹의 backdrop-filter가 계산되지 않도록 불투명 배경으로 */
+@media (max-width: 767px) {
+  nav.aiax-subnav-bar {
+    background: rgba(7, 16, 28, 0.96);
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+  }
+  [data-theme="light"] nav.aiax-subnav-bar { background: rgba(244, 246, 251, 0.97); }
+}
+
+/* ── 전역 헤더 (이 페이지 한정) ──
+   이 페이지에는 흰 시연 문서(문서 AI)·항상 어두운 콘솔(LLM 에이전트)처럼 배경과 명도가 크게 다른 면이
+   유리 헤더 뒤를 지나갑니다. 반투명 헤더로는 그 면이 비쳐 메뉴 글자가 묻히므로, 서브내비가 있는 이 페이지에서만
+   스크롤된 헤더(backdrop-blur-xl)를 서브내비와 같은 불투명도로 맞춥니다. Header.tsx는 건드리지 않습니다.
+   헤더 배경은 인라인 style이라 !important가 필요합니다. */
+html:has(nav.aiax-subnav-bar) header.backdrop-blur-xl { background: rgba(7, 16, 28, 0.94) !important; }
+html[data-theme="light"]:has(nav.aiax-subnav-bar) header.backdrop-blur-xl { background: rgba(244, 246, 251, 0.95) !important; }
+
+/* ── 칩 줄 양 끝 페이드 ──
+   그쪽으로 더 볼 칩이 있을 때만 페이드를 그립니다. 처음이면 오른쪽만, 끝이면 왼쪽만,
+   칩이 다 들어가면 없음. 값은 aiax/subnav-edges.ts가 data-subnav-fade로 붙입니다.
+   속성이 붙기 전(정적 HTML·하이드레이션 전)에는 aiax.css의 기본값(양 끝 페이드, 1280px 이상 없음)을 씁니다.
+   첫·마지막 칩이 활성일 때 알약 배경이 페이드에 먹혀 잘려 보이지 않습니다. */
+.aiax-subnav-scroll[data-subnav-fade="none"] {
+  -webkit-mask-image: none;
+  mask-image: none;
+}
+.aiax-subnav-scroll[data-subnav-fade="end"] {
+  -webkit-mask-image: linear-gradient(90deg, #000 calc(100% - 16px), transparent);
+  mask-image: linear-gradient(90deg, #000 calc(100% - 16px), transparent);
+}
+.aiax-subnav-scroll[data-subnav-fade="start"] {
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 16px);
+  mask-image: linear-gradient(90deg, transparent, #000 16px);
+}
+.aiax-subnav-scroll[data-subnav-fade="both"] {
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 16px, #000 calc(100% - 16px), transparent);
+  mask-image: linear-gradient(90deg, transparent, #000 16px, #000 calc(100% - 16px), transparent);
+}
+
+/* ── 칩 줄 끝 여백 (lg 미만) ──
+   lg 미만에서 칩 줄은 화면 오른쪽 끝까지 번지고 끝쪽 padding이 0입니다(AiAxSubnav.tsx).
+   마지막 칩 뒤에 20px 스페이서를 두면 칩 간격 4px과 합쳐 24px(= 본문 좌우 여백 px-6)이 되어,
+   끝까지 밀었을 때 마지막 칩(FAQ)의 활성 알약이 16px 페이드 구간(정적 HTML의 기본 양 끝 페이드 포함)
+   밖에 놓이고, Tab 포커스의 scroll-px-6(24px)도 끝 칩에서 그대로 지켜집니다.
+   padding-inline-end를 스크롤 범위에 넣는 방식은 브라우저마다 달라 플렉스 항목(::after)으로 고정합니다.
+   lg 이상은 칩 줄이 상담 버튼 앞에서 끝나므로(lg:pr-[10px]) 스페이서를 만들지 않습니다. */
+.aiax-subnav-scroll::after {
+  content: "";
+  flex: none;
+  width: 20px;
+  height: 1px;
+}
+@media (min-width: 64rem) {
+  .aiax-subnav-scroll::after { content: none; }
+}
+
+/* ── 가려지지 않는 포커스·앵커 착지 (WCAG 2.4.11) ──
+   이 페이지에는 고정 헤더(64px)와 sticky 서브내비(50px)가 겹쳐 위쪽 114px를 덮습니다.
+   문서 스크롤 여백을 8rem(128px)으로 잡아, Tab/Shift+Tab으로 포커스가 옮겨 갈 때와
+   #앵커로 이동할 때 대상이 서브내비 아래 14px 지점에 놓이게 합니다. 서브내비가 있는 문서에만 적용됩니다.
+   섹션들의 scroll-mt-*(8rem)는 이 여백과 더해져 두 배(256px)가 되므로, 이 페이지 안에서는 0으로 맞춥니다.
+   (Tailwind 유틸은 @layer utilities 안이라 이 규칙(레이어 밖)이 이깁니다.) */
+html:has(nav.aiax-subnav-bar) {
+  scroll-padding-top: 8rem;
+}
+html:has(nav.aiax-subnav-bar) .aiax [class*="scroll-mt-"] {
+  scroll-margin-top: 0;
+}

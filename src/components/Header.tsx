@@ -8,7 +8,8 @@ import ThemeToggle from "./ThemeToggle";
 const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
 const brandMarkSrc = `${basePath}/images/logo_IT.png`;
 
-const services = [
+const services: { label: string; href: string; english: string; badge?: string }[] = [
+  { label: "AI · AX", href: "/services/ai-ax", english: "AI Transformation", badge: "NEW" },
   { label: "금융 SI", href: "/services/financial-si", english: "Financial System Integration" },
   { label: "IB 시스템", href: "/services/ibims", english: "IBIMS" },
   { label: "고유자산", href: "/services/proprietary", english: "Proprietary Trading" },
@@ -135,8 +136,8 @@ export default function Header() {
           </span>
         </Link>
 
-        {/* Desktop Nav */}
-        <nav className="hidden md:flex items-center gap-1">
+        {/* Desktop Nav — 메뉴 5개와 로고·CTA가 한 줄에 들어가는 1024px부터. 그 아래(태블릿 포함)는 햄버거 메뉴 */}
+        <nav className="hidden lg:flex items-center gap-1">
           <NavLink href="/about">회사소개</NavLink>
 
           {/* 사업영역 dropdown */}
@@ -214,7 +215,10 @@ export default function Header() {
                         className="dropdown-item flex items-center justify-between gap-3 px-3 py-2.5 rounded-lg group transition-colors duration-200"
                       >
                         <div>
-                          <p className="text-[16px] font-semibold text-ink">{s.label}</p>
+                          <p className="text-[16px] font-semibold text-ink inline-flex items-center gap-2">
+                            {s.label}
+                            {s.badge && <NewBadge label={s.badge} />}
+                          </p>
                           <p
                             className="text-[12px] tracking-[0.08em] uppercase"
                             style={{
@@ -330,7 +334,7 @@ export default function Header() {
         <div className="flex items-center gap-3">
           <Link
             href="/contact"
-            className="hidden sm:inline-flex items-center px-5 py-2 rounded-full text-[15px] font-bold tracking-wide transition-all duration-300 hover:-translate-y-0.5"
+            className="hidden sm:inline-flex items-center whitespace-nowrap px-5 py-2 rounded-full text-[15px] font-bold tracking-wide transition-all duration-300 hover:-translate-y-0.5"
             style={{
               background: "linear-gradient(135deg, var(--color-accent-cyan), var(--color-accent-indigo))",
               color: "#000",
@@ -345,7 +349,7 @@ export default function Header() {
           {/* Mobile menu */}
           <button
             ref={mobileMenuBtnRef}
-            className="md:hidden p-2 rounded-lg transition-colors"
+            className="lg:hidden p-2 rounded-lg transition-colors"
             onClick={() => setMobileOpen(!mobileOpen)}
             aria-label="메뉴 열기"
             style={{ color: "var(--color-text-muted)" }}
@@ -359,7 +363,7 @@ export default function Header() {
 
       {/* Mobile menu */}
       {mobileOpen && (
-        <nav ref={mobileMenuRef} className="dropdown-panel md:hidden px-6 py-3 max-h-[80vh] overflow-y-auto border-t">
+        <nav ref={mobileMenuRef} className="dropdown-panel lg:hidden px-6 py-3 max-h-[80vh] overflow-y-auto border-t">
           <Link href="/about" className="block py-3 text-[17px]" style={{ color: "var(--color-text-muted)" }} onClick={closeMobileMenu}>
             회사소개
           </Link>
@@ -388,11 +392,12 @@ export default function Header() {
                 <Link
                   key={s.href}
                   href={s.href}
-                  className="block py-2 text-[20px]"
+                  className="flex items-center gap-2 py-2 text-[20px]"
                   style={{ color: "var(--color-text-muted)" }}
                   onClick={closeMobileMenu}
                 >
                   {s.label}
+                  {s.badge && <NewBadge label={s.badge} />}
                 </Link>
               ))}
             </div>
@@ -461,5 +466,20 @@ function NavLink({ href, children }: { href: string; children: React.ReactNode }
         style={{ background: "var(--color-accent-cyan)" }}
       />
     </Link>
+  );
+}
+
+function NewBadge({ label }: { label: string }) {
+  return (
+    <span
+      className="inline-flex items-center rounded-full px-1.5 py-1 text-[11px] font-bold leading-none tracking-[0.12em]"
+      style={{
+        background: "linear-gradient(135deg, var(--color-accent-cyan), var(--color-accent-indigo))",
+        color: "#000",
+        fontFamily: "var(--font-space-mono), monospace",
+      }}
+    >
+      {label}
+    </span>
   );
 }

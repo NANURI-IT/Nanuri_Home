@@ -1,0 +1,59 @@
+/* ═══════════════════════════════════════════════════════════
+   C6A(모델 검증) 전용 스타일 — 모든 클래스는 .aiax-modelvalidation- 접두
+   - AiAxModelValidation.tsx에서만 import 합니다. 색은 .aiax 루트·globals의 토큰을 씁니다.
+   - 이 파일은 레이어 밖(unlayered)이라 Tailwind 유틸리티(text-body 등)보다 우선합니다.
+   ═══════════════════════════════════════════════════════════ */
+
+/* ── 라이트 테마: 틴트 면 위의 보조 글자 ──
+   인디고(채택 판정 면) 틴트 위에서 --color-body(#5A6A8A)는 4.15–4.33:1로 AA에 못 미칩니다.
+   틴트 위의 보조 글자만 한 단계 진한 색으로 바꿉니다(인디고 면 위 AA).
+   다크 테마는 기존 대비가 충분해 그대로 둡니다. */
+[data-theme="light"] .aiax .aiax-modelvalidation-ontint { color: #4a5873; }
+
+/* ── 공급 단계 레일(md 미만에서만 가로 스크롤) ──
+   네이티브 스크롤바는 숨기고(공용 aiax-noscrollbar와 같은 처리, 이 섹션만으로도 동작하게 중복 선언),
+   위치는 아래 단계 점과 다음 카드 엿보기로 알립니다. 양 끝 16px은 흐리게(카드가 경계 상자 안쪽으로 사라짐).
+   양 끝 16px은 레일의 좌우 여백(px-4)과 같아, 처음·끝 위치에서는 카드가 흐려지지 않습니다. */
+@media (width < 48rem) {
+  .aiax-modelvalidation-rail {
+    scrollbar-width: none;
+    -webkit-mask-image: linear-gradient(to right, transparent 0, #000 16px, #000 calc(100% - 16px), transparent 100%);
+    mask-image: linear-gradient(to right, transparent 0, #000 16px, #000 calc(100% - 16px), transparent 100%);
+  }
+  .aiax-modelvalidation-rail::-webkit-scrollbar { display: none; }
+  /* 레일 자체에 키보드 포커스가 있을 때는 안쪽 포커스 링이 가장자리에서 흐려지지 않게 마스크를 끕니다. */
+  .aiax-modelvalidation-rail:focus-visible {
+    -webkit-mask-image: none;
+    mask-image: none;
+  }
+}
+
+/* ── 레일 단계 점(md 미만에서만 보임) ──
+   상태는 aria-current로만 바꿉니다. 비활성 점도 비텍스트 대비 3:1 이상(--color-body). */
+.aiax-modelvalidation-dot-mark {
+  display: block;
+  width: 6px;
+  height: 6px;
+  border-radius: 9999px;
+  background: var(--color-body);
+  transition: width 0.25s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.25s;
+}
+.aiax-modelvalidation-dot[aria-current="step"] .aiax-modelvalidation-dot-mark {
+  width: 18px;
+  background: var(--aiax-ai);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .aiax-modelvalidation-dot-mark { transition: none !important; }
+}
+
+/* ── JS 없이 열었을 때 ──
+   framer-motion은 등장 전 상태(opacity 0, y 이동)를 인라인 style로 서버 HTML에 씁니다. 스크립트가 꺼져 있으면
+   등장 애니메이션이 돌지 않아 제목·리드·공급 단계·원칙 카드가 보이지 않으므로, 이 섹션의 정보 요소는 그대로 보이게 합니다.
+   aria-hidden 장식(건너오는 점, 검증 띠, 도장)은 제외합니다. */
+@media (scripting: none) {
+  .aiax-modelvalidation-nojs [style*="opacity"]:not([aria-hidden="true"]):not([aria-hidden="true"] *) {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}

@@ -1,3 +1,5 @@
+import type { Metadata } from "next";
+import { pageSeo } from "@/lib/seo";
 import Header from "@/components/Header";
 import HeroSection from "@/components/HeroSection";
 import CompanySummary from "@/components/CompanySummary";
@@ -10,6 +12,15 @@ import TechMarquee from "@/components/TechMarquee";
 import ContactCTA from "@/components/ContactCTA";
 import Footer from "@/components/Footer";
 import HomeScrollSnap from "@/components/ui/HomeScrollSnap";
+
+export const metadata: Metadata = {
+  ...pageSeo({
+    path: "/",
+    title: "나누리아이티 | 금융 IT 전문기업",
+    description:
+      "금융·증권 업무 시스템 구축에 특화된 IT 파트너. 69건 이상의 프로젝트 수행, 15개 주요 금융 파트너사와 함께합니다.",
+  }),
+};
 
 export default function Home() {
   return (

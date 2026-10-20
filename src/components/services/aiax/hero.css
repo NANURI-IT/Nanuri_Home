@@ -1,0 +1,119 @@
+/* ═══════════════════════════════════════════════════════════
+   AI · AX 히어로(C1) 전용 스타일 — 모든 클래스는 .aiax-hero- 접두
+   - AiAxHero.tsx에서만 import 합니다.
+   - Tailwind의 dark 변형은 쓰지 않습니다. 라이트는 [data-theme="light"]로 덮어씁니다.
+   - 반복 모션 없음. 모든 장식 모션은 1회(또는 레일 점 수만큼) 재생 후 멈춥니다.
+   ═══════════════════════════════════════════════════════════ */
+
+/* ── 원장 상태 롤인 ──
+   숫자 카운터가 굴러 들어올 자리에 상태 라벨이 굴러 들어옵니다.
+   기본(정적 HTML·JS 없음·이미 화면 안)은 그대로 보입니다. JS가 화면 밖 셀에만
+   data-roll="armed"를 붙였다가, 셀이 화면에 들어오면 "play"로 바꿉니다. */
+.aiax-hero-roll {
+  display: inline-flex;
+  min-width: 0;
+  overflow: hidden;
+  padding: 4px 0; /* 굵은 한글 글리프가 마스크에 잘리지 않게 */
+  margin: -4px 0;
+}
+.aiax-hero-roll-inner {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.aiax-hero-cell[data-roll="armed"] .aiax-hero-roll-inner {
+  transform: translateY(125%);
+  opacity: 0;
+}
+.aiax-hero-cell[data-roll="play"] .aiax-hero-roll-inner {
+  animation: aiax-hero-roll 0.8s cubic-bezier(0.16, 1, 0.3, 1) var(--aiax-hero-roll-delay, 0ms) both;
+}
+@keyframes aiax-hero-roll {
+  from { transform: translateY(125%); opacity: 0; }
+  to { transform: none; opacity: 1; }
+}
+
+/* ── 원장 범례(640px 미만): <details>로 정의를 접습니다 ──
+   상태 라벨은 각 줄에 그대로 보이고, 정의 문장만 펼쳐 봅니다. */
+.aiax-hero-legend summary {
+  list-style: none;
+  cursor: pointer;
+}
+.aiax-hero-legend summary::-webkit-details-marker { display: none; }
+/* 원장 셀(.metrics-cell:hover)과 같은 반응. 터치에서는 hover가 남지 않게 hover 가능한 기기에서만. */
+@media (hover: hover) {
+  .aiax-hero-legend summary:hover { background: rgba(255, 255, 255, 0.06); }
+  [data-theme="light"] .aiax-hero-legend summary:hover { background: rgba(74, 106, 133, 0.05); }
+}
+.aiax-hero-legend-chev { transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1); }
+.aiax-hero-legend[open] .aiax-hero-legend-chev { transform: rotate(180deg); }
+@supports (interpolate-size: allow-keywords) {
+  .aiax-hero-legend { interpolate-size: allow-keywords; }
+  .aiax-hero-legend::details-content {
+    block-size: 0;
+    overflow: hidden;
+    transition: block-size 0.3s cubic-bezier(0.16, 1, 0.3, 1), content-visibility 0.3s allow-discrete;
+  }
+  .aiax-hero-legend[open]::details-content { block-size: auto; }
+}
+
+/* ── 하단 레일 ── */
+.aiax-hero-rail-line {
+  background: var(--aiax-track);
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent);
+  mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent);
+}
+
+/* 점: aiax-rail-mover(fill both)의 0% 프레임이 출발 전에도 왼쪽 끝에 점을 보이게 하므로,
+   같은 지연으로 점 자체를 늦게 드러냅니다(지연은 인라인 style). 퇴장은 mover가 처리합니다. */
+.aiax-hero-rail-dot {
+  box-shadow: 0 0 10px rgba(0, 212, 255, 0.55);
+  animation: aiax-hero-fade-in 0.2s linear both;
+}
+[data-theme="light"] .aiax-hero-rail-dot { box-shadow: none; }
+@keyframes aiax-hero-fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* ◆ 승인 지점: 점이 도착할 때마다 한 번씩 "탁" 찍히는 반응(점 수 = 반복 수, 주기 = 점 출발 간격).
+   지연은 인라인 style로 도착 시각에 맞춥니다(aiax.css @keyframes aiax-rail의 28%·65% 지점). */
+.aiax-hero-gate {
+  animation: aiax-hero-gate-tap 0.6s cubic-bezier(0.16, 1, 0.3, 1) 3 both;
+}
+.aiax-hero-gate::after {
+  content: "";
+  position: absolute;
+  inset: -3px;
+  border: 1.5px solid var(--aiax-human);
+  border-radius: 2px;
+  opacity: 0;
+  pointer-events: none;
+  animation: aiax-hero-gate-ring 0.6s cubic-bezier(0.16, 1, 0.3, 1) 3 both;
+  animation-delay: inherit;
+}
+@keyframes aiax-hero-gate-tap {
+  0% { transform: scale(1); }
+  14% { transform: scale(1.4); }
+  50%, 100% { transform: scale(1); }
+}
+@keyframes aiax-hero-gate-ring {
+  0% { transform: rotate(45deg) scale(0.55); opacity: 0; }
+  10% { opacity: 0.85; }
+  100% { transform: rotate(45deg) scale(1.45); opacity: 0; }
+}
+
+/* ── 감소 모션 · 인쇄(화면에 들어오지 않아 숨겨진 셀이 빈칸으로 인쇄되지 않게) ── */
+@media print, (prefers-reduced-motion: reduce) {
+  .aiax-hero-gate,
+  .aiax-hero-rail-dot { animation: none !important; }
+  .aiax-hero-gate::after { display: none !important; }
+  .aiax-hero-legend-chev { transition: none !important; }
+  /* ::details-content를 모르는 브라우저에서 위 규칙까지 무효가 되지 않게 따로 둡니다. */
+  .aiax-hero-legend::details-content { transition: none !important; }
+  .aiax-hero-cell[data-roll] .aiax-hero-roll-inner {
+    animation: none !important;
+    transform: none !important;
+    opacity: 1 !important;
+  }
+}

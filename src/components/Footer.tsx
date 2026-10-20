@@ -44,6 +44,7 @@ export default function Footer() {
 
           {/* Services */}
           <FooterCol title="Services">
+            <FooterLink href="/services/ai-ax">AI · AX</FooterLink>
             <FooterLink href="/services/financial-si">금융 SI</FooterLink>
             <FooterLink href="/services/ibims">IB 시스템</FooterLink>
             <FooterLink href="/services/proprietary">고유자산</FooterLink>

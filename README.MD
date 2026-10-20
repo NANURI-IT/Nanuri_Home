@@ -24,6 +24,7 @@ src/
 │   ├── about/page.tsx          # 회사소개
 │   ├── contact/page.tsx        # 도입 상담
 │   └── services/               # 사업영역
+│       ├── ai-ax/              # AI · AX 서비스
 │       ├── financial-si/       # 금융 SI
 │       ├── ibims/              # IB 시스템(IBIMS)
 │       ├── proprietary/        # 고유자산
@@ -40,9 +41,13 @@ src/
 │   ├── services/               # 사업영역 컴포넌트
 │   ├── three/                  # Three.js 3D 배경
 │   └── ui/                     # 공통 UI 컴포넌트
-└── contexts/
-    └── ThemeContext.tsx         # 다크/라이트 테마 관리
+├── contexts/
+│   └── ThemeContext.tsx         # 다크/라이트 테마 관리
+└── lib/
+    └── seo.ts                  # 페이지별 canonical·공유 미리보기(OG) 설정
 ```
+
+새 페이지를 추가하면 `metadata`에 `...pageSeo({ path: "/경로" })`를 넣어 주세요. 넣지 않으면 canonical·og:url이 비어 검색엔진이 페이지를 잘못 인식할 수 있습니다. 공유 이미지(1200×630)는 `public/og/`에 있습니다.
 
 ## Design System
 
@@ -75,9 +80,14 @@ npm start
 | `/` | 메인 페이지 (히어로, 통계, 사업영역, 솔루션, 구축사례, 고객사, 기술스택) |
 | `/about` | 회사소개 (미션, CEO 메시지, 비전, 연혁, 위치) |
 | `/contact` | 도입 상담 (문의 폼 + 회사 기본정보 + 지도) |
+| `/services/ai-ax` | AI · AX 서비스 (사내 적용 사례, AI 개발 방식, 모델 검증, AI 어시스턴트 재현, 문서 AI 재현, 서비스·진행 방식, FAQ) |
 | `/services/financial-si` | 금융 SI |
 | `/services/ibims` | IB 시스템(IBIMS) |
 | `/services/proprietary` | 고유자산 |
 | `/services/sto` | 토큰증권(STO) |
 | `/services/accounting` | 회계 서비스 |
 | `/services/channel` | 채널 서비스 |
+| `/esg` | ESG 경영 |
+| `/esg/ethics` | 윤리경영 정책 |
+| `/esg/ethics/report` | 윤리 위반 신고 |
+| `/privacy` | 개인정보처리방침 |

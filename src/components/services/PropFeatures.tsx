@@ -17,7 +17,7 @@ const features = [
     title: "고급 데이터 분석",
     desc: [
       "다양한 시장 데이터와 자산 데이터를 통합하여 신속한 인사이트 제공",
-      "머신러닝 기반 예측 모델로 시장 움직임을 사전에 예측",
+      "과거 데이터 기반의 추이 분석과 비교 지원",
       "효율적인 투자 전략 수립",
     ],
     icon: <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z" /><path d="M3.27 6.96L12 12.01l8.73-5.05M12 22.08V12" /></svg>,

@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 
 const container = {
   hidden: {},
@@ -24,6 +24,16 @@ const heroArea = {
       <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
     </svg>
   ),
+};
+
+const aiAxTeaser = {
+  title: "AI · AX",
+  english: "AI-Native Engineering & Transformation",
+  href: "/services/ai-ax",
+  description:
+    "사내 업무 시스템을 AI 에이전트 기반으로 먼저 개발하고 운영하며 다듬은 방식을, 금융의 규칙 안에서 고객의 개발과 업무에 적용해 나갑니다.",
+  line: "AI가 기안하고, 사람이 결재합니다.",
+  chips: ["AI 네이티브 개발", "업무 AI 에이전트", "문서 AI", "AX 진단·로드맵"],
 };
 
 type SubArea = {
@@ -171,6 +181,84 @@ export default function BusinessAreas() {
           </Link>
         </motion.div>
 
+        {/* New: AI · AX wide teaser */}
+        <motion.div
+          className="mt-5"
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, margin: "-80px" }}
+          variants={item}
+        >
+          <Link
+            href={aiAxTeaser.href}
+            className="group block rounded-3xl p-px transition-transform duration-500 hover:-translate-y-1"
+            style={{
+              background:
+                "linear-gradient(135deg, rgba(0, 212, 255, 0.45), rgba(99, 102, 241, 0.45))",
+            }}
+          >
+            <div className="glass glass-static relative rounded-3xl overflow-hidden" style={{ cursor: "inherit" }}>
+              <div className="relative z-10 flex flex-col md:flex-row md:items-center gap-8 p-8 md:p-12">
+                <div className="shrink-0 hidden sm:block">
+                  <div
+                    className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full mb-6"
+                    style={{ background: "var(--color-raised)", border: "1px solid var(--color-glass-border)" }}
+                  >
+                    <span className="relative flex h-2 w-2">
+                      <span
+                        className="absolute inline-flex h-full w-full rounded-full opacity-40 animate-ping"
+                        style={{ background: "var(--color-accent-cyan)" }}
+                      />
+                      <span className="relative inline-flex rounded-full h-2 w-2" style={{ background: "var(--color-accent-cyan)" }} />
+                    </span>
+                    <span className="card-kicker font-medium text-body">New Business</span>
+                  </div>
+                  <div
+                    className="w-14 h-14 rounded-2xl flex items-center justify-center"
+                    style={{ background: "rgba(0, 212, 255, 0.12)", color: "var(--color-navy)" }}
+                  >
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                      <circle cx="4.5" cy="12" r="2" />
+                      <rect x="10" y="10" width="4" height="4" rx="1" />
+                      <path d="M19.5 9l3 3-3 3-3-3z" />
+                      <path d="M6.5 12H10M14 12h2.5" />
+                    </svg>
+                  </div>
+                </div>
+
+                <div className="flex-1 min-w-0 pb-10 md:pb-0">
+                  <h3 className="text-2xl md:text-3xl font-bold text-ink tracking-tight">{aiAxTeaser.title}</h3>
+                  <p className="mt-1 card-meta text-body tracking-wider font-medium uppercase">{aiAxTeaser.english}</p>
+                  <p className="mt-5 card-body text-body max-w-2xl">{aiAxTeaser.description}</p>
+                  <p className="mt-3 card-body font-semibold text-ink">{aiAxTeaser.line}</p>
+                  <ul className="mt-5 hidden sm:flex flex-wrap gap-2" aria-label="AI · AX 서비스 구성">
+                    {aiAxTeaser.chips.map((c) => (
+                      <li
+                        key={c}
+                        className="px-3 py-1 rounded-full text-[13px] font-medium text-ink"
+                        style={{ background: "var(--color-raised)", border: "1px solid var(--color-glass-border)" }}
+                      >
+                        {c}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                <div className="hidden md:block shrink-0" aria-hidden="true">
+                  <AiAxTeaserRail />
+                </div>
+              </div>
+
+              <span className="absolute bottom-6 right-6 md:bottom-8 md:right-8 z-10 inline-flex items-center gap-2 card-meta font-semibold text-navy group-hover:gap-3 transition-all duration-300 whitespace-nowrap">
+                자세히 보기
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                  <path d="M5 12h14M12 5l7 7-7 7" />
+                </svg>
+              </span>
+            </div>
+          </Link>
+        </motion.div>
+
         {/* Sub-area cards */}
         <motion.div
           className="mt-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5"
@@ -257,5 +345,34 @@ export default function BusinessAreas() {
         </motion.div>
       </div>
     </section>
+  );
+}
+
+function AiAxTeaserRail() {
+  const reduce = useReducedMotion();
+  return (
+    <svg width="280" height="76" viewBox="0 0 280 76" fill="none">
+      <line x1="16" y1="30" x2="264" y2="30" stroke="var(--color-line)" strokeWidth="2" />
+      <circle cx="40" cy="30" r="7" fill="var(--color-accent-cyan)" />
+      <rect x="133" y="23" width="14" height="14" rx="3" fill="var(--color-accent-emerald)" />
+      <path d="M230 21 L239 30 L230 39 L221 30 Z" fill="var(--color-accent-indigo)" />
+      <text x="40" y="62" textAnchor="middle" fontSize="11" fill="var(--color-body)">AI 초안</text>
+      <text x="140" y="62" textAnchor="middle" fontSize="11" fill="var(--color-body)">자동 검증</text>
+      <text x="230" y="62" textAnchor="middle" fontSize="11" fill="var(--color-body)">사람 승인</text>
+      <motion.circle
+        cy="30"
+        r="4.5"
+        fill="var(--color-ink)"
+        stroke="var(--color-bg)"
+        strokeWidth="1.5"
+        initial={{ cx: 40 }}
+        animate={reduce ? { cx: 212 } : { cx: [40, 140, 212, 212, 264], opacity: [1, 1, 1, 1, 0] }}
+        transition={
+          reduce
+            ? { duration: 0 }
+            : { duration: 6, times: [0, 0.35, 0.6, 0.82, 1], ease: "easeInOut", repeat: Infinity, repeatDelay: 0.8 }
+        }
+      />
+    </svg>
   );
 }

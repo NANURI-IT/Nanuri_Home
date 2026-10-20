@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { pageSeo } from "@/lib/seo";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import AboutHero from "@/components/about/AboutHero";
@@ -13,6 +14,7 @@ export const metadata: Metadata = {
   title: "회사소개",
   description:
     "나누리아이티는 금융 IT의 미래를 선도하는 전문 파트너입니다. 신뢰와 혁신으로 금융의 미래를 설계합니다.",
+  ...pageSeo({ path: "/about" }),
 };
 
 export default function AboutPage() {

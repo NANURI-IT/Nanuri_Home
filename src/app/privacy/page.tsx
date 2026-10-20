@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { pageSeo } from "@/lib/seo";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import PrivacyContent from "@/components/privacy/PrivacyContent";
@@ -8,6 +9,7 @@ export const metadata: Metadata = {
   description:
     "나누리아이티는 「개인정보 보호법」에 따라 정보주체의 개인정보를 보호하고, 이와 관련한 고충을 신속하고 원활하게 처리하기 위하여 개인정보처리방침을 수립·공개합니다.",
   robots: { index: true, follow: true },
+  ...pageSeo({ path: "/privacy" }),
 };
 
 export default function PrivacyPage() {

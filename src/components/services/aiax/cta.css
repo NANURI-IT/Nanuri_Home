@@ -1,0 +1,18 @@
+/* ═══════════════════════════════════════════════════════════
+   AI · AX CTA(C12) 전용 스타일 — 모든 클래스는 .aiax-cta- 접두
+   - AiAxCta.tsx에서만 import 합니다.
+   - JS가 꺼진 환경에서는 framer whileInView가 실행되지 않아 SSR의 초기값
+     (opacity 0 · translateY · pathLength 0)이 그대로 남습니다. 그래서
+     scripting: none일 때만 등장 모션 대상의 최종 상태를 강제로 보여 줍니다.
+     JS가 켜진 환경(동작 줄이기 포함)에는 영향이 없습니다.
+   ═══════════════════════════════════════════════════════════ */
+@media (scripting: none) {
+  .aiax-cta-reveal {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+  .aiax-cta-draw {
+    stroke-dasharray: none !important;
+    stroke-dashoffset: 0 !important;
+  }
+}

@@ -1,0 +1,62 @@
+/* ═══════════════════════════════════════════════════════════
+   AI · AX 조건(C3) 전용 스타일 — 모든 클래스는 .aiax-conditions- 접두
+   - AiAxConditions.tsx에서만 import 합니다.
+   - Tailwind의 dark 변형은 쓰지 않습니다. 색은 테마 토큰(var)만 씁니다.
+   ═══════════════════════════════════════════════════════════ */
+
+/* ── "저희의 설계" 칸·시안 대시 리빌 ──
+   - 기본값은 "보임"입니다. 서버 HTML, JS 없음, 동작 줄이기, 인쇄에서는 아래 규칙이 하나도 적용되지 않습니다.
+   - 하이드레이션 뒤 카드(.aiax-conditions-item, clip-path가 없는 조상)에 data-reveal="armed"가 붙을 때만 숨기고,
+     카드가 화면에 들어오면(framer onViewportEnter) "shown"으로 바뀌어 펼쳐집니다.
+     잘린 요소를 관찰하지 않으므로 어느 폭에서도 숨은 채로 남지 않습니다.
+   - 지연(--aiax-cond-delay)은 카드마다 인라인으로 줍니다(3열에서 왼쪽부터 같은 리듬). 대시는 칸보다 0.2초 늦게. */
+@media screen and (prefers-reduced-motion: no-preference) {
+  .aiax-conditions-item[data-reveal="armed"] .aiax-conditions-panel {
+    clip-path: inset(100% 0 0 0);
+  }
+  .aiax-conditions-item[data-reveal="armed"] .aiax-conditions-dash {
+    transform: scaleX(0);
+  }
+  .aiax-conditions-item[data-reveal="shown"] .aiax-conditions-panel {
+    clip-path: inset(0 0 0 0);
+    transition: clip-path 0.5s cubic-bezier(0.16, 1, 0.3, 1) var(--aiax-cond-delay, 0.25s);
+  }
+  .aiax-conditions-item[data-reveal="shown"] .aiax-conditions-dash {
+    transform: scaleX(1);
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1) calc(var(--aiax-cond-delay, 0.25s) + 0.2s);
+  }
+}
+
+/* ── md 미만: "저희의 설계" 본문 접기(기본 닫힘) ──
+   높이는 grid-template-rows 0fr → 1fr로 열고, 닫힌 동안은 visibility로 낭독·탭 순서에서 뺍니다
+   (닫을 때는 높이가 다 줄어든 뒤 숨김). md 이상은 항상 펼침. */
+@media (max-width: 767px) {
+  .aiax-conditions-design {
+    display: grid;
+    grid-template-rows: 0fr;
+    visibility: hidden;
+    transition: grid-template-rows 0.35s cubic-bezier(0.16, 1, 0.3, 1), visibility 0s linear 0.35s;
+  }
+  .aiax-conditions-design[data-open="true"] {
+    grid-template-rows: 1fr;
+    visibility: visible;
+    transition: grid-template-rows 0.35s cubic-bezier(0.16, 1, 0.3, 1), visibility 0s;
+  }
+  .aiax-conditions-design > * {
+    min-height: 0;
+    overflow: hidden;
+  }
+}
+@media (max-width: 767px) and (prefers-reduced-motion: reduce) {
+  .aiax-conditions-design,
+  .aiax-conditions-design[data-open="true"] {
+    transition: none;
+  }
+}
+/* JS가 없으면 접기 버튼이 동작하지 않으므로 펼쳐 둡니다. */
+@media (scripting: none) {
+  .aiax-conditions-design {
+    grid-template-rows: 1fr;
+    visibility: visible;
+  }
+}

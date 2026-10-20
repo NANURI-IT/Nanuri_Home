@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { pageSeo } from "@/lib/seo";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import ContactForm from "@/components/contact/ContactForm";
@@ -8,6 +9,7 @@ export const metadata: Metadata = {
   title: "도입 상담",
   description:
     "나누리아이티에 맞춤형 금융 솔루션 도입을 문의하세요. 금융 SI, IB 시스템, 고유자산, 토큰증권, 회계·채널 서비스까지 전문 상담을 제공합니다.",
+  ...pageSeo({ path: "/contact" }),
 };
 
 export default function ContactPage() {

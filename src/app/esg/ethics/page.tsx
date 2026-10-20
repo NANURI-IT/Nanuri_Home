@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { pageSeo } from "@/lib/seo";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import EthicsPolicy from "@/components/ethics/EthicsPolicy";
@@ -17,12 +18,13 @@ export const metadata: Metadata = {
     "ESG",
     "윤리강령",
   ],
-  openGraph: {
+  ...pageSeo({
+    path: "/esg/ethics",
     title: "윤리경영 정책 | 나누리아이티",
     description:
       "나누리아이티는 모든 이해관계자에게 신뢰받는 기업이 되기 위해 9대 윤리경영 정책을 공시합니다.",
     type: "article",
-  },
+  }),
 };
 
 export default function EthicsPolicyPage() {

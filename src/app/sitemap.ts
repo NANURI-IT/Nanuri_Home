@@ -14,6 +14,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: "/esg/ethics", priority: 0.8 },
     { path: "/esg/ethics/report", priority: 0.6 },
     { path: "/contact", priority: 0.9 },
+    { path: "/services/ai-ax", priority: 0.85 },
     { path: "/services/financial-si", priority: 0.8 },
     { path: "/services/ibims", priority: 0.8 },
     { path: "/services/proprietary", priority: 0.8 },

@@ -1,0 +1,75 @@
+/* ═══════════════════════════════════════════════════════════
+   AI · AX 진행 방식(C10) 전용 스타일 — 모든 클래스는 .aiax-process- 접두
+   - AiAxProcess.tsx에서만 import 합니다. 색은 .aiax 루트의 토큰만 씁니다.
+   - Tailwind의 dark 변형은 쓰지 않습니다. 라이트는 [data-theme="light"]로 덮어씁니다.
+   - 이 파일은 레이어 밖(unlayered)이므로 Tailwind 유틸리티보다 우선합니다.
+     그래서 트랙에는 Tailwind가 따로 정하지 않는 속성(display·overflow·여백·스냅)만 둡니다.
+   ═══════════════════════════════════════════════════════════ */
+
+/* ── 모바일(<768px): 단계 카드 가로 스냅 캐러셀 ──
+   섹션 px-6만큼 화면 끝까지 넓히고(margin-inline), 같은 폭의 안쪽 여백·스냅 여백을 둡니다.
+   카드 폭은 (트랙 안쪽 폭 − 2.25rem)이라 375px에서 다음 카드가 약 48px 비쳐 보입니다.
+   위치 표시는 단계 바로 가기(스테퍼)가 맡으므로 기본 스크롤바는 숨깁니다(스크롤·스냅·키보드 이동은 그대로).
+   공용 유틸 aiax-noscrollbar와 같은 처리를 여기에도 두어, 공용 규칙의 유무·순서와 상관없이 숨겨지게 합니다.
+   스크롤바 자리로 비워 두던 아래 여백(10px)도 줄였습니다. */
+@media (max-width: 767px) {
+  .aiax-process-track {
+    display: flex;
+    align-items: stretch;
+    margin-inline: -1.5rem;
+    padding: 4px 1.5rem 6px;
+    overflow-x: auto;
+    overflow-y: hidden; /* 카드 등장 모션(y 이동)이 세로 스크롤을 만들지 않게 */
+    scroll-snap-type: x mandatory;
+    scroll-padding-inline: 1.5rem;
+    overscroll-behavior-x: contain;
+    scrollbar-width: none;
+  }
+  .aiax-process-track::-webkit-scrollbar {
+    display: none;
+  }
+  .aiax-process-track > li {
+    flex: 0 0 min(calc(100% - 2.25rem), 22rem);
+    scroll-snap-align: start;
+  }
+}
+
+/* ── 모바일 단계 바로 가기(스테퍼)의 번호 원 ──
+   상태는 aria-current / data-state 로만 바꿉니다(현재 = 채움, 지난 단계 = 테두리). */
+.aiax-process-dot {
+  background: var(--aiax-node-bg);
+  border: 1px solid var(--aiax-muted-line);
+  color: var(--color-body);
+  transition: background-color 0.25s, border-color 0.25s, color 0.25s;
+}
+.aiax-process-step[data-state="done"] .aiax-process-dot {
+  border-color: var(--aiax-ai);
+  color: var(--color-ink);
+}
+.aiax-process-step[aria-current="step"] .aiax-process-dot {
+  background: var(--aiax-ai);
+  border-color: var(--aiax-ai);
+  color: #04121c; /* 다크 #00d4ff 위 */
+}
+[data-theme="light"] .aiax-process-step[aria-current="step"] .aiax-process-dot {
+  color: #ffffff; /* 라이트 #1d6a8c 위 약 6:1 */
+}
+
+/* ── 결재란 범례: 인디고 틴트 "승인" 칸의 역할명 ──
+   라이트에서 본문색(#5A6A8A)은 틴트 합성색(약 #EBE4DC) 위 4.33:1이라 AA 미달 → #4b5a78(약 5.5:1).
+   다크는 본문색 그대로 약 6.7:1. */
+[data-theme="light"] .aiax-process-legend-human {
+  color: #4b5a78;
+}
+
+/* 진행선 채움 */
+.aiax-process-fill {
+  background: var(--aiax-ai);
+  transform-origin: left center;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .aiax-process-dot,
+  .aiax-process-fill { transition: none !important; }
+}
