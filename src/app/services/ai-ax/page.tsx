@@ -8,9 +8,7 @@ import AiAxSubnav from "@/components/services/AiAxSubnav";
 import AiAxConditions from "@/components/services/AiAxConditions";
 import AiAxPipeline from "@/components/services/AiAxPipeline";
 import AiAxModelValidation from "@/components/services/AiAxModelValidation";
-import AiAxFaq from "@/components/services/AiAxFaq";
 import AiAxCta from "@/components/services/AiAxCta";
-import { AIAX_FAQ } from "@/components/services/aiax/faq";
 import "@/components/services/aiax/aiax.css";
 
 const DESCRIPTION =
@@ -44,16 +42,6 @@ export const metadata: Metadata = {
   },
 };
 
-const faqJsonLd = {
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  mainEntity: AIAX_FAQ.map((f) => ({
-    "@type": "Question",
-    name: f.q,
-    acceptedAnswer: { "@type": "Answer", text: f.a },
-  })),
-};
-
 export default function AiAxPage() {
   return (
     <>
@@ -65,13 +53,8 @@ export default function AiAxPage() {
           <AiAxConditions />
           <AiAxPipeline />
           <AiAxModelValidation />
-          <AiAxFaq />
           <AiAxCta />
         </AiAxShell>
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd).replace(/</g, "\\u003c") }}
-        />
       </main>
       <Footer />
     </>

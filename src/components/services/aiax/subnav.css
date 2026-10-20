@@ -61,7 +61,7 @@ html[data-theme="light"]:has(nav.aiax-subnav-bar) header.backdrop-blur-xl { back
 /* ── 칩 줄 끝 여백 (lg 미만) ──
    lg 미만에서 칩 줄은 화면 오른쪽 끝까지 번지고 끝쪽 padding이 0입니다(AiAxSubnav.tsx).
    마지막 칩 뒤에 20px 스페이서를 두면 칩 간격 4px과 합쳐 24px(= 본문 좌우 여백 px-6)이 되어,
-   끝까지 밀었을 때 마지막 칩(FAQ)의 활성 알약이 16px 페이드 구간(정적 HTML의 기본 양 끝 페이드 포함)
+   끝까지 밀었을 때 마지막 칩(모델 검증)의 활성 알약이 16px 페이드 구간(정적 HTML의 기본 양 끝 페이드 포함)
    밖에 놓이고, Tab 포커스의 scroll-px-6(24px)도 끝 칩에서 그대로 지켜집니다.
    padding-inline-end를 스크롤 범위에 넣는 방식은 브라우저마다 달라 플렉스 항목(::after)으로 고정합니다.
    lg 이상은 칩 줄이 상담 버튼 앞에서 끝나므로(lg:pr-[10px]) 스페이서를 만들지 않습니다. */

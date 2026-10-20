@@ -46,7 +46,6 @@ export const AIAX_ID = {
   conditions: "conditions",
   pipeline: "pipeline",
   llmValidation: "llm-validation",
-  faq: "faq",
   cta: "start",
 } as const;
 
@@ -54,7 +53,6 @@ export const SUBNAV_ITEMS: ReadonlyArray<{ id: string; label: string }> = [
   { id: AIAX_ID.conditions, label: "조건" },
   { id: AIAX_ID.pipeline, label: "개발 방식" },
   { id: AIAX_ID.llmValidation, label: "모델 검증" },
-  { id: AIAX_ID.faq, label: "FAQ" },
 ];
 
 /* ═══════════ 3. 유틸 ═══════════ */

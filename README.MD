@@ -80,7 +80,7 @@ npm start
 | `/` | 메인 페이지 (히어로, 통계, 사업영역, 솔루션, 구축사례, 고객사, 기술스택) |
 | `/about` | 회사소개 (미션, CEO 메시지, 비전, 연혁, 위치) |
 | `/contact` | 도입 상담 (문의 폼 + 회사 기본정보 + 지도) |
-| `/services/ai-ax` | AI · AX 서비스 (도입 조건, AI 에이전트 개발 방식, 모델 검증, FAQ) |
+| `/services/ai-ax` | AI · AX 서비스 (도입 조건, AI 에이전트 개발 방식, 모델 검증) |
 | `/services/financial-si` | 금융 SI |
 | `/services/ibims` | IB 시스템(IBIMS) |
 | `/services/proprietary` | 고유자산 |

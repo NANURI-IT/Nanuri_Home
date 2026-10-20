@@ -198,21 +198,6 @@
   .aiax-subnav-scroll { -webkit-mask-image: none; mask-image: none; }
 }
 
-/* ── FAQ (details) ── */
-.aiax-faq summary { list-style: none; cursor: pointer; }
-.aiax-faq summary::-webkit-details-marker { display: none; }
-.aiax-faq details .aiax-faq-plus { transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1); }
-.aiax-faq details[open] .aiax-faq-plus { transform: rotate(45deg); }
-@supports (interpolate-size: allow-keywords) {
-  .aiax-faq { interpolate-size: allow-keywords; }
-  .aiax-faq details::details-content {
-    block-size: 0;
-    overflow: hidden;
-    transition: block-size 0.3s cubic-bezier(0.16, 1, 0.3, 1), content-visibility 0.3s allow-discrete;
-  }
-  .aiax-faq details[open]::details-content { block-size: auto; }
-}
-
 /* ── 감소 모션 ── */
 @media (prefers-reduced-motion: reduce) {
   .aiax-h1-reveal { animation: none !important; clip-path: none !important; }
