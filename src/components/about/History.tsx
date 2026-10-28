@@ -13,7 +13,6 @@ const historyData = [
     items: [
       "삼성서울병원 Utol 개발 프로젝트(이노AX)",
       "유화증권 증권업무 고도화 구축",
-      "휴레이포지티브 헬스케어 부문 협력 체결",
       "하나금융TI '우수협력사' 선정",
       "LG CNS 금융 IT Biz. Partner 선정",
       "하나증권 ITO운영 및 관리",
